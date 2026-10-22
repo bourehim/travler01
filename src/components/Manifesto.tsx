@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Locale } from "@/data/translations";
 
@@ -9,6 +9,38 @@ interface ManifestoProps {
 }
 
 export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
+  const [isManifestoVisible, setIsManifestoVisible] = useState(false);
+  const manifestoRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    if (!("IntersectionObserver" in window)) {
+      setIsManifestoVisible(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsManifestoVisible(true);
+            observer.disconnect();
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: "80px 0px -20px 0px" }
+    );
+
+    if (manifestoRef.current) {
+      observer.observe(manifestoRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   const essentials = [
     { value: "7", label: "7 days of travel" },
     { value: "12", label: "Women" },
@@ -17,20 +49,62 @@ export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
   ];
 
   return (
-    <div className="bg-[#FAF7F2] text-[#1B1108]">
+    <div>
       {/* 1. Manifesto Quote Section */}
-      <section className="py-20 sm:py-28 px-6 text-center max-w-4xl mx-auto">
-        <p className="font-inter text-xs font-semibold tracking-[0.22em] text-[#D4A85F] uppercase mb-6">
-          It isn’t a getaway, it’s a journey
-        </p>
+      <div
+        ref={manifestoRef}
+        className={`wp-block-group alignfull mda-manifesto-wrap manifesto ${
+          isManifestoVisible ? "is-visible" : ""
+        }`}
+      >
+        <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+          <div className="wp-block-group mda-manifesto-inner">
+            <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+              <p
+                className={`manifesto__eyebrow reveal wp-block-paragraph ${
+                  isManifestoVisible ? "is-visible" : ""
+                }`}
+                style={{ "--i": 0 } as React.CSSProperties}
+              >
+                It isn’t a getaway, it’s a journey
+              </p>
 
-        <h2 className="font-playfair italic text-3xl sm:text-5xl md:text-6xl text-[#1B1108] leading-tight font-normal mb-8">
-          Some journeys take you to a place. And others take you{" "}
-          <em className="text-[#8B4513] not-italic font-normal">back to yourself.</em>
-        </h2>
+              <p
+                className={`manifesto__quote split-words reveal wp-block-paragraph ${
+                  isManifestoVisible ? "is-visible" : ""
+                }`}
+                style={{ "--i": 1 } as React.CSSProperties}
+              >
+                <span className="word" style={{ "--w": 0 } as React.CSSProperties}>Some</span>{" "}
+                <span className="word" style={{ "--w": 1 } as React.CSSProperties}>journeys</span>{" "}
+                <span className="word" style={{ "--w": 2 } as React.CSSProperties}>take</span>{" "}
+                <span className="word" style={{ "--w": 3 } as React.CSSProperties}>you</span>{" "}
+                <span className="word" style={{ "--w": 4 } as React.CSSProperties}>to</span>{" "}
+                <span className="word" style={{ "--w": 5 } as React.CSSProperties}>a</span>{" "}
+                <span className="word" style={{ "--w": 6 } as React.CSSProperties}>place.</span>{" "}
+                <span className="word" style={{ "--w": 7 } as React.CSSProperties}>And</span>{" "}
+                <span className="word" style={{ "--w": 8 } as React.CSSProperties}>others</span>{" "}
+                <span className="word" style={{ "--w": 9 } as React.CSSProperties}>take</span>{" "}
+                <span className="word" style={{ "--w": 10 } as React.CSSProperties}>you</span>{" "}
+                <em>
+                  <span className="word" style={{ "--w": 11 } as React.CSSProperties}>back</span>{" "}
+                  <span className="word" style={{ "--w": 12 } as React.CSSProperties}>to</span>{" "}
+                  <span className="word" style={{ "--w": 13 } as React.CSSProperties}>yourself.</span>
+                </em>
+              </p>
 
-        <p className="text-[#D4A85F] text-xl font-serif">✦</p>
-      </section>
+              <p
+                className={`manifesto__mark reveal wp-block-paragraph ${
+                  isManifestoVisible ? "is-visible" : ""
+                }`}
+                style={{ "--i": 2 } as React.CSSProperties}
+              >
+                ✦
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* 2. Essentials 4-Card Counter Grid */}
       <section className="pb-24 px-6 max-w-6xl mx-auto">

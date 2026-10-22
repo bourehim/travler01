@@ -490,6 +490,102 @@ body {
 }
 
 /* ==========================================================================
+   MUJERES DE ARENA — REVEAL SYSTEM & WORD ANIMATION
+   ========================================================================== */
+[data-reveal], .reveal, .mda-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--i, 0) * 80ms);
+  will-change: opacity, transform;
+}
+
+[data-reveal="left"], .reveal-left   { transform: translateX(-36px); }
+[data-reveal="right"], .reveal-right { transform: translateX(36px); }
+[data-reveal="scale"], .reveal-scale { transform: translateY(20px) scale(0.95); }
+
+[data-reveal].is-visible, 
+.reveal.is-visible, 
+.mda-reveal.is-visible, 
+.reveal-left.is-visible, 
+.reveal-right.is-visible, 
+.reveal-scale.is-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Split words animation for manifesto quote */
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.45em);
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: calc(var(--w, 0) * 50ms);
+}
+
+.is-visible .word {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ==========================================================================
+   SECTION 3: MANIFESTO QUOTE
+   ========================================================================== */
+.mda-manifesto-wrap {
+  background-color: #FAF4EA !important;
+  padding: clamp(5rem, 8vw, 7.5rem) 1.5rem clamp(2rem, 3.5vw, 3rem) !important;
+  text-align: center !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.mda-manifesto-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.manifesto__eyebrow {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: #8B4513 !important;
+  font-weight: 600 !important;
+  margin-bottom: 1.5rem !important;
+  margin-top: 0 !important;
+  text-align: center !important;
+}
+
+.manifesto__quote {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-style: italic !important;
+  font-weight: 400 !important;
+  font-size: clamp(2.2rem, 1.3rem + 2.6vw, 3.6rem) !important;
+  line-height: 1.25 !important;
+  letter-spacing: -0.02em !important;
+  color: #1B1108 !important;
+  margin: 0 auto 1.5rem auto !important;
+  text-wrap: balance !important;
+  text-align: center !important;
+}
+
+.manifesto__quote em {
+  color: #8B4513 !important;
+  font-style: italic !important;
+}
+
+.manifesto__mark {
+  display: inline-block !important;
+  color: #D4A85F !important;
+  font-size: 1.35rem !important;
+  margin-top: 1rem !important;
+  margin-bottom: 0 !important;
+  text-align: center !important;
+}
+
+/* ==========================================================================
    SECTION 5: JOURNEY SCROLLYTELLING (7 STAGES)
    ========================================================================== */
 .mda-journey-wrap {
