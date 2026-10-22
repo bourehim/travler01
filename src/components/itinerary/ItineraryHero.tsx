@@ -192,21 +192,30 @@ export default function ItineraryHero({ currentLocale = "en" }: ItineraryHeroPro
         </div>
       </div>
 
-      {/* Exact Marquee Section from Home Page */}
+      {/* Exact Marquee Section from WordPress */}
       <div className="mda-marquee-section" dir={currentLocale === "ar" ? "rtl" : "ltr"}>
-        <p className="mda-marquee-text">
-          <span>{m.date}</span>
-          <span className="star">✦</span>
-          <span>{m.spots}</span>
-          <span className="star">✦</span>
-          <span>{m.days}</span>
-          <span className="star">✦</span>
-          <span>{m.route}</span>
-          <span className="star">✦</span>
-          <span>{m.edition}</span>
-          <span className="star">✦</span>
-          <span>{m.guide}</span>
-        </p>
+        <div className={`mda-marquee-track ${currentLocale === "ar" ? "is-rtl" : ""}`}>
+          {[0, 1, 2, 3].map((gIdx) => (
+            <div
+              key={gIdx}
+              className="mda-marquee-group"
+              aria-hidden={gIdx > 0 ? "true" : undefined}
+            >
+              <span>{m.date}</span>
+              <i>✦</i>
+              <span>{m.spots}</span>
+              <i>✦</i>
+              <span>{m.days}</span>
+              <i>✦</i>
+              <span>{m.route}</span>
+              <i>✦</i>
+              <span>{m.edition}</span>
+              <i>✦</i>
+              <span>{m.guide}</span>
+              <i>✦</i>
+            </div>
+          ))}
+        </div>
       </div>
     </>
   );

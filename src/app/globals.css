@@ -452,41 +452,108 @@ body {
   }
 }
 
-/* Marquee Bar */
+/* ==========================================================================
+   SCROLLING TEXT BANNER (REDESIGNED LUXURY EDITORIAL MARQUEE)
+   ========================================================================== */
+.entry-content > .mda-marquee-section,
 .mda-marquee-section {
-  background: linear-gradient(180deg, #7C371A 0%, #763417 50%, #6E2F14 100%);
-  color: #FAF4EA;
-  overflow: hidden;
-  margin: 0;
-  padding: 1.35rem 0;
-  border-top: 1px solid rgba(247, 223, 189, 0.35);
-  border-bottom: 1px solid rgba(75, 30, 12, 0.4);
-  position: relative;
-  z-index: 15;
-  box-shadow: 0 4px 16px rgba(45, 18, 7, 0.25);
-  text-align: center;
+  background: #763417 !important;
+  background: linear-gradient(180deg, #7C371A 0%, #763417 50%, #6E2F14 100%) !important;
+  color: #FAF4EA !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 1.35rem 0 !important;
+  border-top: 1px solid rgba(247, 223, 189, 0.35) !important;
+  border-bottom: 1px solid rgba(75, 30, 12, 0.4) !important;
+  position: relative !important;
+  z-index: 10 !important;
+  box-shadow: 0 4px 16px rgba(45, 18, 7, 0.25) !important;
 }
 
-.mda-marquee-text {
-  font-family: var(--font-inter), sans-serif;
-  font-size: 12.5px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #FAF4EA;
-  margin: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  padding: 0 1rem;
+.mda-marquee-section::before,
+.mda-marquee-section::after {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: 50px !important;
+  z-index: 12 !important;
+  pointer-events: none !important;
+}
+.mda-marquee-section::before {
+  left: 0 !important;
+  background: linear-gradient(90deg, #763417 0%, transparent 100%) !important;
+}
+.mda-marquee-section::after {
+  right: 0 !important;
+  background: linear-gradient(270deg, #763417 0%, transparent 100%) !important;
 }
 
-.mda-marquee-text span.star {
-  color: #E5A852;
-  font-size: 12px;
-  filter: drop-shadow(0 0 6px rgba(229, 168, 82, 0.6));
+.mda-marquee-track {
+  display: flex !important;
+  width: max-content !important;
+  animation: mdaMarquee 42s linear infinite !important;
+}
+
+[dir="rtl"] .mda-marquee-track,
+.mda-marquee-track.is-rtl {
+  animation: mdaMarqueeRtl 42s linear infinite !important;
+}
+
+.mda-marquee-section:hover .mda-marquee-track {
+  animation-play-state: paused !important;
+}
+
+.mda-marquee-group {
+  display: flex !important;
+  align-items: center !important;
+  gap: 2.6rem !important;
+  padding: 0 1.3rem !important;
+  white-space: nowrap !important;
+}
+
+.mda-marquee-group span {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  font-size: 12.5px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #FAF4EA !important;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.22) !important;
+}
+
+.mda-marquee-group i,
+.mda-marquee-group .star {
+  font-style: normal !important;
+  color: #E5A852 !important;
+  font-size: 11px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  filter: drop-shadow(0 0 6px rgba(229, 168, 82, 0.6)) !important;
+}
+
+@media (max-width: 600px) {
+  .mda-marquee-section {
+    padding: 1.1rem 0 !important;
+  }
+  .mda-marquee-group {
+    gap: 1.8rem !important;
+    padding: 0 0.9rem !important;
+  }
+  .mda-marquee-group span {
+    font-size: 11px !important;
+    letter-spacing: 0.16em !important;
+  }
+}
+
+@keyframes mdaMarquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes mdaMarqueeRtl {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50%); }
 }
 
 /* ==========================================================================

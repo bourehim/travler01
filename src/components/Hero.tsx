@@ -221,23 +221,24 @@ export default function Hero({ currentLocale = "en" }: HeroProps) {
         <div className="hero-dune-divider" />
       </section>
 
-      {/* Exact Marquee Section */}
+      {/* Exact Marquee Section from WordPress */}
       <div className="mda-marquee-section" dir={isRtl ? "rtl" : "ltr"}>
-        <p className="mda-marquee-text">
-          {c.marquee.map((item, idx) => (
-            <React.Fragment key={idx}>
-              {idx > 0 && <span className="star">✦</span>}
-              <span>{item}</span>
-            </React.Fragment>
+        <div className={`mda-marquee-track ${isRtl ? "is-rtl" : ""}`}>
+          {[0, 1, 2, 3].map((gIdx) => (
+            <div
+              key={gIdx}
+              className="mda-marquee-group"
+              aria-hidden={gIdx > 0 ? "true" : undefined}
+            >
+              {c.marquee.map((item, idx) => (
+                <React.Fragment key={idx}>
+                  <span>{item}</span>
+                  <i>✦</i>
+                </React.Fragment>
+              ))}
+            </div>
           ))}
-          <span className="star">✦</span>
-          {c.marquee.map((item, idx) => (
-            <React.Fragment key={`rep-${idx}`}>
-              {idx > 0 && <span className="star">✦</span>}
-              <span>{item}</span>
-            </React.Fragment>
-          ))}
-        </p>
+        </div>
       </div>
     </>
   );
