@@ -14,11 +14,11 @@ import Footer from "@/components/Footer";
 import { Locale } from "@/data/translations";
 
 export default function Home() {
-  const [currentLocale, setCurrentLocale] = useState<Locale>("es");
+  const [currentLocale, setCurrentLocale] = useState<Locale>("en");
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FAF7F2] text-[#1D252C] selection:bg-[#C46849] selection:text-white">
-      {/* Sticky Glassmorphic Navigation */}
+    <div className="min-h-screen flex flex-col bg-[#FAF7F2] text-[#1B1108] selection:bg-[#8B4513] selection:text-white">
+      {/* Exact Fixed Header */}
       <Navbar
         currentLocale={currentLocale}
         onLocaleChange={(loc) => setCurrentLocale(loc)}
@@ -36,7 +36,7 @@ export default function Home() {
         <PracticalSection currentLocale={currentLocale} />
       </main>
 
-      {/* Editorial 3-Column Footer */}
+      {/* Editorial Footer */}
       <Footer currentLocale={currentLocale} />
     </div>
   );

@@ -2,257 +2,244 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { Globe, Menu, X, ChevronDown, MessageCircle } from "lucide-react";
-import { Locale, translations } from "@/data/translations";
+import { Locale } from "@/data/translations";
 
 interface NavbarProps {
   currentLocale: Locale;
   onLocaleChange: (locale: Locale) => void;
 }
 
-export default function Navbar({ currentLocale, onLocaleChange }: NavbarProps) {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [langDropdownOpen, setLangDropdownOpen] = useState(false);
+const languages: { code: Locale; name: string }[] = [
+  { code: "es", name: "Español" },
+  { code: "en", name: "English" },
+  { code: "fr", name: "Français" },
+  { code: "de", name: "Deutsch" },
+  { code: "it", name: "Italiano" },
+  { code: "pt", name: "Português" },
+  { code: "ar", name: "العربية" },
+  { code: "ru", name: "Русский" },
+];
 
-  const t = translations[currentLocale];
-  const isRTL = t.dir === "rtl";
+export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarProps) {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
+  const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("#hero");
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 40);
+      setIsScrolled(window.scrollY > 20);
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const availableLocales: { code: Locale; name: string; flag: string }[] = [
-    { code: "es", name: "Español", flag: "🇪🇸" },
-    { code: "en", name: "English", flag: "🇬🇧" },
-    { code: "fr", name: "Français", flag: "🇫🇷" },
-    { code: "de", name: "Deutsch", flag: "🇩🇪" },
-    { code: "it", name: "Italiano", flag: "🇮🇹" },
-    { code: "pt", name: "Português", flag: "🇵🇹" },
-    { code: "ru", name: "Русский", flag: "🇷🇺" },
-    { code: "ar", name: "العربية", flag: "🇲🇦" },
+  const currentLangObj = languages.find((l) => l.code === currentLocale) || languages[1];
+
+  const navLinks = [
+    { label: "THE JOURNEY", href: "#about" },
+    { label: "ITINERARY", href: "#stages" },
+    { label: "RESERVE YOUR SPOT", href: "#reserve" },
+    { label: "ABOUT US", href: "#hosts" },
+    { label: "CONTACT US", href: "#practical" },
   ];
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#13140E]/90 backdrop-blur-md py-3 shadow-lg border-b border-[#C5A059]/20"
-          : "bg-gradient-to-b from-[#13140E]/80 to-transparent py-5"
-      }`}
-      dir={isRTL ? "rtl" : "ltr"}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Brand Logo */}
-        <a href="#hero" className="flex items-center gap-3 group">
-          <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-[#C5A059]/40 overflow-hidden bg-[#FAF7F2]/10 p-1 flex items-center justify-center">
-            <Image
-              src="/logos/logo_1.png"
-              alt="Mujeres de Arena"
-              width={40}
-              height={40}
-              className="object-contain"
-              priority
-            />
-          </div>
-          <div className="flex flex-col">
-            <span className="font-cinzel tracking-[0.2em] text-white text-base sm:text-lg font-semibold group-hover:text-[#C5A059] transition-colors">
-              MUJERES DE ARENA
-            </span>
-            <span className="text-[10px] tracking-[0.25em] text-[#C5A059] uppercase">
-              {currentLocale === "ar" ? "صحراء المغرب" : "Sahara · Marruecos"}
-            </span>
-          </div>
-        </a>
-
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8">
-          <a
-            href="#hero"
-            className="text-sm font-medium text-white/90 hover:text-[#C5A059] transition-colors tracking-wide"
-          >
-            {t.nav.home}
-          </a>
-          <a
-            href="#stages"
-            className="text-sm font-medium text-white/90 hover:text-[#C5A059] transition-colors tracking-wide"
-          >
-            {t.nav.itinerary}
-          </a>
-          <a
-            href="#stays"
-            className="text-sm font-medium text-white/90 hover:text-[#C5A059] transition-colors tracking-wide"
-          >
-            {currentLocale === "ar" ? "أماكن الإقامة" : "Alojamientos"}
-          </a>
-          <a
-            href="#hosts"
-            className="text-sm font-medium text-white/90 hover:text-[#C5A059] transition-colors tracking-wide"
-          >
-            {t.nav.about}
-          </a>
-          <a
-            href="#practical"
-            className="text-sm font-medium text-white/90 hover:text-[#C5A059] transition-colors tracking-wide"
-          >
-            {t.nav.contact}
-          </a>
-        </nav>
-
-        {/* Right Action: Language Switcher & CTA */}
-        <div className="hidden sm:flex items-center gap-4">
-          {/* Language Selector Dropdown */}
-          <div className="relative">
-            <button
-              onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/20 bg-white/5 hover:bg-white/10 text-white text-xs tracking-wider transition-all"
-              aria-label="Change Language"
-            >
-              <Globe className="w-3.5 h-3.5 text-[#C5A059]" />
-              <span>{t.flag}</span>
-              <span className="uppercase font-medium">{currentLocale}</span>
-              <ChevronDown className="w-3 h-3 opacity-70" />
-            </button>
-
-            {langDropdownOpen && (
-              <div
-                className={`absolute ${
-                  isRTL ? "left-0" : "right-0"
-                } mt-2 w-44 rounded-xl bg-[#1D252C] border border-[#C5A059]/30 shadow-2xl py-2 z-50 animate-in fade-in slide-in-from-top-2 duration-200`}
-              >
-                {availableLocales.map((loc) => (
-                  <button
-                    key={loc.code}
-                    onClick={() => {
-                      onLocaleChange(loc.code);
-                      setLangDropdownOpen(false);
-                    }}
-                    className={`w-full text-left px-4 py-2 text-xs flex items-center justify-between hover:bg-white/10 transition-colors ${
-                      currentLocale === loc.code
-                        ? "text-[#C5A059] font-bold bg-white/5"
-                        : "text-white/80"
-                    }`}
-                  >
-                    <span className="flex items-center gap-2">
-                      <span>{loc.flag}</span>
-                      <span>{loc.name}</span>
-                    </span>
-                    {currentLocale === loc.code && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#C5A059]" />
-                    )}
-                  </button>
-                ))}
-              </div>
-            )}
+    <>
+      <header id="masthead" className={isScrolled ? "is-scrolled" : ""}>
+        <div className="site-main-header-inner-wrap max-w-[1290px] mx-auto px-6 sm:px-8 flex items-center justify-between">
+          {/* Brand Logo (exact logo_3.png) */}
+          <div className="site-branding">
+            <a href="#hero" className="brand inline-flex items-center" rel="home">
+              <Image
+                src="/logos/logo_3.png"
+                alt="mujeresdearena"
+                width={150}
+                height={48}
+                className="custom-logo"
+                priority
+              />
+            </a>
           </div>
 
-          {/* Primary CTA */}
-          <a
-            href="#reserve"
-            className="px-5 py-2 rounded-full bg-[#C46849] hover:bg-[#A85033] text-white text-xs font-semibold tracking-wider uppercase shadow-md hover:shadow-lg transition-all duration-200 transform hover:-translate-y-0.5"
-          >
-            {t.nav.reserve}
-          </a>
-        </div>
+          {/* Desktop Navigation & Actions */}
+          <div className="flex items-center gap-6 lg:gap-8">
+            {/* Primary Navigation Menu */}
+            <nav className="hidden lg:flex items-center gap-1" role="navigation" aria-label="Primary">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={() => setActiveLink(link.href)}
+                  className={`main-nav-link ${activeLink === link.href ? "is-active" : ""}`}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
 
-        {/* Mobile Menu Toggle Button */}
-        <div className="flex sm:hidden items-center gap-2">
-          {/* Mobile Language Button */}
-          <button
-            onClick={() => setLangDropdownOpen(!langDropdownOpen)}
-            className="px-2.5 py-1 rounded-full border border-white/20 bg-white/10 text-white text-xs flex items-center gap-1"
-          >
-            <span>{t.flag}</span>
-            <span className="uppercase text-[11px] font-bold">{currentLocale}</span>
-          </button>
-
-          <button
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 text-white hover:text-[#C5A059] focus:outline-none"
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Drawer */}
-      {mobileMenuOpen && (
-        <div className="sm:hidden bg-[#13140E] border-b border-[#C5A059]/20 px-6 py-6 animate-in slide-in-from-top duration-300">
-          <nav className="flex flex-col gap-4 text-center">
-            <a
-              href="#hero"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base text-white/90 hover:text-[#C5A059] py-1"
-            >
-              {t.nav.home}
-            </a>
-            <a
-              href="#stages"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base text-white/90 hover:text-[#C5A059] py-1"
-            >
-              {t.nav.itinerary}
-            </a>
-            <a
-              href="#stays"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base text-white/90 hover:text-[#C5A059] py-1"
-            >
-              {currentLocale === "ar" ? "أماكن الإقامة" : "Alojamientos"}
-            </a>
-            <a
-              href="#hosts"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base text-white/90 hover:text-[#C5A059] py-1"
-            >
-              {t.nav.about}
-            </a>
-            <a
-              href="#practical"
-              onClick={() => setMobileMenuOpen(false)}
-              className="text-base text-white/90 hover:text-[#C5A059] py-1"
-            >
-              {t.nav.contact}
-            </a>
-
-            <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
-              <a
-                href="#reserve"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-3 rounded-full bg-[#C46849] text-white text-xs font-semibold tracking-wider uppercase text-center"
-              >
-                {t.nav.reserve}
+            {/* Desktop Right Actions: BOOK Button + Language Switcher */}
+            <div className="hidden sm:flex items-center gap-4">
+              {/* Exact BOOK CTA Button */}
+              <a href="#reserve" className="header-btn-book">
+                BOOK
               </a>
 
-              {/* Language selection on mobile */}
-              <div className="grid grid-cols-4 gap-2 pt-2">
-                {availableLocales.map((loc) => (
-                  <button
-                    key={loc.code}
+              {/* Exact MDA Language Switcher Dropdown */}
+              <div
+                className={`mda-language-switcher-wrap ${langOpen ? "is-open" : ""}`}
+                onMouseEnter={() => setLangOpen(true)}
+                onMouseLeave={() => setLangOpen(false)}
+              >
+                <button
+                  type="button"
+                  className="mda-lang-trigger"
+                  onClick={() => setLangOpen(!langOpen)}
+                  aria-haspopup="true"
+                  aria-expanded={langOpen}
+                  aria-label="Select Language"
+                >
+                  <span className="mda-lang-current-label">{currentLangObj.name}</span>
+                  <svg
+                    className="mda-lang-arrow"
+                    width="10"
+                    height="6"
+                    viewBox="0 0 10 6"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M1 1L5 5L9 1"
+                      stroke="currentColor"
+                      strokeWidth="1.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </button>
+
+                <div className="mda-lang-dropdown" role="menu">
+                  {languages.map((lang) => (
+                    <button
+                      key={lang.code}
+                      type="button"
+                      onClick={() => {
+                        onLocaleChange(lang.code);
+                        setLangOpen(false);
+                      }}
+                      className={`mda-lang-item ${currentLocale === lang.code ? "is-current" : ""}`}
+                      role="menuitem"
+                    >
+                      {lang.name}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Header Right Items */}
+            <div className="flex lg:hidden items-center gap-3">
+              <a href="#reserve" className="header-btn-book !px-4 !py-1.5 !text-[11px] sm:hidden">
+                BOOK
+              </a>
+              <button
+                type="button"
+                onClick={() => setMobileDrawerOpen(true)}
+                className={`p-2 transition-colors ${isScrolled ? "text-[#1B1108]" : "text-[#FAF4EA]"}`}
+                aria-label="Open mobile menu"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M3 13h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1zM3 7h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1zM3 19h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1z" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Mobile Popup Drawer (Exact Kadence Style) */}
+      {mobileDrawerOpen && (
+        <div className="fixed inset-0 z-[10000] flex justify-end">
+          {/* Backdrop overlay */}
+          <div
+            className="fixed inset-0 bg-black/60 backdrop-blur-sm transition-opacity"
+            onClick={() => setMobileDrawerOpen(false)}
+          />
+
+          {/* Side Drawer Panel */}
+          <div className="relative w-80 max-w-[85vw] h-full bg-[#1B1108] border-l border-[#D4A85F]/30 p-6 flex flex-col justify-between shadow-2xl z-10 animate-in slide-in-from-right duration-300">
+            <div>
+              {/* Drawer Header with Close Button */}
+              <div className="flex items-center justify-between pb-6 border-b border-white/10">
+                <Image
+                  src="/logos/logo_3.png"
+                  alt="mujeresdearena"
+                  width={120}
+                  height={38}
+                  className="max-h-[38px] w-auto object-contain"
+                />
+                <button
+                  type="button"
+                  onClick={() => setMobileDrawerOpen(false)}
+                  className="text-[#FAF4EA] hover:text-[#D4A85F] p-2 text-xl"
+                  aria-label="Close menu"
+                >
+                  ✕
+                </button>
+              </div>
+
+              {/* Drawer Links */}
+              <nav className="flex flex-col gap-4 py-8">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
                     onClick={() => {
-                      onLocaleChange(loc.code);
-                      setMobileMenuOpen(false);
+                      setActiveLink(link.href);
+                      setMobileDrawerOpen(false);
                     }}
-                    className={`py-1.5 px-2 rounded-lg text-xs flex items-center justify-center gap-1 border ${
-                      currentLocale === loc.code
-                        ? "bg-[#C5A059]/20 border-[#C5A059] text-white font-bold"
-                        : "border-white/10 text-white/70"
+                    className="font-inter text-sm font-medium tracking-[0.18em] uppercase text-[#FAF4EA] hover:text-[#D4A85F] transition-colors py-1.5"
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
+
+            {/* Drawer Bottom Actions */}
+            <div className="pt-6 border-t border-white/10 flex flex-col gap-4">
+              <a
+                href="#reserve"
+                onClick={() => setMobileDrawerOpen(false)}
+                className="header-btn-book w-full text-center"
+              >
+                BOOK
+              </a>
+
+              {/* Mobile Language Selector Grid */}
+              <div className="grid grid-cols-2 gap-2 pt-2">
+                {languages.map((lang) => (
+                  <button
+                    key={lang.code}
+                    onClick={() => {
+                      onLocaleChange(lang.code);
+                      setMobileDrawerOpen(false);
+                    }}
+                    className={`px-3 py-2 rounded-lg text-xs font-inter text-left transition-colors border ${
+                      currentLocale === lang.code
+                        ? "bg-[#D4A85F]/20 border-[#D4A85F] text-[#D4A85F] font-semibold"
+                        : "border-white/10 text-white/70 hover:bg-white/5"
                     }`}
                   >
-                    <span>{loc.flag}</span>
-                    <span className="uppercase text-[10px]">{loc.code}</span>
+                    {lang.name}
                   </button>
                 ))}
               </div>
             </div>
-          </nav>
+          </div>
         </div>
       )}
-    </header>
+    </>
   );
 }

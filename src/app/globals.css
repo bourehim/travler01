@@ -1,61 +1,442 @@
 @import "tailwindcss";
 
 @theme {
-  --color-sand: #F4EFEA;
-  --color-sand-light: #FAF7F2;
-  --color-sand-dark: #E8E0D5;
-  --color-terracotta: #C46849;
-  --color-terracotta-dark: #A85033;
-  --color-charcoal: #1D252C;
-  --color-charcoal-light: #2C353D;
-  --color-desert-dark: #13140E;
-  --color-gold: #C5A059;
-  --color-gold-light: #DFCA9B;
-
+  --font-inter: var(--font-inter), sans-serif;
+  --font-playfair: var(--font-playfair), Georgia, serif;
   --font-cinzel: var(--font-cinzel), serif;
   --font-marcellus: var(--font-marcellus), serif;
-  --font-body: var(--font-jakarta), sans-serif;
+  --font-jakarta: var(--font-jakarta), sans-serif;
   --font-arabic: var(--font-amiri), serif;
+
+  --color-sand: #FAF4EA;
+  --color-gold: #D4A85F;
+  --color-gold-light: #E5C388;
+  --color-terracotta: #8B4513;
+  --color-terracotta-dark: #3A1F12;
+  --color-charcoal-deep: #1B1108;
 }
 
 :root {
   --background: #FAF7F2;
-  --foreground: #1D252C;
+  --foreground: #1B1108;
 }
 
 body {
   background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-body);
+  font-family: var(--font-inter), sans-serif;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom Typography Utility Classes */
-.font-cinzel {
-  font-family: var(--font-cinzel), serif;
+/* ==========================================================================
+   MUJERES DE ARENA — EXACT WORDPRESS HEADER STYLES
+   ========================================================================== */
+
+#masthead {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 9990;
+  background: transparent;
+  border-bottom: 1px solid rgba(217, 184, 136, 0.15);
+  transition: background 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              min-height 0.35s ease;
 }
 
-.font-marcellus {
-  font-family: var(--font-marcellus), serif;
+#masthead.is-scrolled {
+  background: rgba(250, 244, 234, 0.92) !important;
+  backdrop-filter: blur(16px) saturate(1.3) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(1.3) !important;
+  border-bottom: 1px solid rgba(217, 184, 136, 0.4) !important;
+  box-shadow: 0 4px 24px rgba(27, 17, 8, 0.08) !important;
 }
 
-.font-body {
-  font-family: var(--font-body), sans-serif;
+.site-main-header-inner-wrap {
+  min-height: 84px;
+  transition: min-height 0.35s ease;
 }
 
-.font-arabic {
-  font-family: var(--font-arabic), serif;
+#masthead.is-scrolled .site-main-header-inner-wrap {
+  min-height: 64px;
 }
 
-/* Hero Bottom Desert Shape Divider */
+/* Brand Logo */
+.site-branding .custom-logo {
+  display: block;
+  max-height: 48px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#masthead.is-scrolled .site-branding .custom-logo {
+  max-height: 40px;
+}
+
+/* Primary Navigation Links */
+.main-nav-link {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #FAF4EA;
+  opacity: 0.9;
+  position: relative;
+  padding: 0.6em 1.1em;
+  transition: color 0.25s ease, opacity 0.25s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.main-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 1.1em;
+  right: 1.1em;
+  bottom: 0;
+  height: 1.5px;
+  background: #D4A85F;
+  transform: scaleX(0);
+  transform-origin: 100% 50%;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.main-nav-link:hover,
+.main-nav-link.is-active {
+  color: #D4A85F;
+  opacity: 1;
+}
+
+.main-nav-link:hover::after,
+.main-nav-link.is-active::after {
+  transform: scaleX(1);
+  transform-origin: 0 50%;
+}
+
+/* Scrolled Nav Links */
+#masthead.is-scrolled .main-nav-link {
+  color: #3A1F12;
+}
+
+#masthead.is-scrolled .main-nav-link::after {
+  background: #8B4513;
+}
+
+#masthead.is-scrolled .main-nav-link:hover,
+#masthead.is-scrolled .main-nav-link.is-active {
+  color: #8B4513;
+}
+
+/* Header CTA Button: "BOOK" */
+.header-btn-book {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: #8B4513;
+  color: #FAF4EA;
+  border-radius: 50px;
+  padding: 10px 24px;
+  border: 1px solid rgba(212, 168, 95, 0.35);
+  box-shadow: 0 4px 16px rgba(139, 69, 19, 0.3);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-btn-book:hover {
+  background: #3A1F12;
+  color: #D4A85F;
+  border-color: #D4A85F;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(139, 69, 19, 0.45), 0 0 16px rgba(212, 168, 95, 0.35);
+}
+
+/* Language Switcher */
+.mda-language-switcher-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+  z-index: 100;
+}
+
+.mda-lang-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(217, 184, 136, 0.35);
+  border-radius: 50px;
+  padding: 8px 16px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: #FAF4EA;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.mda-lang-trigger:hover,
+.mda-language-switcher-wrap:hover .mda-lang-trigger,
+.mda-language-switcher-wrap.is-open .mda-lang-trigger {
+  background: rgba(212, 168, 95, 0.18);
+  border-color: #D4A85F;
+  color: #D4A85F;
+  box-shadow: 0 4px 14px rgba(212, 168, 95, 0.25);
+}
+
+.mda-lang-arrow {
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.mda-language-switcher-wrap:hover .mda-lang-arrow,
+.mda-language-switcher-wrap.is-open .mda-lang-arrow {
+  transform: rotate(180deg);
+}
+
+#masthead.is-scrolled .mda-lang-trigger {
+  background: rgba(27, 17, 8, 0.04);
+  border-color: rgba(139, 69, 19, 0.3);
+  color: #3A1F12;
+}
+
+#masthead.is-scrolled .mda-lang-trigger:hover,
+#masthead.is-scrolled .mda-language-switcher-wrap:hover .mda-lang-trigger,
+#masthead.is-scrolled .mda-language-switcher-wrap.is-open .mda-lang-trigger {
+  background: rgba(212, 168, 95, 0.2);
+  border-color: #8B4513;
+  color: #8B4513;
+}
+
+/* Dropdown */
+.mda-lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 155px;
+  background: rgba(27, 17, 8, 0.96);
+  backdrop-filter: blur(20px) saturate(1.4);
+  -webkit-backdrop-filter: blur(20px) saturate(1.4);
+  border: 1px solid rgba(212, 168, 95, 0.35);
+  border-radius: 14px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  padding: 8px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px) scale(0.97);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s ease;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.mda-lang-dropdown::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  right: -10px;
+  height: 25px;
+  background: transparent;
+  pointer-events: auto;
+}
+
+.mda-language-switcher-wrap:hover .mda-lang-dropdown,
+.mda-language-switcher-wrap.is-open .mda-lang-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+#masthead.is-scrolled .mda-lang-dropdown {
+  background: rgba(250, 244, 234, 0.98);
+  border-color: rgba(217, 184, 136, 0.6);
+  box-shadow: 0 16px 40px rgba(27, 17, 8, 0.15);
+}
+
+.mda-lang-item {
+  display: block;
+  padding: 9px 20px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13.5px;
+  font-weight: 500;
+  color: rgba(250, 244, 234, 0.88);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  width: 100%;
+}
+
+#masthead.is-scrolled .mda-lang-item {
+  color: #3A1F12;
+}
+
+.mda-lang-item:hover {
+  background: rgba(212, 168, 95, 0.18);
+  color: #D4A85F;
+}
+
+#masthead.is-scrolled .mda-lang-item:hover {
+  background: rgba(212, 168, 95, 0.2);
+  color: #8B4513;
+}
+
+.mda-lang-item.is-current {
+  color: #D4A85F;
+  font-weight: 600;
+}
+
+#masthead.is-scrolled .mda-lang-item.is-current {
+  color: #8B4513;
+}
+
+/* ==========================================================================
+   MUJERES DE ARENA — EXACT HERO & MARQUEE STYLES
+   ========================================================================== */
+
+.hero__eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #D4A85F;
+  margin-bottom: 1.2rem;
+}
+
+.hero__eyebrow-rule {
+  display: inline-block;
+  width: 2.2rem;
+  height: 1px;
+  background: #D4A85F;
+  opacity: 0.8;
+  margin-right: 0.9rem;
+}
+
+.hero__title {
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: clamp(3.2rem, 1.2rem + 7.5vw, 6.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem 0;
+  font-weight: 400;
+  color: #FAF4EA;
+}
+
+.hero__title-line--soft {
+  font-style: italic;
+  font-family: var(--font-playfair), Georgia, serif;
+  margin-left: 0.25em;
+  color: #E5C388;
+}
+
+.hero__tagline {
+  font-family: var(--font-inter), sans-serif;
+  font-size: clamp(16px, 1.1vw + 0.5rem, 20px);
+  font-weight: 300;
+  line-height: 1.65;
+  color: rgba(250, 244, 234, 0.92);
+  max-width: 54ch;
+  margin: 0 auto 2.4rem auto;
+}
+
+/* Primary Button: Solid Luxury Terracotta Pill */
+.mda-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  padding: 0.95em 2.2em;
+  border-radius: 50px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #8B4513;
+  color: #FAF4EA;
+  border: 1px solid rgba(212, 168, 95, 0.35);
+  box-shadow: 0 8px 24px rgba(139, 69, 19, 0.4);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.mda-btn-primary:hover {
+  background: #3A1F12;
+  color: #D4A85F;
+  border-color: rgba(212, 168, 95, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(139, 69, 19, 0.5), 0 0 20px rgba(212, 168, 95, 0.3);
+}
+
+.btn__arrow {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mda-btn-primary:hover .btn__arrow {
+  transform: translateX(4px);
+}
+
+/* Ghost Button: Refined Warm Gold Outline Pill */
+.mda-btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6em;
+  padding: 0.95em 2.2em;
+  border-radius: 50px;
+  font-family: var(--font-inter), sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: transparent;
+  color: #FAF4EA;
+  border: 1.5px solid #D4A85F;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+.mda-btn-ghost:hover {
+  background: rgba(212, 168, 95, 0.15);
+  border-color: #D4A85F;
+  color: #D4A85F;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Bottom Desert Dunes Shape Divider */
 .hero-dune-divider {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
-  height: clamp(80px, 12vw, 190px);
+  height: clamp(130px, 13.5vw, 240px);
   background-image: url('/images/shape-divider-desert.png');
   background-repeat: no-repeat;
   background-position: bottom center;
@@ -64,40 +445,46 @@ body {
   z-index: 10;
 }
 
-/* Luxury Glassmorphism */
-.glass-header {
-  background: rgba(19, 20, 14, 0.72);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(197, 160, 89, 0.18);
+@media (max-width: 768px) {
+  .hero-dune-divider {
+    height: clamp(80px, 15vw, 140px);
+    background-size: cover;
+  }
 }
 
-.glass-card {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(220, 210, 198, 0.6);
+/* Marquee Bar */
+.mda-marquee-section {
+  background: linear-gradient(180deg, #7C371A 0%, #763417 50%, #6E2F14 100%);
+  color: #FAF4EA;
+  overflow: hidden;
+  margin: 0;
+  padding: 1.35rem 0;
+  border-top: 1px solid rgba(247, 223, 189, 0.35);
+  border-bottom: 1px solid rgba(75, 30, 12, 0.4);
+  position: relative;
+  z-index: 15;
+  box-shadow: 0 4px 16px rgba(45, 18, 7, 0.25);
+  text-align: center;
 }
 
-/* Stadium Pill Badge */
-.stadium-pill {
-  border-radius: 9999px;
-  border: 1px solid rgba(197, 160, 89, 0.45);
-  background: rgba(197, 160, 89, 0.08);
-  letter-spacing: 0.15em;
+.mda-marquee-text {
+  font-family: var(--font-inter), sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
+  color: #FAF4EA;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding: 0 1rem;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: #FAF7F2;
-}
-::-webkit-scrollbar-thumb {
-  background: #C46849;
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #A85033;
+.mda-marquee-text span.star {
+  color: #E5A852;
+  font-size: 12px;
+  filter: drop-shadow(0 0 6px rgba(229, 168, 82, 0.6));
 }

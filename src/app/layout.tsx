@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
-import { Cinzel, Marcellus, Plus_Jakarta_Sans, Amiri } from "next/font/google";
+import { Inter, Playfair_Display, Cinzel, Marcellus, Plus_Jakarta_Sans, Amiri } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
+});
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  variable: "--font-playfair",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
 
 const cinzel = Cinzel({
   subsets: ["latin"],
@@ -31,11 +44,11 @@ const amiri = Amiri({
 });
 
 export const metadata: Metadata = {
-  title: "Mujeres de Arena | Una travesía creada desde el corazón",
-  description: "Una experiencia íntima en el desierto del Sahara reservada exclusivamente para 12 mujeres. Descubre Marrakech, el Alto Atlas y las dunas de Erg Chebbi.",
-  keywords: ["Mujeres de Arena", "Retiro Marruecos", "Viaje mujeres Sahara", "Erg Chebbi", "Marrakech retiro"],
+  title: "Mujeres de Arena | A journey created from the heart",
+  description: "An intimate Sahara desert expedition in Morocco reserved exclusively for 12 women. Discover Marrakech, the High Atlas, and the dunes of Erg Chebbi.",
+  keywords: ["Mujeres de Arena", "Morocco Retreat", "Women Sahara Trip", "Erg Chebbi", "Marrakech Retreat"],
   icons: {
-    icon: "/logos/logo_1.png",
+    icon: "/logos/logo_3.png",
   },
 };
 
@@ -46,10 +59,10 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="es"
-      className={`${cinzel.variable} ${marcellus.variable} ${jakarta.variable} ${amiri.variable}`}
+      lang="en"
+      className={`${inter.variable} ${playfair.variable} ${cinzel.variable} ${marcellus.variable} ${jakarta.variable} ${amiri.variable}`}
     >
-      <body className="font-body bg-[#FAF7F2] text-[#1D252C] min-h-screen flex flex-col selection:bg-[#C46849] selection:text-white">
+      <body className="font-sans bg-[#FAF7F2] text-[#1B1108] min-h-screen flex flex-col selection:bg-[#8B4513] selection:text-white antialiased">
         {children}
       </body>
     </html>
