@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import ItineraryHero from "@/components/itinerary/ItineraryHero";
 import ItineraryStages from "@/components/itinerary/ItineraryStages";
 import ItineraryStays from "@/components/itinerary/ItineraryStays";
+import ItineraryInclusions from "@/components/itinerary/ItineraryInclusions";
 import Footer from "@/components/Footer";
 import { Locale } from "@/data/translations";
 
@@ -24,6 +25,7 @@ export default function ItineraryPage() {
         <ItineraryHero currentLocale={currentLocale} />
         <ItineraryStages currentLocale={currentLocale} />
         <ItineraryStays currentLocale={currentLocale} />
+        <ItineraryInclusions currentLocale={currentLocale} />
       </main>
 
       {/* Editorial Footer */}

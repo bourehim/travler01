@@ -3242,6 +3242,157 @@ button.aqua-nav-btn svg {
   margin: 0 !important;
 }
 
+/* ==========================================================================
+   ITINERARY: INCLUSIONS & EXCLUSIONS (.mda-inclusions-wrap)
+   ========================================================================== */
+.mda-inclusions-wrap {
+  max-width: 1060px !important;
+  margin: 0 auto !important;
+  padding: clamp(4rem, 6vw, 5.5rem) 24px !important;
+  box-sizing: border-box !important;
+}
+
+.mda-inclusions-header {
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+}
+
+.mda-inclusions-header .eyebrow {
+  display: inline-block !important;
+  margin-bottom: 0.8rem !important;
+}
+
+.mda-inclusions-title {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-size: clamp(2rem, 3.4vw, 2.8rem) !important;
+  color: rgb(27, 17, 8) !important;
+  margin: 0 !important;
+  font-weight: 700 !important;
+  line-height: 1.25 !important;
+}
+
+.mda-inclusions-title em {
+  font-style: italic !important;
+  color: rgb(139, 69, 19) !important;
+}
+
+.mda-inclusion-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-auto-rows: 1fr !important;
+  gap: 2rem !important;
+  margin-top: 2.5rem !important;
+}
+
+.mda-inclusion-card {
+  background: #FFFFFF !important;
+  border: 1px solid rgba(212, 168, 95, 0.35) !important;
+  border-radius: 18px !important;
+  padding: clamp(1.8rem, 3vw, 2.5rem) !important;
+  box-shadow: 0 10px 30px rgba(27, 17, 8, 0.05) !important;
+  margin: 0 !important;
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  transition: transform 0.35s ease, box-shadow 0.35s ease !important;
+  box-sizing: border-box !important;
+}
+
+.mda-inclusion-card > .wp-block-group__inner-container {
+  height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+.mda-inclusion-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 16px 40px rgba(27, 17, 8, 0.09) !important;
+}
+
+.mda-card-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 50px !important;
+  height: 50px !important;
+  margin: 0 0 1.2rem 0 !important;
+  padding: 0 !important;
+  border: 1px solid rgba(212, 168, 95, 0.6) !important;
+  border-radius: 50% !important;
+  background-color: transparent !important;
+  box-sizing: border-box !important;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), background-color 0.35s ease-out !important;
+}
+
+.mda-card-icon img {
+  width: 24px !important;
+  height: 24px !important;
+  max-width: 24px !important;
+  max-height: 24px !important;
+  display: block !important;
+  object-fit: contain !important;
+  margin: auto !important;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+}
+
+.mda-inclusion-card:hover .mda-card-icon {
+  transform: rotate(-8deg) scale(1.1) !important;
+  background-color: rgba(212, 168, 95, 0.16) !important;
+}
+
+.mda-inclusion-title {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-size: 1.5rem !important;
+  color: rgb(27, 17, 8) !important;
+  margin: 0 0 1.2rem 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  font-weight: 700 !important;
+}
+
+.mda-inclusion-list {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: grid !important;
+  gap: 12px !important;
+}
+
+.mda-inclusion-list li {
+  position: relative !important;
+  padding-left: 28px !important;
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 14.5px !important;
+  line-height: 1.65 !important;
+  color: rgb(58, 31, 18) !important;
+}
+
+.mda-inclusion-list--yes li::before {
+  content: "✓" !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: rgb(212, 168, 95) !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+}
+
+.mda-inclusion-list--no li::before {
+  content: "✕" !important;
+  position: absolute !important;
+  left: 0 !important;
+  color: rgb(139, 69, 19) !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+}
+
+@media (max-width: 768px) {
+  .mda-inclusion-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
 
 
 
