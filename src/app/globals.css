@@ -2849,6 +2849,122 @@ button.aqua-nav-btn svg {
   }
 }
 
+/* ==========================================================================
+   MUJERES DE ARENA — SUBPAGE HERO (.mda-subpage-hero)
+   ========================================================================== */
+.mda-subpage-hero {
+  position: relative !important;
+  color: #FAF4EA !important;
+  min-height: calc(100vh - 68px) !important;
+  min-height: calc(100svh - 68px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-top: clamp(6.5rem, 10vh, 9.5rem) !important;
+  padding-bottom: clamp(10.5rem, 14.5vw, 15.5rem) !important;
+  padding-inline: clamp(1.5rem, 5vw, 4rem) !important;
+  text-align: center !important;
+  overflow: hidden !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.mda-subpage-hero .wp-block-cover__image-background {
+  position: absolute !important;
+  inset: 0 !important;
+  background-attachment: fixed !important;
+  background-position: 50% 50% !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  z-index: 1 !important;
+}
+
+.mda-subpage-hero .wp-block-cover__background {
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(15, 9, 4, 0.45) !important;
+  z-index: 2 !important;
+  pointer-events: none !important;
+}
+
+.mda-subpage-hero::after {
+  content: "" !important;
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  height: clamp(130px, 13.5vw, 240px) !important;
+  background-image: url('/images/shape-divider-desert.png') !important;
+  background-repeat: no-repeat !important;
+  background-position: bottom center !important;
+  background-size: 100% 100% !important;
+  pointer-events: none !important;
+  z-index: 5 !important;
+  transform-origin: bottom center !important;
+}
+
+.mda-page-itinerary-stays.mda-subpage-hero::after,
+.mda-page-itinerary-stays .mda-subpage-hero::after {
+  transform: scaleX(-1) !important;
+}
+
+.mda-subpage-hero .wp-block-cover__inner-container {
+  position: relative !important;
+  z-index: 10 !important;
+  width: 100% !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+}
+
+.mda-subpage-hero .hero__inner {
+  position: relative !important;
+  z-index: 10 !important;
+  max-width: 900px !important;
+  margin: 0 auto !important;
+  text-align: center !important;
+}
+
+.mda-subpage-hero .hero__title {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-size: clamp(2.4rem, 4.4vw, 4rem) !important;
+  line-height: 1.18 !important;
+  margin: 0 0 1.25rem 0 !important;
+  font-weight: 400 !important;
+  color: #FAF4EA !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75), 0 1px 3px rgba(0, 0, 0, 0.9) !important;
+}
+
+.mda-subpage-hero .hero__title em {
+  font-style: italic !important;
+  color: #D4A85F !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.75) !important;
+}
+
+.mda-subpage-hero .hero__subtitle {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: clamp(1rem, 1.4vw, 1.15rem) !important;
+  line-height: 1.75 !important;
+  max-width: 740px !important;
+  margin: 0 auto 2rem auto !important;
+  color: rgba(250, 244, 234, 0.95) !important;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.8) !important;
+}
+
+.mda-subpage-hero .eyebrow {
+  color: #D4A85F !important;
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: clamp(0.9rem, 1.1vw, 1.05rem) !important;
+  font-weight: 500 !important;
+  letter-spacing: normal !important;
+  margin-bottom: 1.5rem !important;
+  display: inline-block !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.8) !important;
+  white-space: nowrap !important;
+}
+
+
 
 
 

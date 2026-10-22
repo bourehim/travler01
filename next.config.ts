@@ -12,6 +12,13 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  async rewrites() {
+    return [
+      { source: "/itinerary-stays", destination: "/itinerary" },
+      { source: "/en/itinerary-stays", destination: "/itinerary" },
+      { source: "/en/itinerary", destination: "/itinerary" },
+    ];
+  },
 };
 
 export default nextConfig;
