@@ -25,7 +25,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "✦ ÉTAPE UN · JOUR 1 ✦",
       de: "✦ ETAPPE EINS · TAG 1 ✦",
       it: "✦ TAPPA UNO · GIORNO 1 ✦",
-      ar: "✦ المرحلة الأولى · اليوم 1 ✦"
+      ar: "✦ المرحلة الأولى · اليوم 1 ✦",
+      pt: "✦ Etapa Um · Dia 1 ✦",
+      ru: "✦ Этап Первый · День 1 ✦"
     },
     title: {
       en: "Marrakech · Where the Journey Begins",
@@ -33,7 +35,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "Marrakech · Là où Commence le Voyage",
       de: "Marrakesch · Wo die Reise Beginnt",
       it: "Marrakech · Dove Comincia il Viaggio",
-      ar: "مراكش · حيث تبدأ الرحلة"
+      ar: "مراكش · حيث تبدأ الرحلة",
+      pt: "Marraquexe · Onde Começa a Viagem",
+      ru: "Марракеш · Начало Путешествия"
     },
     text: {
       en: "Marrakech isn’t visited. It’s felt. The city welcomes us with the scent of orange blossom, the terracotta warmth of its alleyways, and the electric buzz of Jemaa el-Fnaa at dusk.",
@@ -41,7 +45,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "Marrakech ne se visite pas. Elle se ressent. La ville nous accueille avec le parfum de fleur d'oranger, la tiédeur terracotta de ses ruelles et l'effervescence de Jemaa el-Fnaa au crépuscule.",
       de: "Marrakesch besichtigt man nicht. Man fühlt es. Die Stadt empfängt uns mit dem Duft von Orangenblüten, der Terrakotta-Wärme ihrer Gassen und dem Summen von Jemaa el-Fnaa in der Dämmerung.",
       it: "Marrakech non si visita. Si vive. La città ci accoglie con il profumo di fiori d'arancio, il calore terracotta dei suoi vicoli e l'atmosfera vibrante di Jemaa el-Fnaa al tramonto.",
-      ar: "مراكش لا تُزار فحسب، بل تُعاش وتُحس. تستقبلنا المدينة بعبير زهر البرتقال ودفء أزقتها الطينية وصخب ساحة جامع الفنا الساحر عند الغروب."
+      ar: "مراكش لا تُزار فحسب، بل تُعاش وتُحس. تستقبلنا المدينة بعبير زهر البرتقال ودفء أزقتها الطينية وصخب ساحة جامع الفنا الساحر عند الغروب.",
+      pt: "Marraquexe não se visita. Sente-se. A cidade acolhe-nos com o aroma da flor de laranjeira, o tom terracota das ruelas e a vibração mágica da Jemaa el-Fnaa ao entardecer.",
+      ru: "Марракеш не просто смотрят — его чувствуют. Город встречает ароматом флердоранжа, теплом терракотовых стен и энергией площади Джемаа-эль-Фна на закате."
     },
     listItems: {
       en: [
@@ -79,7 +85,19 @@ const STAGES_DATA: StageItem[] = [
         "أول كأس شاي بالنعناع وحلقة تعارف دافئة ومشاركة بين النساء",
         "جولة عند الغروب بين أزقة الأسواق القديمة وعبير التوابل",
         "عشاء مغربي تقليدي فاخر في فناء الرياض الأندلسي"
-      ]
+      ],
+      pt: [
+        "Transporte privado a partir do aeroporto de Marraquexe Menara (RAK) e boas-vindas no nosso riad",
+        "Primeiro chá de hortelã e círculo de boas-vindas e partilha entre mulheres",
+        "Passeio ao pôr do sol pelos souks e ruelas repletos de aromas a especiarias",
+        "Jantar tradicional num autêntico pátio interior marroquino"
+],
+      ru: [
+        "Индивидуальный трансфер из аэропорта Марракеш Менара (RAK) и встреча в бутик-риаде",
+        "Первый мятный чай и круг знакомства и женской поддержки",
+        "Прогулка на закате по старинным улочкам и базарам с пряностями",
+        "Традиционный семейный марокканский ужин во внутреннем дворике"
+]
     }
   },
   {
@@ -92,7 +110,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "✦ ÉTAPE DEUX · JOUR 2 ✦",
       de: "✦ ETAPPE ZWEI · TAG 2 ✦",
       it: "✦ TAPPA DUE · GIORNO 2 ✦",
-      ar: "✦ المرحلة الثانية · اليوم 2 ✦"
+      ar: "✦ المرحلة الثانية · اليوم 2 ✦",
+      pt: "✦ Etapa Dois · Dia 2 ✦",
+      ru: "✦ Этап Второй · День 2 ✦"
     },
     title: {
       en: "Crossing the High Atlas to Aït Ben Haddou",
@@ -100,7 +120,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "Traversée du Haut Atlas vers Aït Ben Haddou",
       de: "Über den Hohen Atlas nach Aït Ben Haddou",
       it: "Attraverso l'Alto Atlante verso Aït Ben Haddou",
-      ar: "عبور جبال الأطلس الكبير نحو آيت بن حدو"
+      ar: "عبور جبال الأطلس الكبير نحو آيت بن حدو",
+      pt: "Atravessando o Alto Atlas até Aït Ben Haddou",
+      ru: "Через Высокий Атлас к Айт-Бен-Хадду"
     },
     text: {
       en: "We climb into the clouds over the Tizi n’Tichka pass at 2,260 meters. The scenery shifts dramatically from green mountain terraces into ancient earthen kasbahs.",
@@ -108,7 +130,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "Nous montons vers les nuages par le col de Tizi n'Tichka à 2 260 mètres. Le paysage passe spectaculairement de terrasses verdoyantes aux kasbahs de terre millénaires.",
       de: "Wir steigen über den Tizi n’Tichka-Pass auf 2.260 Metern in die Wolken. Die Landschaft wechselt eindrucksvoll von grünen Bergterrassen zu alten Lehm-Kasbahs.",
       it: "Saliamo tra le nuvole attraverso il valico di Tizi n'Tichka a 2.260 metri. Il paesaggio si trasforma radicalmente da terrazze verdi a kasbah millenarie d'argilla.",
-      ar: "نصعد نحو السحاب عبر ممر تيزي نتيشكا على ارتفاع 2,260 متراً، حيث يتحول المشهد تدريجياً من مصاطب الجبال الخضراء إلى قلاع وقصبات طينية عريقة."
+      ar: "نصعد نحو السحاب عبر ممر تيزي نتيشكا على ارتفاع 2,260 متراً، حيث يتحول المشهد تدريجياً من مصاطب الجبال الخضراء إلى قلاع وقصبات طينية عريقة.",
+      pt: "Subimos acima das nuvens pela passagem de Tizi n’Tichka a 2.260 metros. A paisagem transforma-se de socalcos verdes em kasbahs ancestrais de adobe.",
+      ru: "Мы поднимаемся к облакам через перевал Тизи-н’Тичка на высоте 2260 м. Пейзаж сменяется с зеленых склонов на древние глиняные крепости караванных путей."
     },
     listItems: {
       en: [
@@ -146,7 +170,19 @@ const STAGES_DATA: StageItem[] = [
         "جولة استكشافية راجلة داخل قصر آيت بن حدو التاريخي المصنف تراثاً عالمياً لليونسكو",
         "وجبة غداء بإطلالة بانورامية ساحرة على وادي أونيلا",
         "المسير الهادئ نحو وديان دادس الزاخرة بأشجار الورد واللوز"
-      ]
+      ],
+      pt: [
+        "Travessia cénica da espetacular passagem de montanha Tizi n’Tichka",
+        "Visita guiada a pé pela fortaleza histórica UNESCO de Aït Ben Haddou",
+        "Almoço panorâmico com vista para o vale do rio Ounila",
+        "Percurso cénico em direção aos vales de rosas e amendoeiras do Dades"
+],
+      ru: [
+        "Панорамная поездка через величественный перевал Тизи-н’Тичка",
+        "Прогулка с гидом по древней глиняной крепости Айт-Бен-Хадду (ЮНЕСКО)",
+        "Обед с панорамным видом на долину реки Оунила",
+        "Живописная дорога в цветущие долины роз и миндаля Дадес"
+]
     }
   },
   {
@@ -159,7 +195,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "✦ ÉTAPE TROIS · JOUR 3 ✦",
       de: "✦ ETAPPE DREI · TAG 3 ✦",
       it: "✦ TAPPA TRE · GIORNO 3 ✦",
-      ar: "✦ المرحلة الثالثة · اليوم 3 ✦"
+      ar: "✦ المرحلة الثالثة · اليوم 3 ✦",
+      pt: "✦ Etapa Três · Dia 3 ✦",
+      ru: "✦ Этап Третий · День 3 ✦"
     },
     title: {
       en: "Dades Valley & The Road of Kasbahs",
@@ -167,7 +205,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "Vallée du Dadès & La Route des Kasbahs",
       de: "Dadestal & Die Straße der Kasbahs",
       it: "Valle del Dades e la Via delle Kasbah",
-      ar: "وادي دادس وطريق القصبات الأثرية"
+      ar: "وادي دادس وطريق القصبات الأثرية",
+      pt: "Vale do Dades e a Rota das Kasbahs",
+      ru: "Долина Дадес и Дорога Касб"
     },
     text: {
       en: "Towering crimson cliffs, switchback roads carved into stone, and green ribbon oases flourishing against the arid rock. A sensory prelude before the deep desert.",
@@ -175,7 +215,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "Falaises pourpres vertigineuses, lacets gravés dans la roche et rubans d'oasis verdoyantes face à la pierre aride. Un prélude sensoriel avant le grand désert.",
       de: "Mächtige rote Schluchten, in den Fels gemeißelte Serpentinen und grüne Oasenbänder inmitten der Felsen. Ein Fest der Sinne vor der tiefen Wüste.",
       it: "Falesie cremisi a strapiombo, tornanti scavati nella roccia e oasi verdeggianti che contrastano la pietra arida. Un preludio sensoriale prima del deserto.",
-      ar: "مضائق صخرية قرمزية مهيبة، ومنعرجات جبلية منحوتة في الحجر، وواحات نخيل خضراء تخترق الصخور الصامتة كلوحة تمهيدية قبل الدخول لقلب الصحراء."
+      ar: "مضائق صخرية قرمزية مهيبة، ومنعرجات جبلية منحوتة في الحجر، وواحات نخيل خضراء تخترق الصخور الصامتة كلوحة تمهيدية قبل الدخول لقلب الصحراء.",
+      pt: "Penhascos vermelhos imponentes, curvas cravadas na rocha e oásis verdejantes. Um prelúdio de tranquilidade antes de entrarmos no deserto profundo.",
+      ru: "Багровые утесы, серпантины в скалах и зеленые оазисы. Умиротворяющее преддверие перед погружением в золотые пески Сахары."
     },
     listItems: {
       en: [
@@ -213,7 +255,19 @@ const STAGES_DATA: StageItem[] = [
         "محطات تأمل وتصوير أمام التشكيلات الجيولوجية الطبيعية البديعة",
         "شاي مغربي أصيل برفقة تعاونية نسائية محلية لحياكة النسيج الأمازيغي",
         "أمسية هادئة واستشفائية تحت نجوم الجبال في قصبة تاريخية ساحرة"
-      ]
+      ],
+      pt: [
+        "Passeio matinal pelas lendárias curvas das gargantas do Dades",
+        "Momentos de contemplação e fotografia junto a formações rochosas únicas",
+        "Chá com uma cooperativa local de tecelãs amazigh",
+        "Noite tranquila sob o céu estrelado numa kasbah histórica"
+],
+      ru: [
+        "Утренняя прогулка по знаменитым серпантинам ущелья Дадес",
+        "Время для созерцания и фотографий на фоне удивительных скал",
+        "Мятный чай в гостях у местной общины ткачих амазигов",
+        "Спокойная ночь под чистым горным небом в исторической касбе"
+]
     }
   },
   {
@@ -226,7 +280,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "✦ ÉTAPE QUATRE · JOUR 4 ✦",
       de: "✦ ETAPPE VIER · TAG 4 ✦",
       it: "✦ TAPPA QUATTRO · GIORNO 4 ✦",
-      ar: "✦ المرحلة الرابعة · اليوم 4 ✦"
+      ar: "✦ المرحلة الرابعة · اليوم 4 ✦",
+      pt: "✦ Etapa Quatro · Dia 4 ✦",
+      ru: "✦ Этап Четвертый · День 4 ✦"
     },
     title: {
       en: "Todra Cliffs & Gateway to the Dunes",
@@ -234,7 +290,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "Falaises du Todra & Porte des Dunes",
       de: "Todra-Schlucht & Das Tor zu den Dünen",
       it: "Gole del Todra e la Porta delle Dune",
-      ar: "مضائق تودغى وبوابة الكثبان الذهبية"
+      ar: "مضائق تودغى وبوابة الكثبان الذهبية",
+      pt: "Desfiladeiro do Todra e Porta das Dunas",
+      ru: "Ущелье Тодра и Врата к Дюнам"
     },
     text: {
       en: "Standing between 300-meter sheer limestone cliffs before the earth flattens into vast desert plains. In the afternoon distance, the golden silhouette of Erg Chebbi rises.",
@@ -242,7 +300,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "Au pied de parois calcaires vertigineuses de 300 mètres, la terre s'ouvre vers de vastes plaines où se découpe au loin la silhouette dorée de l'Erg Chebbi.",
       de: "Zwischen 300 Meter hohen Steilwänden öffnet sich die weite Wüstensteppe. In der Ferne erhebt sich am Nachmittag die goldene Silhouette des Erg Chebbi.",
       it: "Camminando tra pareti calcaree alte 300 metri prima che la terra si distenda in pianure sconfinate. In lontananza sorge la sagoma dorata dell'Erg Chebbi.",
-      ar: "الوقوف بين جدران صخرية شاهقة تعانق السماء بارتفاع 300 متر قبل أن ينبسط الأفق نحو سهول الصحراء الواسعة وتظهر كثبان عرق الشبي الذهبية."
+      ar: "الوقوف بين جدران صخرية شاهقة تعانق السماء بارتفاع 300 متر قبل أن ينبسط الأفق نحو سهول الصحراء الواسعة وتظهر كثبان عرق الشبي الذهبية.",
+      pt: "Paredes de calcário com 300 metros de altura antes de a terra se abrir em planícies sem fim. Ao longe, o contorno dourado de Erg Chebbi desponta no horizonte.",
+      ru: "300-метровые отвесные известняковые скалы, за которыми открываются просторы. Вдали на горизонте поднимается золотой силуэт Эрг-Шебби."
     },
     listItems: {
       en: [
@@ -280,7 +340,19 @@ const STAGES_DATA: StageItem[] = [
         "جولة استرخاء واستكشاف بين نخيل الواحات التاريخية القديمة",
         "الوصول إلى قرية مرزوكة على مشارف بحر الرمال",
         "أول مشهد مهيب للأفق وهو يتزين بكثبان الصحراء الذهبية العالية"
-      ]
+      ],
+      pt: [
+        "Caminhada pelo corredor estreito das Gargantas do Todra",
+        "Passeio sereno entre palmeirais centenários de tâmaras",
+        "Chegada à localidade desértica de Merzouga",
+        "Primeira vista arrebatadora sobre as dunas douradas do Saara"
+],
+      ru: [
+        "Пешая прогулка по грандиозному каньону ущелья Тодра",
+        "Прогулка в тени старинных финиковых пальмовых рощ",
+        "Прибытие в оазис у края пустыни — Мерзугу",
+        "Первый незабываемый взгляд на золотые дюны Сахары"
+]
     }
   },
   {
@@ -293,7 +365,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "✦ ÉTAPE CINQ · JOUR 5 ✦",
       de: "✦ ETAPPE FÜNF · TAG 5 ✦",
       it: "✦ TAPPA CINQUE · GIORNO 5 ✦",
-      ar: "✦ المرحلة الخامسة · اليوم 5 ✦"
+      ar: "✦ المرحلة الخامسة · اليوم 5 ✦",
+      pt: "✦ Etapa Cinco · Dia 5 ✦",
+      ru: "✦ Этап Пятый · День 5 ✦"
     },
     title: {
       en: "Erg Chebbi · Sunset Dunes & Starlit Camp",
@@ -301,7 +375,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "Erg Chebbi · Coucher de Soleil & Camp Étoilé",
       de: "Erg Chebbi · Dünensonnenuntergang & Sternencamp",
       it: "Erg Chebbi · Tramonto sulle Dune e Campo Sotto le Stelle",
-      ar: "عرق الشبي · غروب الكثبان ومخيم تحت أضواء النجوم"
+      ar: "عرق الشبي · غروب الكثبان ومخيم تحت أضواء النجوم",
+      pt: "Erg Chebbi · Pôr do Sol nas Dunas e Acampamento Estrelado",
+      ru: "Эрг-Шебби · Закат в Дюнах и Ночь под Звездами"
     },
     text: {
       en: "The emotional heart of the journey. We leave modern noise behind and ride gentle camels into the sea of golden sand at sunset. At night, traditional drums under stars.",
@@ -309,7 +385,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "Le cœur émotionnel du voyage. Nous laissons le bruit moderne derrière nous pour chevaucher les dromadaires vers la mer de sable au couchant. Nuit de tambours sous les étoiles.",
       de: "Das emotionale Herzstück der Reise. Wir lassen die Hektik hinter uns und reiten auf Kamelen dem Sonnenuntergang im Sandmeer entgegen. Trommelklänge unterm Himmelszelt.",
       it: "Il cuore emozionale del viaggio. Lasciamo indietro il mondo quotidiano per addentrarci a dorso di dromedario nel mare di sabbia dorata. Tambori e volta stellata.",
-      ar: "القلب النابض للرحلة ولحظتها الخالدة؛ نودع كل صخب حديث ونمتطي الجمال نحو بحر الرمال الذهبية وقت الغروب، تليها ليلة ساحرة على إيقاع طبوع كناوة تحت سماء تعج بالنجوم."
+      ar: "القلب النابض للرحلة ولحظتها الخالدة؛ نودع كل صخب حديث ونمتطي الجمال نحو بحر الرمال الذهبية وقت الغروب، تليها ليلة ساحرة على إيقاع طبوع كناوة تحت سماء تعج بالنجوم.",
+      pt: "O coração emocional da viagem. Deixamos o ruído do quotidiano para trás e cavalgamos em dromedário rumo ao mar de areia dourada. À noite, tambores sob o céu infinito.",
+      ru: "Сердце нашего путешествия. Мы оставляем суету позади и едем на верблюдах в море золотого песка на закате. Ночью — ритмы барабанов под Млечным Путем."
     },
     listItems: {
       en: [
@@ -347,7 +425,19 @@ const STAGES_DATA: StageItem[] = [
         "تجربة التزلج على الرمال ولحظات تأمل وصمت مطلق على علو 150 متراً",
         "مبيت في مخيم صحراوي فاخر مزود بأسرّة مريحة وحمامات خاصة كاملة",
         "إيقاعات كناوة الروحية الساحرة حول لهب المخيم تحت مجرة درب التبانة"
-      ]
+      ],
+      pt: [
+        "Caravana de dromedários ao entardecer pelas cristas douradas",
+        "Sandboard e momentos de silêncio meditativo no topo de dunas com mais de 150 metros",
+        "Noite em acampamento deluxe com camas reais e casa de banho privativa",
+        "Música gnawa hipnótica junto à fogueira sob a Via Láctea"
+],
+      ru: [
+        "Караван на верблюдах на закате по янтарным песчаным гребням",
+        "Сэндбординг и медитативная тишина на 150-метровых вершинах",
+        "Ночь в роскошном глэмпинге с удобными кроватями и отдельным санузлом",
+        "Музыка гнауа у потрескивающего костра под бескрайним звездным небом"
+]
     }
   },
   {
@@ -360,7 +450,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "✦ ÉTAPE SIX · JOUR 6 ✦",
       de: "✦ ETAPPE SECHS · TAG 6 ✦",
       it: "✦ TAPPA SEI · GIORNO 6 ✦",
-      ar: "✦ المرحلة السادسة · اليوم 6 ✦"
+      ar: "✦ المرحلة السادسة · اليوم 6 ✦",
+      pt: "✦ Etapa Seis · Dia 6 ✦",
+      ru: "✦ Этап Шестой · День 6 ✦"
     },
     title: {
       en: "Sunrise Whispers & Living Nomad Culture",
@@ -368,7 +460,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "Chuchotements de l'Aube & Culture Nomade",
       de: "Sonnenaufgang & Lebendige Nomadenkultur",
       it: "Alba nel Deserto e Incontro Nomade",
-      ar: "همسات الفجر ولقاء الثقافة البدوية الرحل"
+      ar: "همسات الفجر ولقاء الثقافة البدوية الرحل",
+      pt: "Sussurros da Alvorada e Cultura Nómada",
+      ru: "Шепот Рассвета и Жизнь Кочевников"
     },
     text: {
       en: "Watching the dawn paint the dunes in soft rose, apricot, and gold. Meeting local nomadic families who share their ancestral relationship with the desert.",
@@ -376,7 +470,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "Voir l'aube peindre les dunes de nuances rose, abricot et or. Rencontre intime avec des familles nomades partageant leur lien séculaire avec le désert.",
       de: "Erleben, wie die Morgendämmerung den Sand in zarte Rosé-, Aprikosen- und Goldtöne taucht. Begegnung mit Nomadenfamilien und ihrer Naturverbundenheit.",
       it: "Ammirare l'alba che dipinge le dune di sfumature rosa, albicocca e oro. Incontro speciale con famiglie nomadi che condividono il loro legame con la terra.",
-      ar: "مشاهدة الفجر وهو يرسم على الرمال تدرجات الوردي والمشمشي والذهب، يتبعه لقاء إنساني دافئ مع عائلات بدوية رحل تروي ارتباطها العريق بالأرض."
+      ar: "مشاهدة الفجر وهو يرسم على الرمال تدرجات الوردي والمشمشي والذهب، يتبعه لقاء إنساني دافئ مع عائلات بدوية رحل تروي ارتباطها العريق بالأرض.",
+      pt: "O nascer do sol pinta as dunas em tons de rosa, pêssego e dourado. Encontro com famílias nómadas que partilham a sua vivência com o deserto.",
+      ru: "Рассвет окрашивает дюны в розовый, персиковый и золотой. Встреча с семьями кочевников, живущими в гармонии с вечной пустыней."
     },
     listItems: {
       en: [
@@ -414,7 +510,19 @@ const STAGES_DATA: StageItem[] = [
         "إفطار بربري أصيل بالخبز الطازج وزيت الزيتون وعسل التمر الشهي",
         "جولة بدفع رباعي 4×4 لزيارة خيام البدو الرحل ومواقع الأحافير العريقة",
         "المسير عبر المناظر الطبيعية الخلابة نحو وادي الورود العطر"
-      ]
+      ],
+      pt: [
+        "Meditação e contemplação do nascer do sol a partir da duna mais alta",
+        "Pequeno-almoço berbere com pão quente, azeite puro e mel de tâmaras",
+        "Excursão em 4×4 por acampamentos nómadas e leitos de fósseis",
+        "Viagem panorâmica em direção ao perfumado Vale das Rosas"
+],
+      ru: [
+        "Медитация и созерцание восхода солнца с вершины высокой дюны",
+        "Берберский завтрак со свежеиспеченным хлебом, оливковым маслом и медом",
+        "Поездка на 4×4 к шатрам кочевников и древним пластам окаменелостей",
+        "Живописная дорога в ароматную Долину Роз"
+]
     }
   },
   {
@@ -427,7 +535,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "✦ ÉTAPE SEPT · JOUR 7 ✦",
       de: "✦ ETAPPE SIEBEN · TAG 7 ✦",
       it: "✦ TAPPA SETTE · GIORNO 7 ✦",
-      ar: "✦ المرحلة السابعة · اليوم 7 ✦"
+      ar: "✦ المرحلة السابعة · اليوم 7 ✦",
+      pt: "✦ Etapa Sete · Dia 7 ✦",
+      ru: "✦ Этап Седьмой · День 7 ✦"
     },
     title: {
       en: "Valley of Roses & The Road Home",
@@ -435,7 +545,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "Vallée des Roses & Le Chemin du Retour",
       de: "Tal der Rosen & Der Weg nach Hause",
       it: "Valle delle Rose e il Ritorno",
-      ar: "وادي الورود وطريق العودة"
+      ar: "وادي الورود وطريق العودة",
+      pt: "Vale das Rosas e Regresso a Marraquexe",
+      ru: "Долина Роз и Возвращение в Марракеш"
     },
     text: {
       en: "We are no longer the same women who landed in Marrakech seven days ago. We cross the final mountain ridge carrying new perspectives, unbreakable bonds of sisterhood.",
@@ -443,7 +555,9 @@ const STAGES_DATA: StageItem[] = [
       fr: "Nous ne sommes plus les mêmes femmes qu'à notre arrivée à Marrakech il y a sept jours. Nous franchissons les crêtes avec un regard neuf et des liens fraternels indéfectibles.",
       de: "Wir sind nicht mehr dieselben Frauen, die vor sieben Tagen in Marrakesch landeten. Wir überqueren den Bergkamm mit neuen Perspektiven und tiefen Freundschaften.",
       it: "Non siamo più le stesse donne atterrate a Marrakech sette giorni fa. Valichiamo l'ultima cresta portando con noi nuove prospettive e legami indelebili.",
-      ar: "لم نعد نفس النساء اللواتي وطأت أقدامهن مراكش قبل سبعة أيام؛ نعبر آخر قمم الجبال بنظرة جديدة للحياة وروابط أخوة وصداقة نسائية لا تنكسر."
+      ar: "لم نعد نفس النساء اللواتي وطأت أقدامهن مراكش قبل سبعة أيام؛ نعبر آخر قمم الجبال بنظرة جديدة للحياة وروابط أخوة وصداقة نسائية لا تنكسر.",
+      pt: "Já não somos as mesmas mulheres que chegaram há sete dias. Atravessamos o Atlas com novas perspetivas, laços de irmandade e memórias inesquecíveis.",
+      ru: "Мы уже не те женщины, что приземлились неделю назад. Мы пересекаем Атлас с новым взглядом на мир, крепкой дружбой и воспоминаниями на всю жизнь."
     },
     listItems: {
       en: [
@@ -481,7 +595,19 @@ const STAGES_DATA: StageItem[] = [
         "هبوط بانورامي ممتع عبر سفوح جبال الأطلس الكبير",
         "عشاء ختامي احتفالي وحلقة وداع واعتزاز بالصداقة في مراكش",
         "خدمة التوصيل المنسقة إلى المطار حسب موعد رحلة العودة"
-      ]
+      ],
+      pt: [
+        "Visita a cooperativas artesanais de água de rosas geridas por mulheres",
+        "Descida panorâmica pelas encostas do Alto Atlas",
+        "Jantar de celebração e círculo de encerramento em Marraquexe",
+        "Transportes coordenados para o aeroporto para os voos de regresso"
+],
+      ru: [
+        "Визит в женские кооперативы по дистилляции розовой воды",
+        "Панорамный спуск через живописные предгорья Высокого Атласа",
+        "Праздничный ужин и заключительный круг единения в Марракеше",
+        "Трансфер в аэропорт к вашим рейсам домой"
+]
     }
   }
 ];

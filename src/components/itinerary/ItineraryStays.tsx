@@ -24,7 +24,9 @@ const STAYS_HEADER: {
     fr: "Où Nous Logeons",
     de: "Wo Wir Wohnen",
     it: "Dove Alloggeremo",
-    ar: "أماكن الإقامة"
+    ar: "أماكن الإقامة",
+    pt: "Onde Ficamos",
+    ru: "Где Мы Останавливаемся"
   },
   titlePrefix: {
     en: "Places Chosen to ",
@@ -32,7 +34,9 @@ const STAYS_HEADER: {
     fr: "Des Lieux Choisis pour ",
     de: "Ausgewählte Orte, die ",
     it: "Luoghi Scelti per ",
-    ar: "ملاذات مختارة بعناية "
+    ar: "ملاذات مختارة بعناية ",
+    pt: "Espaços Escolhidos para ",
+    ru: "Места, Выбранные для "
   },
   titleEm: {
     en: "Accompany the Experience",
@@ -40,7 +44,9 @@ const STAYS_HEADER: {
     fr: "Sublimer l’Expérience",
     de: "das Erlebnis Begleiten",
     it: "Accompagnare l’Esperienza",
-    ar: "لترافق التجربة"
+    ar: "لترافق التجربة",
+    pt: "Acompanhar a Experiência",
+    ru: "Гармонии Путешествия"
   },
   lede: {
     en: "Charming boutique riads, ancestral kasbahs, and a deluxe camp in the Sahara desert — each selected for authenticity, personal care, comfort, and peaceful atmosphere.",
@@ -48,7 +54,9 @@ const STAYS_HEADER: {
     fr: "Riads de charme, kasbahs ancestrales et bivouac de luxe dans le Sahara — chacun choisi pour son authenticité, son accueil chaleureux et son atmosphère paisible.",
     de: "Charmante Riads, geschichtsträchtige Kasbahs und ein Deluxe-Camp in der Sahara — ausgewählt nach Authentizität, Herzlichkeit und Ruhe.",
     it: "Riad di charme, kasbah storiche e un accampamento deluxe nel deserto del Sahara — selezionati per autenticità, cura, comfort e atmosfera serena.",
-    ar: "رياضات بوتيك أصيلة، وقصبات تاريخية، ومخيم فاخر في عمق الصحراء — اختيرت بعناية لتجمع بين الأصالة، وحسن الضيافة، والراحة والسكينة."
+    ar: "رياضات بوتيك أصيلة، وقصبات تاريخية، ومخيم فاخر في عمق الصحراء — اختيرت بعناية لتجمع بين الأصالة، وحسن الضيافة، والراحة والسكينة.",
+    pt: "Riads de charme, kasbahs ancestrais e um acampamento deluxe no deserto do Saara — selecionados pela autenticidade, hospitalidade calorosa, conforto e tranquilidade.",
+    ru: "Уютные бутик-риады, древние касбы и делюкс-кемп в пустыне Сахара — каждое место выбрано за подлинность, душевную заботу, комфорт и атмосферу покоя."
   }
 };
 
@@ -62,7 +70,9 @@ const STAYS_CARDS: StayCardItem[] = [
       fr: "Riads Marrakech",
       de: "Marrakesch Riads",
       it: "Riad Marrakech",
-      ar: "رياضات مراكش"
+      ar: "رياضات مراكش",
+      pt: "Riads Marraquexe",
+      ru: "Риады Марракеш"
     },
     title: {
       en: "Boutique Riads (Marrakech)",
@@ -70,7 +80,9 @@ const STAYS_CARDS: StayCardItem[] = [
       fr: "Riads de Charme (Marrakech)",
       de: "Boutique-Riads (Marrakesch)",
       it: "Boutique Riad (Marrakech)",
-      ar: "رياضات بوتيك (مراكش)"
+      ar: "رياضات بوتيك (مراكش)",
+      pt: "Riads de Charme (Marraquexe)",
+      ru: "Бутик-риады (Марракеш)"
     },
     desc: {
       en: "Oases of calm with interior courtyards, fountain whispers, rooftop terraces, and delicate Moroccan craftsmanship.",
@@ -78,7 +90,9 @@ const STAYS_CARDS: StayCardItem[] = [
       fr: "Havres de paix aux patios intérieurs arborés, fontaines murmurantes, terrasses panoramiques et artisanat raffiné.",
       de: "Oasen der Ruhe mit begrünten Innenhöfen, plätschernden Brunnen und marokkanischer Handwerkskunst.",
       it: "Oasi di pace con cortili fioriti, fontane zampillanti, terrazze sui tetti e artigianato d’eccellenza.",
-      ar: "واحات من الهدوء بأفنية داخلية خضراء، ونوافير مياه، وأسطح بانورامية، وزخارف مغربية بديعة."
+      ar: "واحات من الهدوء بأفنية داخلية خضراء، ونوافير مياه، وأسطح بانورامية، وزخارف مغربية بديعة.",
+      pt: "Oásis de serenidade com pátios ajardinados, fontes murmuroses, terraços no topo e artesanato delicado.",
+      ru: "Оазисы тишины с зелеными двориками, журчанием фонтанов, террасами на крышах и искусной отделкой."
     }
   },
   {
@@ -90,7 +104,9 @@ const STAYS_CARDS: StayCardItem[] = [
       fr: "Campement Sahara",
       de: "Sahara Camp",
       it: "Campo Sahara",
-      ar: "مخيم الصحراء"
+      ar: "مخيم الصحراء",
+      pt: "Acampamento Saara",
+      ru: "Кемпинг в Сахаре"
     },
     title: {
       en: "Deluxe Sahara Camp (Erg Chebbi)",
@@ -98,7 +114,9 @@ const STAYS_CARDS: StayCardItem[] = [
       fr: "Campement Deluxe (Erg Chebbi)",
       de: "Deluxe Sahara-Camp (Erg Chebbi)",
       it: "Campo Deluxe Sahara (Erg Chebbi)",
-      ar: "مخيم ديلوكس (عرق الشبي)"
+      ar: "مخيم ديلوكس (عرق الشبي)",
+      pt: "Acampamento Deluxe (Erg Chebbi)",
+      ru: "Делюкс-кемп в Сахаре (Эрг-Шебби)"
     },
     desc: {
       en: "Spacious luxury private tents with comfortable beds, artisanal rugs, en-suite bathrooms, and panoramic sunset dune vistas.",
@@ -106,7 +124,9 @@ const STAYS_CARDS: StayCardItem[] = [
       fr: "Tentes privées spacieuses de grand confort, lits moelleux, tapis berbères, salle de bain privée et vue sur les dunes.",
       de: "Großzügige Luxuszelte mit bequemen Betten, Teppichen, privatem Bad und freiem Blick auf die Dünen.",
       it: "Spaziose tende private con letti comodi, tappeti berberi, bagno privato e vista panoramica sulle dune.",
-      ar: "خيام رحبة فاخرة بأسرّة مريحة، وسجاد بربري تقليدي، وحمامات خاصة وإطلالات خلابة على الكثبان."
+      ar: "خيام رحبة فاخرة بأسرّة مريحة، وسجاد بربري تقليدي، وحمامات خاصة وإطلالات خلابة على الكثبان.",
+      pt: "Tendas privadas espaçosas e confortáveis, camas generosas, tapetes berberes e casa de banho privativa.",
+      ru: "Просторные шатры с настоящими кроватями, коврами, собственными ванными и видами на дюны."
     }
   },
   {
@@ -118,7 +138,9 @@ const STAYS_CARDS: StayCardItem[] = [
       fr: "Vallées et Oasis",
       de: "Täler und Oasen",
       it: "Valli e Oasi",
-      ar: "الوديان والواحات"
+      ar: "الوديان والواحات",
+      pt: "Vales e Oásis",
+      ru: "Долины и Оазисы"
     },
     title: {
       en: "Ancestral Kasbahs (Valleys)",
@@ -126,7 +148,9 @@ const STAYS_CARDS: StayCardItem[] = [
       fr: "Kasbahs Ancestrales (Vallées)",
       de: "Historische Kasbahs (Täler)",
       it: "Kasbah Storiche (Valli)",
-      ar: "قصبات عريقة (الوديان)"
+      ar: "قصبات عريقة (الوديان)",
+      pt: "Kasbahs Históricas (Vales)",
+      ru: "Исторические Касбы (Долины)"
     },
     desc: {
       en: "Historically preserved earthen architecture overlooking verdant palm groves, almond blossoms, and dramatic rose canyons.",
@@ -134,7 +158,9 @@ const STAYS_CARDS: StayCardItem[] = [
       fr: "Architecture d’adobe préservée dominant d’immenses palmeraies, amandiers et falaises pourpres.",
       de: "Erhaltene Lehmburgen mit Blick auf schattige Palmenhaine, Mandelbäume und rote Schluchten.",
       it: "Architettura tradizionale in terra cruda affacciata su palmeti rigogliosi e valli di mandorli.",
-      ar: "عمارة طينية تاريخية أصيلة تطل على واحات النخيل، وبساتين اللوز، ومضايق الجبال الملونة."
+      ar: "عمارة طينية تاريخية أصيلة تطل على واحات النخيل، وبساتين اللوز، ومضايق الجبال الملونة.",
+      pt: "Arquitetura em taipa preservada com vista sobre palmeirais verdejantes e desfiladeiros de tons avermelhados.",
+      ru: "Глиняная архитектура с видом на пальмовые рощи, миндальные сады и красноватые каньоны."
     }
   }
 ];

@@ -7,47 +7,122 @@ interface AdventuresSliderSectionProps {
   currentLocale?: Locale;
 }
 
-const SLIDES = [
-  {
-    title: "Marrakech Medina",
-    subtitle: "Where the Journey Begins",
-    image: "/images/marrakech-city.jpg",
-    alt: "Marrakech Medina",
-    stage: "Stage 01",
+const SLIDER_CONTENT: Record<Locale, {
+  title: string;
+  subtitle: string;
+  cta: string;
+  slides: {
+    title: string;
+    subtitle: string;
+    image: string;
+    alt: string;
+    stage: string;
+  }[];
+}> = {
+  en: {
+    title: "Our Top Desert & Sahara Adventures ✦",
+    subtitle: "Seven days of wonder across Morocco — from ancestral kasbahs to the golden sea of Erg Chebbi dunes.",
+    cta: "Explore Full 7-Day Itinerary",
+    slides: [
+      { title: "Marrakech Medina", subtitle: "Where the Journey Begins", image: "/images/marrakech-city.jpg", alt: "Marrakech Medina", stage: "Stage 01" },
+      { title: "High Atlas Passes", subtitle: "Tizi n’Tichka & Kasbahs", image: "/images/atlas-mountains.jpg", alt: "High Atlas Passes", stage: "Stage 02" },
+      { title: "Erg Chebbi Dunes", subtitle: "Sunset Camel Trek & Silence", image: "/images/sahara-dunes.jpg", alt: "Erg Chebbi Dunes", stage: "Stage 04" },
+      { title: "Sahara Campfire", subtitle: "Music Under the Stars", image: "/images/night-campfire.jpg", alt: "Sahara Campfire", stage: "Stage 05" },
+      { title: "Ancestral Kasbahs", subtitle: "Valley of Roses & Earthen Citadel", image: "/images/rose-valley-kasbah.jpg", alt: "Ancestral Kasbahs", stage: "Stage 06" },
+    ],
   },
-  {
-    title: "High Atlas Passes",
-    subtitle: "Tizi n’Tichka & Kasbahs",
-    image: "/images/atlas-mountains.jpg",
-    alt: "High Atlas Passes",
-    stage: "Stage 02",
+  es: {
+    title: "Nuestras Mejores Aventuras por el Sahara y el Desierto ✦",
+    subtitle: "Siete días de asombro por Marruecos: desde kasbahs ancestrales hasta el mar dorado de las dunas de Erg Chebbi.",
+    cta: "Ver itinerario detallado de 7 días",
+    slides: [
+      { title: "Medina de Marrakech", subtitle: "Donde Comienza el Viaje", image: "/images/marrakech-city.jpg", alt: "Medina de Marrakech", stage: "Etapa 01" },
+      { title: "Pasos del Alto Atlas", subtitle: "Tizi n'Tichka y Kasbahs", image: "/images/atlas-mountains.jpg", alt: "Pasos del Alto Atlas", stage: "Etapa 02" },
+      { title: "Dunas de Erg Chebbi", subtitle: "Atardecer en Dromedario y Silencio", image: "/images/sahara-dunes.jpg", alt: "Dunas de Erg Chebbi", stage: "Etapa 04" },
+      { title: "Hoguera en el Sahara", subtitle: "Música Bajo las Estrellas", image: "/images/night-campfire.jpg", alt: "Hoguera en el Sahara", stage: "Etapa 05" },
+      { title: "Kasbahs Ancestrales", subtitle: "Valle de las Rosas y Ciudadelas de Adobe", image: "/images/rose-valley-kasbah.jpg", alt: "Kasbahs Ancestrales", stage: "Etapa 06" },
+    ],
   },
-  {
-    title: "Erg Chebbi Dunes",
-    subtitle: "Sunset Camel Trek & Silence",
-    image: "/images/sahara-dunes.jpg",
-    alt: "Erg Chebbi Dunes",
-    stage: "Stage 04",
+  fr: {
+    title: "Nos Meilleures Aventures au Sahara et dans le Désert ✦",
+    subtitle: "Sept jours d'émerveillement au Maroc — des kasbahs ancestrales à la mer dorée des dunes d'Erg Chebbi.",
+    cta: "Découvrir l'itinéraire complet de 7 jours",
+    slides: [
+      { title: "Médina de Marrakech", subtitle: "Là où Commence le Voyage", image: "/images/marrakech-city.jpg", alt: "Médina de Marrakech", stage: "Étape 01" },
+      { title: "Cols du Haut Atlas", subtitle: "Tizi n'Tichka et Kasbahs", image: "/images/atlas-mountains.jpg", alt: "Cols du Haut Atlas", stage: "Étape 02" },
+      { title: "Dunes d'Erg Chebbi", subtitle: "Caravane au Crépuscule et Silence", image: "/images/sahara-dunes.jpg", alt: "Dunes d'Erg Chebbi", stage: "Étape 04" },
+      { title: "Feu de Camp au Sahara", subtitle: "Musique Sous les Étoiles", image: "/images/night-campfire.jpg", alt: "Feu de Camp au Sahara", stage: "Étape 05" },
+      { title: "Kasbahs Ancestrales", subtitle: "Vallée des Roses et Forteresses", image: "/images/rose-valley-kasbah.jpg", alt: "Kasbahs Ancestrales", stage: "Étape 06" },
+    ],
   },
-  {
-    title: "Sahara Campfire",
-    subtitle: "Music Under the Stars",
-    image: "/images/night-campfire.jpg",
-    alt: "Sahara Campfire",
-    stage: "Stage 05",
+  de: {
+    title: "Unsere Schönsten Sahara- & Wüstenabenteuer ✦",
+    subtitle: "Sieben Tage voller Wunder in Marokko – von uralten Kasbahs bis zum goldenen Dünenmeer des Erg Chebbi.",
+    cta: "Vollständige 7-Tage-Reiseroute entdecken",
+    slides: [
+      { title: "Medina von Marrakesch", subtitle: "Wo die Reise Beginnt", image: "/images/marrakech-city.jpg", alt: "Medina von Marrakesch", stage: "Etappe 01" },
+      { title: "Pässe des Hohen Atlas", subtitle: "Tizi n'Tichka & Kasbahs", image: "/images/atlas-mountains.jpg", alt: "Pässe des Hohen Atlas", stage: "Etappe 02" },
+      { title: "Dünen von Erg Chebbi", subtitle: "Kamelkarawane & Stille", image: "/images/sahara-dunes.jpg", alt: "Dünen von Erg Chebbi", stage: "Etappe 04" },
+      { title: "Lagerfeuer in der Sahara", subtitle: "Musik Unter den Sternen", image: "/images/night-campfire.jpg", alt: "Lagerfeuer in der Sahara", stage: "Etappe 05" },
+      { title: "Uralte Kasbahs", subtitle: "Tal der Rosen & Lehmburgen", image: "/images/rose-valley-kasbah.jpg", alt: "Uralte Kasbahs", stage: "Etappe 06" },
+    ],
   },
-  {
-    title: "Ancestral Kasbahs",
-    subtitle: "Valley of Roses & Earthen Citadel",
-    image: "/images/rose-valley-kasbah.jpg",
-    alt: "Ancestral Kasbahs",
-    stage: "Stage 06",
+  it: {
+    title: "Le Nostre Migliori Avventure nel Sahara e nel Deserto ✦",
+    subtitle: "Sette giorni di meraviglia in Marocco: dalle kasbah ancestrali al mare dorato delle dune dell'Erg Chebbi.",
+    cta: "Scopri l'itinerario completo di 7 giorni",
+    slides: [
+      { title: "Medina di Marrakech", subtitle: "Dove Comincia il Viaggio", image: "/images/marrakech-city.jpg", alt: "Medina di Marrakech", stage: "Tappa 01" },
+      { title: "Passi dell'Alto Atlante", subtitle: "Tizi n'Tichka e Kasbah", image: "/images/atlas-mountains.jpg", alt: "Passi dell'Alto Atlante", stage: "Tappa 02" },
+      { title: "Dune di Erg Chebbi", subtitle: "Dromedari al Tramonto e Silenzio", image: "/images/sahara-dunes.jpg", alt: "Dune di Erg Chebbi", stage: "Tappa 04" },
+      { title: "Fuoco nel Sahara", subtitle: "Musica Sotto le Stelle", image: "/images/night-campfire.jpg", alt: "Fuoco nel Sahara", stage: "Tappa 05" },
+      { title: "Kasbah Ancestrali", subtitle: "Valle delle Rose e Fortezze d'Argilla", image: "/images/rose-valley-kasbah.jpg", alt: "Kasbah Ancestrali", stage: "Tappa 06" },
+    ],
   },
-];
+  pt: {
+    title: "As Nossas Melhores Aventuras no Deserto e Sara ✦",
+    subtitle: "Sete dias de deslumbramento por Marrocos — das kasbahs ancestrais ao mar dourado das dunas de Erg Chebbi.",
+    cta: "Ver itinerário completo de 7 dias",
+    slides: [
+      { title: "Medina de Marraquexe", subtitle: "Onde Começa a Viagem", image: "/images/marrakech-city.jpg", alt: "Medina de Marraquexe", stage: "Etapa 01" },
+      { title: "Passos do Alto Atlas", subtitle: "Tizi n'Tichka & Kasbahs", image: "/images/atlas-mountains.jpg", alt: "Passos do Alto Atlas", stage: "Etapa 02" },
+      { title: "Dunas de Erg Chebbi", subtitle: "Caravana ao Pôr do Sol e Silêncio", image: "/images/sahara-dunes.jpg", alt: "Dunas de Erg Chebbi", stage: "Etapa 04" },
+      { title: "Fogueira no Saara", subtitle: "Música Sob as Estrelas", image: "/images/night-campfire.jpg", alt: "Fogueira no Saara", stage: "Etapa 05" },
+      { title: "Kasbahs Ancestrais", subtitle: "Vale das Rosas e Fortalezas de Adobe", image: "/images/rose-valley-kasbah.jpg", alt: "Kasbahs Ancestrais", stage: "Etapa 06" },
+    ],
+  },
+  ar: {
+    title: "أفضل مغامراتنا في صحراء المغرب وعرق الشبّي ✦",
+    subtitle: "سبعة أيام من السحر والدهشة عبر المغرب — من القصبات العريقة إلى بحر الرمال الذهبية في عرق الشبّي.",
+    cta: "اكتشفي برنامج الرحلة الكامل لـ 7 أيام ←",
+    slides: [
+      { title: "مدينة مراكش العتيقة", subtitle: "حيث تبدأ الرحلة", image: "/images/marrakech-city.jpg", alt: "مدينة مراكش العتيقة", stage: "المرحلة 01" },
+      { title: "ممرات الأطلس الكبير", subtitle: "تيزي نتيشكا وقصبات الطين", image: "/images/atlas-mountains.jpg", alt: "ممرات الأطلس الكبير", stage: "المرحلة 02" },
+      { title: "كثبان عرق الشبّي", subtitle: "قافلة الإبل عند الغروب والسكينة", image: "/images/sahara-dunes.jpg", alt: "كثبان عرق الشبّي", stage: "المرحلة 04" },
+      { title: "سهرة النار في الصحراء", subtitle: "موسيقى تحت قبة النجوم", image: "/images/night-campfire.jpg", alt: "سهرة النار في الصحراء", stage: "المرحلة 05" },
+      { title: "قصبات الأجداد", subtitle: "وادي الورود وحصون الطين الخالدة", image: "/images/rose-valley-kasbah.jpg", alt: "قصبات الأجداد", stage: "المرحلة 06" },
+    ],
+  },
+  ru: {
+    title: "Наши Лучшие Приключения в Сахаре и Пустыне ✦",
+    subtitle: "Семь дней чудес по Марокко — от древних касб до золотого моря дюн Эрг-Шебби.",
+    cta: "Смотреть подробный 7-дневный маршрут →",
+    slides: [
+      { title: "Медина Марракеша", subtitle: "Начало Путешествия", image: "/images/marrakech-city.jpg", alt: "Медина Марракеша", stage: "Этап 01" },
+      { title: "Перевалы Высокого Атласа", subtitle: "Тизи н'Тичка и Древние Касбы", image: "/images/atlas-mountains.jpg", alt: "Перевалы Высокого Атласа", stage: "Этап 02" },
+      { title: "Дюны Эрг-Шебби", subtitle: "Караван на Закате и Тишина Пустыни", image: "/images/sahara-dunes.jpg", alt: "Дюны Эрг-Шебби", stage: "Этап 04" },
+      { title: "Костер в Сахаре", subtitle: "Музыка Под Звездами", image: "/images/night-campfire.jpg", alt: "Костер в Сахаре", stage: "Этап 05" },
+      { title: "Исторические Касбы", subtitle: "Долина Роз и Глиняные Крепости", image: "/images/rose-valley-kasbah.jpg", alt: "Исторические Касбы", stage: "Этап 06" },
+    ],
+  },
+};
 
 export default function AdventuresSliderSection({
   currentLocale = "en",
 }: AdventuresSliderSectionProps) {
+  const content = SLIDER_CONTENT[currentLocale] || SLIDER_CONTENT.en;
+  const slides = content.slides;
+
   const [current, setCurrent] = useState(2); // default center slide: Erg Chebbi Dunes
   const [transitionSpeed, setTransitionSpeed] = useState("1s");
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
@@ -60,7 +135,7 @@ export default function AdventuresSliderSection({
   const clickCooldownUntilRef = useRef(0);
   const hoverScrollTimerRef = useRef<NodeJS.Timeout | null>(null);
 
-  const total = SLIDES.length;
+  const total = slides.length;
 
   const stopContinuousHoverScroll = useCallback(() => {
     if (hoverScrollTimerRef.current) {
@@ -230,7 +305,7 @@ export default function AdventuresSliderSection({
               className="wp-block-heading has-text-align-center aqua-section-title"
               style={{ marginTop: 0, marginBottom: "10px" }}
             >
-              Our Top Desert &amp; Sahara Adventures ✦
+              {content.title}
             </h2>
 
             {/* Floating Star Illustration */}
@@ -258,8 +333,7 @@ export default function AdventuresSliderSection({
               className="has-text-align-center aqua-section-subtitle wp-block-paragraph"
               style={{ marginTop: 0, marginBottom: "48px" }}
             >
-              Seven days of wonder across Morocco — from ancestral kasbahs to the
-              golden sea of Erg Chebbi dunes.
+              {content.subtitle}
             </p>
           </div>
 
@@ -286,7 +360,7 @@ export default function AdventuresSliderSection({
             </button>
 
             <div ref={stageRef} className="aqua-cards-stage">
-              {SLIDES.map((slide, idx) => {
+              {slides.map((slide, idx) => {
                 const cardClass = getSlideClass(idx);
                 const isActive = cardClass === "slide-active";
                 const isHovered = hoveredIndex === idx;
@@ -350,7 +424,7 @@ export default function AdventuresSliderSection({
 
           {/* Pagination Dots */}
           <div className="aqua-pagination-dots">
-            {SLIDES.map((_, d) => (
+            {slides.map((_, d) => (
               <span
                 key={d}
                 className={`aqua-dot ${d === current ? "aqua-dot-active" : ""}`}
@@ -367,8 +441,8 @@ export default function AdventuresSliderSection({
             className="aqua-btn-wrap"
             style={{ textAlign: "center", marginTop: "40px" }}
           >
-            <a href="/itinerary-stays/" className="aqua-cta-pill">
-              <span>Explore Full 7-Day Itinerary</span>
+            <a href="/itinerary" className="aqua-cta-pill">
+              <span>{content.cta}</span>
               <svg
                 width="14"
                 height="14"

@@ -15,7 +15,9 @@ const INCLUSIONS_HEADER: {
     fr: "Tarifs Transparents",
     de: "Faire Transparenz",
     it: "Prezzi Chiari",
-    ar: "أسعار واضحة وشفافة"
+    ar: "أسعار واضحة وشفافة",
+    pt: "Preços Transparentes",
+    ru: "Прозрачные Цены"
   },
   titlePrefix: {
     en: "What is Included & ",
@@ -23,7 +25,9 @@ const INCLUSIONS_HEADER: {
     fr: "Ce qui est Inclus & ",
     de: "Was Enthalten ist & ",
     it: "Cosa è Incluso & ",
-    ar: "ما تتضمنه الرحلة "
+    ar: "ما تتضمنه الرحلة ",
+    pt: "O que Está Incluído & ",
+    ru: "Что Включено и "
   },
   titleEm: {
     en: "What is Not",
@@ -31,7 +35,9 @@ const INCLUSIONS_HEADER: {
     fr: "Ce qui Ne l’est Pas",
     de: "Was Nicht",
     it: "Cosa Non lo È",
-    ar: "وما لا تتضمنه"
+    ar: "وما لا تتضمنه",
+    pt: "O que Não Está",
+    ru: "Что Не Включено"
   }
 };
 
@@ -45,7 +51,9 @@ const INCLUDED_CARD: {
     fr: "Inclus dans les 800 €",
     de: "Im Preis von 800 € Enthalten",
     it: "Incluso negli 800 €",
-    ar: "متضمن في مبلغ 800 يورو"
+    ar: "متضمن في مبلغ 800 يورو",
+    pt: "Incluído nos 800 €",
+    ru: "Включено в 800 €"
   },
   items: {
     en: [
@@ -113,6 +121,28 @@ const INCLUDED_CARD: {
       "جولة بسيارات الدفع الرباعي 4×4 لزيارة العائلات البدوية وآبار الصحراء",
       "تجربة التزلج على الرمال وسهرة موسيقية حول الموقد تحت النجوم",
       "مرافقة شخصية مستمرة من المضيفتين فانيسا وآنا طوال أيام الرحلة"
+    ],
+    pt: [
+      "Transporte de ida e volta do aeroporto de Marraquexe Menara (RAK)",
+      "Transporte privado e confortável em veículo com ar condicionado durante os 7 dias",
+      "Motorista local profissional e guia acompanhante bilingue",
+      "6 noites de alojamento de charme (5 noites riads/kasbahs + 1 noite acampamento Saara)",
+      "Todos os pequenos-almoços + 4 jantares tradicionais na rota",
+      "Passeio de dromedário ao entardecer pelas dunas de Erg Chebbi",
+      "Passeio em 4×4 visitando famílias nómadas e poços no deserto",
+      "Sandboard e serão musical gnawa junto à fogueira",
+      "Acompanhamento pessoal permanente das anfitriãs Vanessa & Ana"
+    ],
+    ru: [
+      "Трансфер туда и обратно из аэропорта Марракеш Менара (RAK)",
+      "Комфортный транспорт с кондиционером на протяжении всех 7 дней",
+      "Профессиональный местный водитель и двуязычный гид-сопровождающий",
+      "6 ночей в атмосферных отелях (5 ночей в риадах/касбах + 1 ночь в кемпинге в Сахаре)",
+      "Все завтраки + 4 традиционных ужина по маршруту",
+      "Прогулка на верблюдах на закате по дюнам Эрг-Шебби",
+      "Поездка на джипах 4×4 в гости к кочевникам и к колодцам в пустыне",
+      "Сэндбординг и вечер музыки гнауа у костра под звездами",
+      "Постоянная личная поддержка и забота от организаторов Ванессы и Аны"
     ]
   }
 };
@@ -127,7 +157,9 @@ const NOT_INCLUDED_CARD: {
     fr: "Non Inclus",
     de: "Nicht Enthalten",
     it: "Non Incluso",
-    ar: "غير متضمن"
+    ar: "غير متضمن",
+    pt: "Não Incluído",
+    ru: "Не Включено"
   },
   items: {
     en: [
@@ -171,6 +203,20 @@ const NOT_INCLUDED_CARD: {
       "المشروبات الخاصة والمشتريات الشخصية في الأسواق",
       "التأمين الطبي وتأمين السفر الشخصي (يوصى به بشدة)",
       "الإكراميات المعتادة لطاقم السائقين وفرق الضيافة"
+    ],
+    pt: [
+      "Voos internacionais para e de Marraquexe",
+      "Almoços e jantares não descritos (locais autênticos selecionados em conjunto)",
+      "Bebidas pessoais, lanches e compras nos souks",
+      "Seguro de viagem e médico pessoal (fortemente recomendado)",
+      "Gratificações para motorista, guias e equipas de hospitalidade"
+    ],
+    ru: [
+      "Международные авиабилеты в Марракеш и обратно",
+      "Обеды и неуказанные ужины (уютные местные кафе выбираем вместе)",
+      "Напитки, перекусы и личные покупки на базарах",
+      "Медицинская страховка и страхование путешествия (настоятельно рекомендуется)",
+      "Чаевые водителю, гидам и персоналу отелей"
     ]
   }
 };

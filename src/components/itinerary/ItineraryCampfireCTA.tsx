@@ -21,7 +21,9 @@ const CTA_DATA: {
     fr: "12 FEMMES · UNE AVENTURE PARTAGÉE",
     de: "12 FRAUEN · EINE GEMEINSAME REISE",
     it: "12 DONNE · UN SOLO VIAGGIO CONDIVISO",
-    ar: "12 امرأة · رحلة واحدة تجمعنا"
+    ar: "12 امرأة · رحلة واحدة تجمعنا",
+    pt: "12 MULHERES · UMA VIAGEM PARTILHADA",
+    ru: "12 ЖЕНЩИН · ОДНО ОБЩЕЕ ПУТЕШЕСТВИЕ"
   },
   titlePrefix: {
     en: "Ready to Join the ",
@@ -29,7 +31,9 @@ const CTA_DATA: {
     fr: "Prête à Rejoindre les ",
     de: "Bereit, Teil der ",
     it: "Pronta a Unirti alle ",
-    ar: "هل أنتِ مستعدة للانضمام إلى "
+    ar: "هل أنتِ مستعدة للانضمام إلى ",
+    pt: "Pronta para Te Juntares às ",
+    ru: "Готовы Присоединиться к "
   },
   titleEm: {
     en: "12 Women?",
@@ -37,7 +41,9 @@ const CTA_DATA: {
     fr: "12 Femmes ?",
     de: "12 Frauen zu Werden?",
     it: "12 Donne?",
-    ar: "النساء الـ 12؟"
+    ar: "النساء الـ 12؟",
+    pt: "12 Mulheres?",
+    ru: "12 Женщинам?"
   },
   text: {
     en: "Only 150 € deposit confirms your place. Arrive in Marrakech with your bag packed and an appetite for an adventure you will remember for life.",
@@ -45,7 +51,9 @@ const CTA_DATA: {
     fr: "Un acompte de 150 € confirme votre place. Arrivez à Marrakech sac prêt et cœur ouvert à une aventure inoubliable.",
     de: "Nur 150 € Anzahlung sichern deinen Platz. Komm mit gepackter Tasche und Vorfreude auf eine unvergessliche Reise nach Marrakesch.",
     it: "Bastano 150 € di acconto per confermare il tuo posto. Raggiungi Marrakech con la valigia pronta e la voglia di un’avventura indimenticabile.",
-    ar: "دفعة تأكيد بقيمة 150 يورو فقط تضمن مقعدك اليوم. احزمي حقيبتك واستعدي لمغامرة صحراوية ستبقى حية في ذاكرتك للأبد."
+    ar: "دفعة تأكيد بقيمة 150 يورو فقط تضمن مقعدك اليوم. احزمي حقيبتك واستعدي لمغامرة صحراوية ستبقى حية في ذاكرتك للأبد.",
+    pt: "Apenas 150 € de sinal confirmam o teu lugar. Chega a Marraquexe com a mala feita e vontade de viver uma viagem inesquecível.",
+    ru: "Всего 150 € депозита закрепляют за вами место. Прилетайте в Марракеш с собранным чемоданом навстречу приключению всей жизни."
   },
   btn1: {
     en: "Reserve Your Spot",
@@ -53,7 +61,9 @@ const CTA_DATA: {
     fr: "Réserver ma Place",
     de: "Meinen Platz Reservieren",
     it: "Prenota il Mio Posto",
-    ar: "احجزي مقعدك الآن"
+    ar: "احجزي مقعدك الآن",
+    pt: "Reservar o Meu Lugar",
+    ru: "Забронировать Место"
   },
   btn2: {
     en: "Contact Vanessa & Ana",
@@ -61,7 +71,9 @@ const CTA_DATA: {
     fr: "Contacter Vanessa & Ana",
     de: "Vanessa & Ana Kontaktieren",
     it: "Contatta Vanessa & Ana",
-    ar: "توصلي مع فانيسا وآنا"
+    ar: "توصلي مع فانيسا وآنا",
+    pt: "Falar com Vanessa & Ana",
+    ru: "Написать Ванессе и Ане"
   }
 };
 

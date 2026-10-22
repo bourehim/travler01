@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Locale } from "@/data/translations";
 
 interface NavbarProps {
@@ -22,8 +22,83 @@ const languages: { code: Locale; name: string }[] = [
   { code: "ru", name: "Русский" },
 ];
 
+const NAV_LABELS: Record<Locale, {
+  journey: string;
+  itinerary: string;
+  reserve: string;
+  about: string;
+  contact: string;
+  book: string;
+}> = {
+  en: {
+    journey: "THE JOURNEY",
+    itinerary: "ITINERARY",
+    reserve: "RESERVE YOUR SPOT",
+    about: "ABOUT US",
+    contact: "CONTACT US",
+    book: "BOOK"
+  },
+  es: {
+    journey: "LA TRAVESÍA",
+    itinerary: "ITINERARIO",
+    reserve: "RESERVA TU PLAZA",
+    about: "SOBRE NOSOTRAS",
+    contact: "CONTACTO",
+    book: "RESERVAR"
+  },
+  fr: {
+    journey: "LE VOYAGE",
+    itinerary: "ITINÉRAIRE",
+    reserve: "RÉSERVEZ VOTRE PLACE",
+    about: "À PROPOS DE NOUS",
+    contact: "CONTACTEZ-NOUS",
+    book: "RÉSERVER"
+  },
+  de: {
+    journey: "DIE REISE",
+    itinerary: "REISEROUTE",
+    reserve: "PLATZ RESERVIEREN",
+    about: "ÜBER UNS",
+    contact: "KONTAKT",
+    book: "BUCHEN"
+  },
+  it: {
+    journey: "IL VIAGGIO",
+    itinerary: "ITINERARIO",
+    reserve: "PRENOTA IL TUO POSTO",
+    about: "CHI SIAMO",
+    contact: "CONTATTI",
+    book: "PRENOTA"
+  },
+  pt: {
+    journey: "A VIAGEM",
+    itinerary: "ITINERÁRIO",
+    reserve: "RESERVA O TEU LUGAR",
+    about: "SOBRE NÓS",
+    contact: "CONTACTO",
+    book: "RESERVAR"
+  },
+  ar: {
+    journey: "الرحلة",
+    itinerary: "مسار الرحلة",
+    reserve: "احجزي مقعدكِ",
+    about: "من نحن",
+    contact: "تواصل معنا",
+    book: "احجزي"
+  },
+  ru: {
+    journey: "ПУТЕШЕСТВИЕ",
+    itinerary: "МАРШРУТ",
+    reserve: "ЗАБРОНИРОВАТЬ МЕСТО",
+    about: "О НАС",
+    contact: "КОНТАКТЫ",
+    book: "БРОНЬ"
+  }
+};
+
 export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarProps) {
   const pathname = usePathname();
+  const router = useRouter();
   const [isScrolled, setIsScrolled] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
@@ -37,19 +112,31 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
   }, []);
 
   const currentLangObj = languages.find((l) => l.code === currentLocale) || languages[1];
+  const labels = NAV_LABELS[currentLocale] || NAV_LABELS.en;
+
+  const getLocalizedHref = (path: string) => {
+    if (currentLocale === "en") {
+      return path;
+    }
+    if (path.startsWith("/#")) {
+      return `/${currentLocale}${path}`;
+    }
+    return `/${currentLocale}${path === "/" ? "" : path}`;
+  };
 
   const navLinks = [
-    { label: "THE JOURNEY", href: "/#about" },
-    { label: "ITINERARY", href: "/itinerary" },
-    { label: "RESERVE YOUR SPOT", href: "/reserve-spot" },
-    { label: "ABOUT US", href: "/about" },
-    { label: "CONTACT US", href: "/contact" },
+    { label: labels.journey, href: getLocalizedHref("/#about"), raw: "/#about" },
+    { label: labels.itinerary, href: getLocalizedHref("/itinerary"), raw: "/itinerary" },
+    { label: labels.reserve, href: getLocalizedHref("/reserve-spot"), raw: "/reserve-spot" },
+    { label: labels.about, href: getLocalizedHref("/about"), raw: "/about" },
+    { label: labels.contact, href: getLocalizedHref("/contact"), raw: "/contact" },
   ];
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith("/#") && pathname === "/") {
+    const isHome = pathname === "/" || pathname === `/${currentLocale}`;
+    if (href.includes("#") && isHome) {
       e.preventDefault();
-      const targetId = href.replace("/#", "");
+      const targetId = href.split("#")[1];
       const targetEl = document.getElementById(targetId);
       if (targetEl) {
         targetEl.scrollIntoView({ behavior: "smooth" });
@@ -60,19 +147,32 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
   };
 
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    if (pathname === "/") {
+    const isHome = pathname === "/" || pathname === `/${currentLocale}`;
+    if (isHome) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
-  const isLinkActive = (href: string) => {
-    if (href === "/itinerary" && pathname?.startsWith("/itinerary")) return true;
-    if (href === "/reserve-spot" && pathname?.startsWith("/reserve")) return true;
-    if (href === "/about" && pathname?.startsWith("/about")) return true;
-    if (href === "/contact" && pathname?.startsWith("/contact")) return true;
-    if (href === "/#about" && pathname === "/") return true;
+  const isLinkActive = (raw: string) => {
+    const cleanPath = pathname.replace(/^\/(en|es|fr|de|it|pt|ar|ru)(\/|$)/, "/");
+    if (raw === "/itinerary" && cleanPath.startsWith("/itinerary")) return true;
+    if (raw === "/reserve-spot" && cleanPath.startsWith("/reserve")) return true;
+    if (raw === "/about" && cleanPath.startsWith("/about")) return true;
+    if (raw === "/contact" && cleanPath.startsWith("/contact")) return true;
+    if (raw === "/#about" && cleanPath === "/") return true;
     return false;
+  };
+
+  const handleLanguageSwitch = (targetLocale: Locale) => {
+    onLocaleChange(targetLocale);
+    setLangOpen(false);
+    setMobileDrawerOpen(false);
+
+    let clean = pathname.replace(/^\/(en|es|fr|de|it|pt|ar|ru)(\/|$)/, "/");
+    if (!clean.startsWith("/")) clean = "/" + clean;
+    const targetUrl = targetLocale === "en" ? clean : (clean === "/" ? `/${targetLocale}` : `/${targetLocale}${clean}`);
+    router.push(targetUrl);
   };
 
   return (
@@ -82,7 +182,7 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
           {/* Brand Logo (exact logo_3.png) */}
           <div className="site-branding">
             <Link
-              href="/"
+              href={currentLocale === "en" ? "/" : `/${currentLocale}`}
               onClick={handleLogoClick}
               className="brand inline-flex items-center"
               rel="home"
@@ -107,7 +207,7 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`main-nav-link ${isLinkActive(link.href) ? "is-active" : ""}`}
+                  className={`main-nav-link ${isLinkActive(link.raw) ? "is-active" : ""}`}
                 >
                   {link.label}
                 </Link>
@@ -117,8 +217,8 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
             {/* Desktop Right Actions: BOOK Button + Language Switcher */}
             <div className="hidden sm:flex items-center gap-4">
               {/* Exact BOOK CTA Button */}
-              <Link href="/reserve-spot" className="header-btn-book">
-                BOOK
+              <Link href={getLocalizedHref("/reserve-spot")} className="header-btn-book">
+                {labels.book}
               </Link>
 
               {/* Exact MDA Language Switcher Dropdown */}
@@ -160,10 +260,7 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
                     <button
                       key={lang.code}
                       type="button"
-                      onClick={() => {
-                        onLocaleChange(lang.code);
-                        setLangOpen(false);
-                      }}
+                      onClick={() => handleLanguageSwitch(lang.code)}
                       className={`mda-lang-item ${currentLocale === lang.code ? "is-current" : ""}`}
                       role="menuitem"
                     >
@@ -176,8 +273,8 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
 
             {/* Mobile Header Right Items */}
             <div className="flex lg:hidden items-center gap-3">
-              <Link href="/reserve-spot" className="header-btn-book !px-4 !py-1.5 !text-[11px] sm:hidden">
-                BOOK
+              <Link href={getLocalizedHref("/reserve-spot")} className="header-btn-book !px-4 !py-1.5 !text-[11px] sm:hidden">
+                {labels.book}
               </Link>
               <button
                 type="button"
@@ -203,45 +300,44 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
             onClick={() => setMobileDrawerOpen(false)}
           />
 
-          {/* Side Drawer Panel */}
-          <div className="relative w-80 max-w-[85vw] h-full bg-[#1B1108] border-l border-[#D4A85F]/30 p-6 flex flex-col justify-between shadow-2xl z-10 animate-in slide-in-from-right duration-300">
+          {/* Drawer content */}
+          <div className="relative z-10 w-full max-w-[320px] bg-[#1B1108] text-[#FAF4EA] h-full p-6 flex flex-col justify-between shadow-2xl">
             <div>
-              {/* Drawer Header with Close Button */}
               <div className="flex items-center justify-between pb-6 border-b border-white/10">
                 <Link
-                  href="/"
-                  onClick={(e) => {
-                    handleLogoClick(e);
-                    setMobileDrawerOpen(false);
-                  }}
+                  href={currentLocale === "en" ? "/" : `/${currentLocale}`}
+                  onClick={() => setMobileDrawerOpen(false)}
+                  className="brand inline-flex items-center"
                 >
                   <Image
                     src="/logos/logo_3.png"
                     alt="mujeresdearena"
-                    width={120}
-                    height={38}
-                    className="max-h-[38px] w-auto object-contain"
+                    width={130}
+                    height={40}
+                    className="brightness-0 invert"
                   />
                 </Link>
                 <button
                   type="button"
                   onClick={() => setMobileDrawerOpen(false)}
-                  className="text-[#FAF4EA] hover:text-[#D4A85F] p-2 text-xl"
+                  className="p-2 text-white/70 hover:text-white"
                   aria-label="Close menu"
                 >
-                  ✕
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 6L6 18M6 6l12 12" />
+                  </svg>
                 </button>
               </div>
 
-              {/* Drawer Links */}
-              <nav className="flex flex-col gap-4 py-8">
+              {/* Mobile Nav Links */}
+              <nav className="flex flex-col gap-4 pt-6" role="navigation" aria-label="Mobile">
                 {navLinks.map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}
                     onClick={(e) => handleNavClick(e, link.href)}
                     className={`font-inter text-sm font-medium tracking-[0.18em] uppercase transition-colors py-1.5 ${
-                      isLinkActive(link.href)
+                      isLinkActive(link.raw)
                         ? "text-[#D4A85F] font-semibold"
                         : "text-[#FAF4EA] hover:text-[#D4A85F]"
                     }`}
@@ -255,11 +351,11 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
             {/* Drawer Bottom Actions */}
             <div className="pt-6 border-t border-white/10 flex flex-col gap-4">
               <Link
-                href="/reserve-spot"
+                href={getLocalizedHref("/reserve-spot")}
                 onClick={() => setMobileDrawerOpen(false)}
                 className="header-btn-book w-full text-center"
               >
-                BOOK
+                {labels.book}
               </Link>
 
               {/* Mobile Language Selector Grid */}
@@ -267,10 +363,7 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
                 {languages.map((lang) => (
                   <button
                     key={lang.code}
-                    onClick={() => {
-                      onLocaleChange(lang.code);
-                      setMobileDrawerOpen(false);
-                    }}
+                    onClick={() => handleLanguageSwitch(lang.code)}
                     className={`px-3 py-2 rounded-lg text-xs font-inter text-left transition-colors border ${
                       currentLocale === lang.code
                         ? "bg-[#D4A85F]/20 border-[#D4A85F] text-[#D4A85F] font-semibold"
