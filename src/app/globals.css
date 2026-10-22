@@ -1,1 +1,103 @@
 @import "tailwindcss";
+
+@theme {
+  --color-sand: #F4EFEA;
+  --color-sand-light: #FAF7F2;
+  --color-sand-dark: #E8E0D5;
+  --color-terracotta: #C46849;
+  --color-terracotta-dark: #A85033;
+  --color-charcoal: #1D252C;
+  --color-charcoal-light: #2C353D;
+  --color-desert-dark: #13140E;
+  --color-gold: #C5A059;
+  --color-gold-light: #DFCA9B;
+
+  --font-cinzel: var(--font-cinzel), serif;
+  --font-marcellus: var(--font-marcellus), serif;
+  --font-body: var(--font-jakarta), sans-serif;
+  --font-arabic: var(--font-amiri), serif;
+}
+
+:root {
+  --background: #FAF7F2;
+  --foreground: #1D252C;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom Typography Utility Classes */
+.font-cinzel {
+  font-family: var(--font-cinzel), serif;
+}
+
+.font-marcellus {
+  font-family: var(--font-marcellus), serif;
+}
+
+.font-body {
+  font-family: var(--font-body), sans-serif;
+}
+
+.font-arabic {
+  font-family: var(--font-arabic), serif;
+}
+
+/* Hero Bottom Desert Shape Divider */
+.hero-dune-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: clamp(80px, 12vw, 190px);
+  background-image: url('/images/shape-divider-desert.png');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: 100% 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Luxury Glassmorphism */
+.glass-header {
+  background: rgba(19, 20, 14, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.18);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(220, 210, 198, 0.6);
+}
+
+/* Stadium Pill Badge */
+.stadium-pill {
+  border-radius: 9999px;
+  border: 1px solid rgba(197, 160, 89, 0.45);
+  background: rgba(197, 160, 89, 0.08);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF7F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #C46849;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A85033;
+}
