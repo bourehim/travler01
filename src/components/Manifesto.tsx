@@ -10,16 +10,23 @@ interface ManifestoProps {
 
 export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
   const [isManifestoVisible, setIsManifestoVisible] = useState(false);
+  const [isEssentialsVisible, setIsEssentialsVisible] = useState(false);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
   const manifestoRef = useRef<HTMLDivElement | null>(null);
+  const essentialsRef = useRef<HTMLDivElement | null>(null);
   const aboutRef = useRef<HTMLDivElement | null>(null);
+
+  const [counts, setCounts] = useState<number[]>([0, 0, 0, 0]);
+  const hasAnimatedRef = useRef(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     if (!("IntersectionObserver" in window)) {
       setIsManifestoVisible(true);
+      setIsEssentialsVisible(true);
       setIsAboutVisible(true);
+      setCounts([7, 12, 6, 1]);
       return;
     }
 
@@ -30,16 +37,20 @@ export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
             if (entry.target === manifestoRef.current) {
               setIsManifestoVisible(true);
             }
+            if (entry.target === essentialsRef.current) {
+              setIsEssentialsVisible(true);
+            }
             if (entry.target === aboutRef.current) {
               setIsAboutVisible(true);
             }
           }
         });
       },
-      { threshold: 0.05, rootMargin: "80px 0px -20px 0px" }
+      { threshold: 0.1, rootMargin: "60px 0px -20px 0px" }
     );
 
     if (manifestoRef.current) observer.observe(manifestoRef.current);
+    if (essentialsRef.current) observer.observe(essentialsRef.current);
     if (aboutRef.current) observer.observe(aboutRef.current);
 
     return () => {
@@ -47,11 +58,30 @@ export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
     };
   }, []);
 
+  useEffect(() => {
+    if (isEssentialsVisible && !hasAnimatedRef.current) {
+      hasAnimatedRef.current = true;
+      const targets = [7, 12, 6, 1];
+      const duration = 1500;
+      const start = performance.now();
+
+      const tick = (now: number) => {
+        const p = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - p, 3);
+        setCounts(targets.map((t) => Math.round(t * eased)));
+        if (p < 1) {
+          requestAnimationFrame(tick);
+        }
+      };
+      requestAnimationFrame(tick);
+    }
+  }, [isEssentialsVisible]);
+
   const essentials = [
-    { value: "7", label: "7 days of travel" },
-    { value: "12", label: "Women" },
-    { value: "6", label: "Nights" },
-    { value: "1", label: "Desert" },
+    { target: 7, label: "7 days of travel" },
+    { target: 12, label: "Women" },
+    { target: 6, label: "Nights" },
+    { target: 1, label: "Desert" },
   ];
 
   return (
@@ -112,24 +142,40 @@ export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
         </div>
       </div>
 
-      {/* 2. Essentials 4-Card Counter Grid */}
-      <section className="pb-24 px-6 max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-          {essentials.map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-[#FAF4EA] border border-[#D4A85F]/35 rounded-2xl p-6 sm:p-8 text-center shadow-sm flex flex-col items-center justify-center hover:shadow-md transition-shadow"
-            >
-              <span className="font-playfair text-4xl sm:text-6xl text-[#1B1108] font-normal leading-none mb-3">
-                {item.value}
-              </span>
-              <span className="font-inter text-xs sm:text-sm font-medium tracking-[0.12em] uppercase text-[#763417]">
-                {item.label}
-              </span>
+      {/* 2. Essentials Key Figures Counter Grid */}
+      <div
+        ref={essentialsRef}
+        className="wp-block-group alignfull mda-essentials-wrap essentials"
+      >
+        <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+          <div className="wp-block-group mda-essentials-inner">
+            <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+              <div className="wp-block-group essentials__grid">
+                <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+                  {essentials.map((item, idx) => (
+                    <div
+                      key={idx}
+                      className={`wp-block-group essential reveal ${
+                        isEssentialsVisible ? "is-visible" : ""
+                      }`}
+                      style={{ "--i": idx } as React.CSSProperties}
+                    >
+                      <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+                        <p className="essential__label wp-block-paragraph">
+                          {item.label}
+                        </p>
+                        <p className="essential__value wp-block-paragraph" data-count={item.target}>
+                          {counts[idx]}
+                        </p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
         </div>
-      </section>
+      </div>
 
       {/* 3. About Section (#about) */}
       <div

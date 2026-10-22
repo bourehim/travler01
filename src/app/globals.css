@@ -586,6 +586,86 @@ body {
 }
 
 /* ==========================================================================
+   SECTION 3B: ESSENTIALS KEY FIGURES COUNTERS
+   ========================================================================== */
+.mda-essentials-wrap {
+  background-color: #FAF4EA !important;
+  padding: 0 1.5rem clamp(5rem, 8vw, 7.5rem) !important;
+  box-sizing: border-box !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+.mda-essentials-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.essentials__grid {
+  display: grid !important;
+  grid-template-columns: repeat(4, 1fr) !important;
+  border-top: 1px solid rgba(217, 184, 136, 0.45) !important;
+  border-bottom: 1px solid rgba(217, 184, 136, 0.45) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.essentials__grid > .wp-block-group__inner-container {
+  display: contents !important;
+}
+.essential {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0.65rem !important;
+  padding: 2.8rem 1rem !important;
+  text-align: center !important;
+  position: relative !important;
+}
+.essential + .essential::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 22%;
+  bottom: 22%;
+  width: 1px;
+  background: rgba(217, 184, 136, 0.45);
+}
+.essential__label {
+  order: 2 !important;
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 0.78rem !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: #8B4513 !important;
+  font-weight: 600 !important;
+  margin: 0 !important;
+}
+.essential__value {
+  order: 1 !important;
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-size: clamp(2.8rem, 1.8rem + 2.5vw, 4.4rem) !important;
+  line-height: 1 !important;
+  color: #1B1108 !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 768px) {
+  .essentials__grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+  .essential:nth-child(2)::before {
+    display: block;
+  }
+  .essential:nth-child(3)::before {
+    display: none;
+  }
+  .essential:nth-child(4)::before {
+    display: block;
+  }
+  .essential:nth-child(n + 3) {
+    border-top: 1px solid rgba(217, 184, 136, 0.45);
+  }
+}
+
+/* ==========================================================================
    SECTION 4: WHAT IS MUJERES DE ARENA? (EDITORIAL STORY & ARCH)
    ========================================================================== */
 .mda-about-wrap {
