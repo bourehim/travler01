@@ -13,6 +13,7 @@ import HostsSection from "@/components/HostsSection";
 import ReserveSection from "@/components/ReserveSection";
 import FAQSection from "@/components/FAQSection";
 import PracticalSection from "@/components/PracticalSection";
+import CampfireCTA from "@/components/CampfireCTA";
 import Footer from "@/components/Footer";
 import { Locale } from "@/data/translations";
 
@@ -40,6 +41,7 @@ export default function Home() {
         <ReserveSection currentLocale={currentLocale} />
         <FAQSection currentLocale={currentLocale} />
         <PracticalSection currentLocale={currentLocale} />
+        <CampfireCTA currentLocale={currentLocale} />
       </main>
 
       {/* Editorial Footer */}
