@@ -1,143 +1,184 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
-import { MessageCircle, Mail, MapPin, Heart } from "lucide-react";
-import { Locale, translations } from "@/data/translations";
+import { Locale } from "@/data/translations";
 
 interface FooterProps {
-  currentLocale: Locale;
+  currentLocale?: Locale;
 }
 
-export default function Footer({ currentLocale }: FooterProps) {
-  const t = translations[currentLocale];
-  const isRTL = t.dir === "rtl";
+export default function Footer({ currentLocale = "en" }: FooterProps) {
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <footer className="relative bg-[#13140E] text-white pt-20 pb-12 overflow-hidden border-t border-[#C5A059]/20" dir={isRTL ? "rtl" : "ltr"}>
-      {/* Mountain Silhouette Background */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <Image
-          src="/images/moroccan-mountain-footer-bg.png"
-          alt="Atlas mountain silhouette"
-          fill
-          className="object-cover object-bottom"
-        />
-      </div>
+    <footer id="colophon" className="site-footer" role="contentinfo">
+      <div className="site-footer-wrap">
+        {/* Middle Footer: 4-Column Editorial Layout */}
+        <div
+          className="site-middle-footer-wrap site-footer-row-container site-footer-focus-item site-footer-row-layout-standard site-footer-row-tablet-layout-default site-footer-row-mobile-layout-default"
+          data-section="kadence_customizer_footer_middle"
+        >
+          <div className="site-footer-row-container-inner">
+            <div className="site-container">
+              <div className="site-middle-footer-inner-wrap site-footer-row site-footer-row-columns-4 site-footer-row-column-layout-equal site-footer-row-tablet-column-layout-2-col site-footer-row-mobile-column-layout-row ft-ro-dir-row ft-ro-collapse-normal ft-ro-t-dir-default ft-ro-m-dir-default ft-ro-lstyle-plain">
+                {/* Column 1: Brand */}
+                <div className="site-footer-middle-section-1 site-footer-section footer-section-inner-items-1">
+                  <div className="footer-widget-area widget-area site-footer-focus-item footer-widget1">
+                    <div className="footer-widget-area-inner site-info-inner">
+                      <section id="block-8" className="widget widget_block widget_custom_html">
+                        <div className="footer__brand-col">
+                          <a href="/" className="footer__brand">
+                            MUJERES <em>de arena</em>
+                          </a>
+                        </div>
+                      </section>
+                      <section id="block-9" className="widget widget_block widget_text">
+                        <p className="wp-block-paragraph">
+                          A transformative journey through Morocco. 7 days among
+                          vibrant cities, mountains, ancestral kasbahs and the
+                          immensity of the Sahara. Reserved for 12 women.
+                        </p>
+                      </section>
+                    </div>
+                  </div>
+                </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 pb-16 border-b border-white/10">
-          {/* Brand Info */}
-          <div className="md:col-span-5">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full border border-[#C5A059]/40 overflow-hidden bg-white/10 p-1 flex items-center justify-center">
-                <Image
-                  src="/logos/logo_1.png"
-                  alt="Mujeres de Arena"
-                  width={40}
-                  height={40}
-                  className="object-contain"
-                />
+                {/* Column 2: The Journey */}
+                <div className="site-footer-middle-section-2 site-footer-section footer-section-inner-items-1">
+                  <div className="footer-widget-area widget-area site-footer-focus-item footer-widget3">
+                    <div className="footer-widget-area-inner site-info-inner">
+                      <section id="nav_menu-2" className="widget widget_nav_menu">
+                        <h2 className="widget-title">The Journey</h2>
+                        <div className="menu-resources-container">
+                          <ul id="menu-resources" className="menu">
+                            <li className="menu-item">
+                              <a href="#journey">The 7 Stages</a>
+                            </li>
+                            <li className="menu-item">
+                              <a href="#sahara">The Sahara</a>
+                            </li>
+                            <li className="menu-item">
+                              <a href="#alojamientos">Where we stay</a>
+                            </li>
+                            <li className="menu-item">
+                              <a href="#pricing">Inclusions &amp; Exclusions</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Column 3: Information */}
+                <div className="site-footer-middle-section-3 site-footer-section footer-section-inner-items-1">
+                  <div className="footer-widget-area widget-area site-footer-focus-item footer-widget4">
+                    <div className="footer-widget-area-inner site-info-inner">
+                      <section id="nav_menu-3" className="widget widget_nav_menu">
+                        <h2 className="widget-title">Information</h2>
+                        <div className="menu-trip-types-container">
+                          <ul id="menu-trip-types" className="menu">
+                            <li className="menu-item">
+                              <a href="#hosts">About Vanessa &amp; Ana</a>
+                            </li>
+                            <li className="menu-item">
+                              <a href="#pricing">Book my spot</a>
+                            </li>
+                            <li className="menu-item">
+                              <a
+                                href="https://wa.me/34600000000"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                Contact us
+                              </a>
+                            </li>
+                            <li className="menu-item">
+                              <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                href="https://instagram.com/"
+                              >
+                                Follow on Instagram
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Column 4: Support */}
+                <div className="site-footer-middle-section-4 site-footer-section footer-section-inner-items-1">
+                  <div className="footer-widget-area widget-area site-footer-focus-item footer-widget2">
+                    <div className="footer-widget-area-inner site-info-inner">
+                      <section id="nav_menu-1" className="widget widget_nav_menu">
+                        <h2 className="widget-title">Support</h2>
+                        <div className="menu-support-container">
+                          <ul id="menu-support" className="menu">
+                            <li className="menu-item">
+                              <a href="#faq">Frequently Asked Questions (FAQ)</a>
+                            </li>
+                            <li className="menu-item">
+                              <a href="#practico">Before you go</a>
+                            </li>
+                            <li className="menu-item">
+                              <a href="/terms/">Terms of Service</a>
+                            </li>
+                            <li className="menu-item">
+                              <a href="/privacy/">Privacy Policy</a>
+                            </li>
+                          </ul>
+                        </div>
+                      </section>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <span className="font-cinzel tracking-[0.2em] text-white text-lg font-bold">
-                MUJERES DE ARENA
-              </span>
-            </div>
-            <p className="font-marcellus text-sm sm:text-base text-[#FAF7F2]/75 leading-relaxed font-light max-w-sm mb-6">
-              {t.footer.tagline}
-            </p>
-            <div className="flex items-center gap-2 text-xs text-[#C5A059] tracking-wider uppercase">
-              <MapPin className="w-4 h-4 text-[#C46849]" />
-              <span>Marrakech · Erg Chebbi · Alto Atlas</span>
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="md:col-span-3">
-            <h4 className="font-cinzel text-sm font-semibold tracking-[0.15em] text-[#C5A059] uppercase mb-6">
-              {t.footer.quickLinks}
-            </h4>
-            <ul className="space-y-3 text-sm text-[#FAF7F2]/80 font-light">
-              <li>
-                <a href="#hero" className="hover:text-[#C5A059] transition-colors">
-                  {t.nav.home}
-                </a>
-              </li>
-              <li>
-                <a href="#stages" className="hover:text-[#C5A059] transition-colors">
-                  {t.nav.itinerary}
-                </a>
-              </li>
-              <li>
-                <a href="#stays" className="hover:text-[#C5A059] transition-colors">
-                  {currentLocale === "ar" ? "أماكن الإقامة" : "Alojamientos"}
-                </a>
-              </li>
-              <li>
-                <a href="#hosts" className="hover:text-[#C5A059] transition-colors">
-                  {t.nav.about}
-                </a>
-              </li>
-              <li>
-                <a href="#reserve" className="hover:text-[#C5A059] transition-colors">
-                  {t.nav.reserve}
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Direct Concierge Contact */}
-          <div className="md:col-span-4">
-            <h4 className="font-cinzel text-sm font-semibold tracking-[0.15em] text-[#C5A059] uppercase mb-6">
-              {t.footer.contactTitle}
-            </h4>
-            <div className="space-y-4">
-              <a
-                href="https://wa.me/34600000000"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all group"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#25D366]/20 flex items-center justify-center text-[#25D366] shrink-0">
-                  <MessageCircle className="w-5 h-5" />
-                </div>
-                <div className="text-left">
-                  <span className="text-[11px] text-[#C5A059] uppercase tracking-wider block font-medium">
-                    WhatsApp Directo
-                  </span>
-                  <span className="text-sm font-medium group-hover:text-[#25D366] transition-colors">
-                    {t.footer.whatsapp}
-                  </span>
-                </div>
-              </a>
-
-              <a
-                href="mailto:contacto@mujeresdearena.com"
-                className="flex items-center gap-3 p-3.5 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all group"
-              >
-                <div className="w-10 h-10 rounded-full bg-[#C46849]/20 flex items-center justify-center text-[#C46849] shrink-0">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <div className="text-left">
-                  <span className="text-[11px] text-[#C5A059] uppercase tracking-wider block font-medium">
-                    Email
-                  </span>
-                  <span className="text-sm font-medium group-hover:text-[#C46849] transition-colors">
-                    {t.footer.email}
-                  </span>
-                </div>
-              </a>
             </div>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#FAF7F2]/60 gap-4">
-          <p>{t.footer.copyright}</p>
-          <div className="flex items-center gap-1.5">
-            <span>Hecho con</span>
-            <Heart className="w-3.5 h-3.5 text-[#C46849] fill-current" />
-            <span>para mujeres conscientes</span>
+        {/* Bottom Footer: Copyright & Back to Top */}
+        <div
+          className="site-bottom-footer-wrap site-footer-row-container site-footer-focus-item site-footer-row-layout-standard site-footer-row-tablet-layout-default site-footer-row-mobile-layout-default"
+          data-section="kadence_customizer_footer_bottom"
+        >
+          <div className="site-footer-row-container-inner">
+            <div className="site-container">
+              <div className="site-bottom-footer-inner-wrap site-footer-row site-footer-row-columns-1 site-footer-row-column-layout-row site-footer-row-tablet-column-layout-default site-footer-row-mobile-column-layout-row ft-ro-dir-row ft-ro-collapse-normal ft-ro-t-dir-default ft-ro-m-dir-default ft-ro-lstyle-plain">
+                <div className="site-footer-bottom-section-1 site-footer-section footer-section-inner-items-1">
+                  <div
+                    className="footer-widget-area site-info site-footer-focus-item content-align-default content-tablet-align-default content-mobile-align-default content-valign-default content-tablet-valign-default content-mobile-valign-default"
+                    data-section="kadence_customizer_footer_html"
+                  >
+                    <div className="footer-widget-area-inner site-info-inner">
+                      <div className="footer-html inner-link-style-normal">
+                        <div className="footer-html-inner">
+                          <div className="footer__bottom">
+                            <span>
+                              © 2026 Mujeres de Arena · First edition (23 — 29
+                              Sep 2026). All rights reserved.
+                            </span>
+                            <a
+                              href="#masthead"
+                              className="footer__top-link"
+                              onClick={scrollToTop}
+                            >
+                              Back to top ↑
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

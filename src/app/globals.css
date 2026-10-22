@@ -2645,6 +2645,211 @@ button.aqua-nav-btn svg {
   transform: translateX(4px) !important;
 }
 
+/* ==========================================================================
+   MUJERES DE ARENA — EDITORIAL FOOTER (#colophon)
+   ========================================================================== */
+#colophon.site-footer {
+  display: block !important;
+  background-color: #231912 !important;
+  background-image: url('/images/moroccan-mountain-footer-bg.png') !important;
+  background-position: top center !important;
+  background-size: 100% auto !important;
+  background-repeat: no-repeat !important;
+  position: relative !important;
+  width: 100% !important;
+  margin: 0 !important;
+  clear: both !important;
+  box-sizing: border-box !important;
+  color: #FAF4EA !important;
+  padding-top: clamp(180px, 16.5vw, 350px) !important;
+  border-top: none !important;
+}
+
+@media (max-width: 900px) {
+  #colophon.site-footer {
+    background-size: auto 380px !important;
+    background-position: center top !important;
+    padding-top: 190px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  #colophon.site-footer {
+    background-size: auto 280px !important;
+    background-position: center top !important;
+    padding-top: 150px !important;
+  }
+}
+
+#colophon .site-top-footer-wrap,
+#colophon .site-middle-footer-wrap,
+#colophon .site-bottom-footer-wrap,
+#colophon .site-footer-row-container-inner {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+#colophon .site-container {
+  max-width: 1440px !important;
+  margin: 0 auto !important;
+  width: 100% !important;
+  padding-left: clamp(1.25rem, 3vw, 2.5rem) !important;
+  padding-right: clamp(1.25rem, 3vw, 2.5rem) !important;
+}
+
+#colophon .site-middle-footer-inner-wrap {
+  padding-top: 1rem !important;
+  padding-bottom: 3.5rem !important;
+  border-bottom: 1px solid rgba(212, 168, 95, 0.28) !important;
+}
+
+#colophon .site-middle-footer-inner-wrap.site-footer-row-columns-4 {
+  display: grid !important;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr !important;
+  gap: 3.5rem !important;
+}
+
+@media (max-width: 900px) {
+  #colophon .site-middle-footer-inner-wrap.site-footer-row-columns-4 {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 2.5rem !important;
+  }
+}
+
+@media (max-width: 600px) {
+  #colophon .site-middle-footer-inner-wrap.site-footer-row-columns-4 {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+#colophon .site-bottom-footer-inner-wrap {
+  padding-top: 1.75rem !important;
+  padding-bottom: clamp(2rem, 3vw, 3rem) !important;
+}
+
+#colophon .footer-widget-area .widget {
+  margin-bottom: 0 !important;
+}
+
+#colophon .footer__brand {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-size: 1.65rem !important;
+  letter-spacing: 0.16em !important;
+  color: #FAF4EA !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+}
+
+#colophon .footer__brand em {
+  color: #D4A85F !important;
+  letter-spacing: 0.06em !important;
+  font-style: italic !important;
+  margin-left: 0.25rem !important;
+}
+
+#colophon .footer__tagline,
+#colophon .footer-widget1 p,
+#colophon .footer-widget1 .wp-block-paragraph {
+  margin-top: 1.25rem !important;
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 0.95rem !important;
+  line-height: 1.7 !important;
+  color: rgba(250, 244, 234, 0.75) !important;
+  max-width: 34ch !important;
+}
+
+#colophon .widget-title,
+#colophon .widget h2,
+#colophon .widget h3,
+#colophon .widget h4,
+#colophon .footer__col-title {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: #D4A85F !important;
+  margin: 0 0 1.25rem 0 !important;
+}
+
+#colophon .widget ul,
+#colophon .widget_nav_menu ul,
+#colophon .footer-widget-area ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: grid !important;
+  gap: 0.8rem !important;
+}
+
+#colophon .widget ul li,
+#colophon .widget_nav_menu ul li,
+#colophon .footer-widget-area ul li {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none !important;
+  list-style: none !important;
+}
+
+#colophon .widget ul li a,
+#colophon .widget_nav_menu ul li a,
+#colophon .footer-widget-area ul li a {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 0.92rem !important;
+  color: rgba(250, 244, 234, 0.8) !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease-out, padding-left 0.2s ease-out !important;
+  display: inline-block !important;
+}
+
+#colophon .widget ul li a:hover,
+#colophon .widget_nav_menu ul li a:hover,
+#colophon .footer-widget-area ul li a:hover {
+  color: #D4A85F !important;
+  padding-left: 4px !important;
+}
+
+#colophon .footer__bottom,
+#colophon .footer-html-inner {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 1rem !important;
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  color: rgba(250, 244, 234, 0.65) !important;
+  width: 100% !important;
+}
+
+#colophon .footer__top-link {
+  color: #D4A85F !important;
+  text-decoration: none !important;
+  transition: color 0.2s ease-out !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  cursor: pointer !important;
+}
+
+#colophon .footer__top-link:hover {
+  text-decoration: underline !important;
+  color: #FAF4EA !important;
+}
+
+@media (max-width: 600px) {
+  #colophon .footer__bottom,
+  #colophon .footer-html-inner {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+}
+
+
 
 
 
