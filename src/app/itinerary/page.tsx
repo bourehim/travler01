@@ -6,6 +6,7 @@ import ItineraryHero from "@/components/itinerary/ItineraryHero";
 import ItineraryStages from "@/components/itinerary/ItineraryStages";
 import ItineraryStays from "@/components/itinerary/ItineraryStays";
 import ItineraryInclusions from "@/components/itinerary/ItineraryInclusions";
+import ItineraryCampfireCTA from "@/components/itinerary/ItineraryCampfireCTA";
 import Footer from "@/components/Footer";
 import { Locale } from "@/data/translations";
 
@@ -26,6 +27,7 @@ export default function ItineraryPage() {
         <ItineraryStages currentLocale={currentLocale} />
         <ItineraryStays currentLocale={currentLocale} />
         <ItineraryInclusions currentLocale={currentLocale} />
+        <ItineraryCampfireCTA currentLocale={currentLocale} />
       </main>
 
       {/* Editorial Footer */}
