@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Manifesto from "@/components/Manifesto";
 import StagesSection from "@/components/StagesSection";
+import SaharaSection from "@/components/SaharaSection";
 import MagicSection from "@/components/MagicSection";
 import StaysSection from "@/components/StaysSection";
 import HostsSection from "@/components/HostsSection";
@@ -29,6 +30,7 @@ export default function Home() {
         <Hero currentLocale={currentLocale} />
         <Manifesto currentLocale={currentLocale} />
         <StagesSection currentLocale={currentLocale} />
+        <SaharaSection currentLocale={currentLocale} />
         <MagicSection currentLocale={currentLocale} />
         <StaysSection currentLocale={currentLocale} />
         <HostsSection currentLocale={currentLocale} />
