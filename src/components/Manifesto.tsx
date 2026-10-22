@@ -10,13 +10,16 @@ interface ManifestoProps {
 
 export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
   const [isManifestoVisible, setIsManifestoVisible] = useState(false);
+  const [isAboutVisible, setIsAboutVisible] = useState(false);
   const manifestoRef = useRef<HTMLDivElement | null>(null);
+  const aboutRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
 
     if (!("IntersectionObserver" in window)) {
       setIsManifestoVisible(true);
+      setIsAboutVisible(true);
       return;
     }
 
@@ -24,17 +27,20 @@ export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsManifestoVisible(true);
-            observer.disconnect();
+            if (entry.target === manifestoRef.current) {
+              setIsManifestoVisible(true);
+            }
+            if (entry.target === aboutRef.current) {
+              setIsAboutVisible(true);
+            }
           }
         });
       },
       { threshold: 0.05, rootMargin: "80px 0px -20px 0px" }
     );
 
-    if (manifestoRef.current) {
-      observer.observe(manifestoRef.current);
-    }
+    if (manifestoRef.current) observer.observe(manifestoRef.current);
+    if (aboutRef.current) observer.observe(aboutRef.current);
 
     return () => {
       observer.disconnect();
@@ -126,63 +132,111 @@ export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
       </section>
 
       {/* 3. About Section (#about) */}
-      <section id="about" className="py-20 sm:py-28 px-6 border-t border-[#E8E0D5]">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Text */}
-          <div className="lg:col-span-7">
-            <p className="font-inter text-xs font-semibold tracking-[0.22em] text-[#D4A85F] uppercase mb-4">
-              What is Mujeres de Arena?
-            </p>
+      <div
+        id="about"
+        ref={aboutRef}
+        className={`wp-block-group alignfull mda-about-wrap about ${
+          isAboutVisible ? "is-visible" : ""
+        }`}
+      >
+        <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+          <div className="wp-block-group mda-about-inner">
+            <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+              <div className="wp-block-group about__grid">
+                {/* Left Column Text */}
+                <div className="wp-block-group about__text">
+                    <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+                      <p
+                        className={`eyebrow reveal wp-block-paragraph ${
+                          isAboutVisible ? "is-visible" : ""
+                        }`}
+                        style={{ "--i": 0 } as React.CSSProperties}
+                      >
+                        What is Mujeres de Arena?
+                      </p>
 
-            <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl text-[#1B1108] leading-tight font-normal mb-8">
-              It isn’t an organised trip.
-              <br />
-              It is a <em className="italic text-[#8B4513]">journey</em> created from the heart.
-            </h2>
+                      <h2
+                        className={`wp-block-heading about__title reveal ${
+                          isAboutVisible ? "is-visible" : ""
+                        }`}
+                        style={{ "--i": 1 } as React.CSSProperties}
+                      >
+                        It isn’t an organised trip.<br />It is a <em>journey</em> created from the heart.
+                      </h2>
 
-            <div className="space-y-6 font-inter text-base sm:text-lg text-[#1B1108]/85 font-light leading-relaxed mb-8">
-              <p>
-                Mujeres de Arena was born for women who feel the call to step outside the familiar,
-                to make room for adventure and to allow themselves to live a real experience.
-                No impossible schedules, no scripted minutes.
-              </p>
-              <p>
-                Seven days travelling through Morocco across vibrant cities, mountains, ancestral kasbahs,
-                valleys full of history and the immensity of the Sahara. A space to discover new landscapes,
-                to share the road with other women and to feel again the thrill of experiencing something for the first time.
-              </p>
+                      <p
+                        className={`reveal wp-block-paragraph ${
+                          isAboutVisible ? "is-visible" : ""
+                        }`}
+                        style={{ "--i": 2 } as React.CSSProperties}
+                      >
+                        Mujeres de Arena was born for women who feel the call to step outside the familiar, to make room for adventure and to allow themselves to live a real experience. No impossible schedules, no scripted minutes.
+                      </p>
+
+                      <p
+                        className={`reveal wp-block-paragraph ${
+                          isAboutVisible ? "is-visible" : ""
+                        }`}
+                        style={{ "--i": 3 } as React.CSSProperties}
+                      >
+                        Seven days travelling through Morocco across vibrant cities, mountains, ancestral kasbahs, valleys full of history and the immensity of the Sahara. A space to discover new landscapes, to share the road with other women and to feel again the thrill of experiencing something for the first time.
+                      </p>
+
+                      <blockquote
+                        className={`wp-block-quote about__quote reveal is-layout-flow wp-block-quote-is-layout-flow ${
+                          isAboutVisible ? "is-visible" : ""
+                        }`}
+                        style={{ "--i": 4 } as React.CSSProperties}
+                      >
+                        <p>
+                          Because sometimes transformation doesn’t happen in a room.<br />It happens on the road. In an unexpected conversation.<br />In a different sunrise.
+                        </p>
+                      </blockquote>
+
+                      <p
+                        className={`about__closing reveal wp-block-paragraph ${
+                          isAboutVisible ? "is-visible" : ""
+                        }`}
+                        style={{ "--i": 5 } as React.CSSProperties}
+                      >
+                        And also inside you.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Right Column Media with Arch Window */}
+                  <div
+                    className={`wp-block-group about__media reveal-scale ${
+                      isAboutVisible ? "is-visible" : ""
+                    }`}
+                  >
+                    <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+                      <div className="wp-block-group arch">
+                        <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+                          <figure className="wp-block-image size-full">
+                            <Image
+                              src="/images/marrakech-woman.jpg"
+                              alt="Woman in flowing dress contemplating a valley from a mountain"
+                              width={440}
+                              height={550}
+                              priority
+                              className="object-cover"
+                            />
+                          </figure>
+                        </div>
+                      </div>
+
+                      <p className="about__caption wp-block-paragraph">
+                        <span className="about__caption-dot" aria-hidden="true" />
+                        The journey begins when you say yes
+                      </p>
+                    </div>
+                  </div>
+              </div>
             </div>
-
-            <blockquote className="border-l-2 border-[#D4A85F] pl-6 py-2 my-8 font-playfair italic text-lg sm:text-xl text-[#3A1F12] leading-relaxed">
-              Because sometimes transformation doesn’t happen in a room.
-              <br />
-              It happens on the road. In an unexpected conversation.
-              <br />
-              In a different sunrise.
-            </blockquote>
-
-            <p className="font-playfair italic text-base sm:text-lg text-[#763417] font-medium">
-              And also inside you.
-            </p>
-          </div>
-
-          {/* Right Media with Moroccan Arch Cutout Window */}
-          <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="relative w-full max-w-sm aspect-[4/5] rounded-t-[220px] rounded-b-2xl overflow-hidden border border-[#D4A85F]/40 shadow-2xl bg-[#FAF4EA]">
-              <Image
-                src="/images/marrakech-woman.jpg"
-                alt="Woman in flowing dress contemplating a valley from a mountain"
-                fill
-                className="object-cover"
-              />
-            </div>
-            <p className="mt-4 text-xs font-inter tracking-widest text-[#763417] uppercase flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#D4A85F]" />
-              The journey begins when you say yes
-            </p>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   );
 }

@@ -586,6 +586,163 @@ body {
 }
 
 /* ==========================================================================
+   SECTION 4: WHAT IS MUJERES DE ARENA? (EDITORIAL STORY & ARCH)
+   ========================================================================== */
+.mda-about-wrap {
+  background-color: #F4E9D8 !important;
+  padding: clamp(5.5rem, 8.5vw, 8rem) 1.5rem !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.mda-about-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.about__grid {
+  display: grid !important;
+  grid-template-columns: 1.15fr 0.85fr !important;
+  gap: clamp(2.5rem, 5vw, 5.5rem) !important;
+  align-items: center !important;
+}
+
+.about__text .eyebrow {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: #8B4513 !important;
+  font-weight: 600 !important;
+  margin-bottom: 1.1rem !important;
+  margin-top: 0 !important;
+}
+
+.about__title {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-size: clamp(2rem, 1.2rem + 2.2vw, 3.1rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.02em !important;
+  color: #1B1108 !important;
+  margin: 0 0 1.8rem 0 !important;
+}
+
+.about__title em {
+  color: #8B4513 !important;
+  font-style: italic !important;
+}
+
+.about__text p {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 1.05rem !important;
+  line-height: 1.8 !important;
+  color: #3A1F12 !important;
+  margin: 0 0 1.25rem 0 !important;
+  max-width: 58ch !important;
+}
+
+.about__quote {
+  margin: 2.2rem 0 !important;
+  padding: 0.4rem 0 0.4rem 1.8rem !important;
+  border-left: 2px solid #D4A85F !important;
+  border-right: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+.about__quote p {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-style: italic !important;
+  font-size: clamp(1.15rem, 0.95rem + 0.5vw, 1.35rem) !important;
+  line-height: 1.6 !important;
+  color: #1B1108 !important;
+  margin: 0 !important;
+}
+
+.about__closing {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-style: italic !important;
+  font-size: 1.35rem !important;
+  color: #8B4513 !important;
+  margin-top: 1.5rem !important;
+  font-weight: 500 !important;
+}
+
+/* Arch Photo Frame */
+.about__media {
+  position: relative !important;
+  margin: 0 auto !important;
+  max-width: 440px !important;
+  width: 100% !important;
+}
+
+.about__media .arch {
+  position: relative !important;
+  border-radius: 260px 260px 18px 18px !important;
+  overflow: hidden !important;
+  box-shadow: 0 24px 50px -12px rgba(27, 17, 8, 0.16) !important;
+  border: 1px solid rgba(212, 168, 95, 0.35) !important;
+  background-color: #FAF4EA !important;
+}
+
+.about__media .arch::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(212, 168, 95, 0.45);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.about__media .arch img {
+  width: 100% !important;
+  aspect-ratio: 4 / 5 !important;
+  object-fit: cover !important;
+  display: block !important;
+  transition: transform 0.85s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.about__media .arch:hover img {
+  transform: scale(1.05) !important;
+}
+
+.about__caption {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.65rem !important;
+  margin-top: 1.25rem !important;
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 0.76rem !important;
+  letter-spacing: 0.18em !important;
+  text-transform: uppercase !important;
+  color: #8B4513 !important;
+  font-weight: 600 !important;
+}
+
+.about__caption-dot {
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 50% !important;
+  background-color: #D4A85F !important;
+  flex-shrink: 0 !important;
+  display: inline-block !important;
+}
+
+@media (max-width: 900px) {
+  .about__grid {
+    grid-template-columns: 1fr !important;
+    gap: 3.5rem !important;
+  }
+}
+
+/* ==========================================================================
    SECTION 5: JOURNEY SCROLLYTELLING (7 STAGES)
    ========================================================================== */
 .mda-journey-wrap {
