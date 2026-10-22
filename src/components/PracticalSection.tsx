@@ -1,71 +1,109 @@
 "use client";
 
-import React from "react";
-import { FileText, Coins, Luggage, Info } from "lucide-react";
-import { Locale, translations } from "@/data/translations";
+import React, { useEffect, useRef } from "react";
+import { Locale } from "@/data/translations";
 
 interface PracticalSectionProps {
-  currentLocale: Locale;
+  currentLocale?: Locale;
 }
 
-export default function PracticalSection({ currentLocale }: PracticalSectionProps) {
-  const t = translations[currentLocale];
-  const isRTL = t.dir === "rtl";
+const PRACTICAL_CARDS_EN = [
+  {
+    type: "luggage",
+    title: "Luggage",
+    text: "In September it will be hot during the day and cool at night, especially in the desert. Before the trip you will receive a practical guide with a suggested packing list.",
+  },
+  {
+    type: "currency",
+    title: "Currency",
+    text: "The official currency is the Moroccan dirham. Once there we will help you exchange money or handle anything you need.",
+  },
+  {
+    type: "internet",
+    title: "Internet and coverage",
+    text: "On arrival we will stop to buy a local SIM card. In some desert areas the signal can be limited.",
+  },
+  {
+    type: "flights",
+    title: "Flights",
+    text: "Each participant arranges their own ticket to Marrakech. Once your place is confirmed we will coordinate schedules and arrivals with the group.",
+  },
+  {
+    type: "passport",
+    title: "Passport & Visas",
+    text: "A passport valid for at least 6 months beyond travel dates is required. Citizens of the EU, UK, USA, Canada, and many other nations do not require a tourist visa for stays up to 90 days.",
+  },
+  {
+    type: "dates",
+    title: "Dates",
+    text: "23 — 29 Sep 2026. First edition Mujeres de Arena — home — An experience reserved for 12 women.",
+  },
+];
 
-  const details = [
-    {
-      icon: <FileText className="w-6 h-6 text-[#C46849]" />,
-      title: t.practical.passportTitle,
-      desc: t.practical.passportDesc,
-    },
-    {
-      icon: <Coins className="w-6 h-6 text-[#C46849]" />,
-      title: t.practical.currencyTitle,
-      desc: t.practical.currencyDesc,
-    },
-    {
-      icon: <Luggage className="w-6 h-6 text-[#C46849]" />,
-      title: t.practical.luggageTitle,
-      desc: t.practical.luggageDesc,
-    },
-  ];
+export default function PracticalSection({ currentLocale = "en" }: PracticalSectionProps) {
+  const sectionRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+
+    const revealEls = el.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: "60px 0px" }
+    );
+
+    revealEls.forEach((r) => observer.observe(r));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
-    <section id="practical" className="py-24 bg-[#FAF7F2] relative border-t border-[#E8E0D5]" dir={isRTL ? "rtl" : "ltr"}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#C5A059]/40 bg-[#C5A059]/10 text-[#C46849] text-xs font-semibold tracking-widest uppercase mb-4">
-            <Info className="w-3.5 h-3.5" />
-            <span>{currentLocale === "ar" ? "إرشادات هامة" : "Preparativos"}</span>
-          </div>
-          <h2 className="font-cinzel text-3xl sm:text-5xl text-[#1D252C] font-bold mb-4">
-            {t.practical.heading}
-          </h2>
-          <div className="w-16 h-[2px] bg-[#C5A059] mx-auto mb-5" />
-          <p className="font-marcellus text-lg text-[#1D252C]/70">
-            {t.practical.subtitle}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {details.map((item, idx) => (
-            <div
-              key={idx}
-              className="bg-white p-8 rounded-3xl border border-[#E8E0D5] shadow-sm hover:shadow-md transition-shadow flex flex-col items-start"
-            >
-              <div className="w-12 h-12 rounded-2xl bg-[#FAF7F2] border border-[#C5A059]/30 flex items-center justify-center mb-6">
-                {item.icon}
+    <div
+      ref={sectionRef}
+      id="practico"
+      className="wp-block-group alignfull mda-practical-wrap practical"
+    >
+      <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+        <div className="wp-block-group mda-practical-inner">
+          <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+            {/* Header */}
+            <div className="wp-block-group practical__header">
+              <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+                <p className="eyebrow reveal wp-block-paragraph">Before you go</p>
+                <h2 className="wp-block-heading section__title reveal">
+                  Practical details so that you <em>arrive with peace of mind</em>
+                </h2>
               </div>
-              <h3 className="font-cinzel text-xl font-bold text-[#1D252C] mb-3">
-                {item.title}
-              </h3>
-              <p className="text-sm text-[#1D252C]/75 leading-relaxed font-light">
-                {item.desc}
-              </p>
             </div>
-          ))}
+
+            {/* Bento / Info Cards Grid */}
+            <div className="wp-block-group info">
+              <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+                {PRACTICAL_CARDS_EN.map((card, index) => (
+                  <div
+                    key={index}
+                    className={`wp-block-group info__card info__card--${card.type} reveal`}
+                    style={{ "--i": index } as React.CSSProperties}
+                  >
+                    <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
+                      <h3 className="wp-block-heading info__title">{card.title}</h3>
+                      <p className="info__text wp-block-paragraph">{card.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

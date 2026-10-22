@@ -2304,5 +2304,158 @@ button.aqua-nav-btn svg {
   margin: 0 !important;
 }
 
+/* ==========================================================================
+   MUJERES DE ARENA — PRACTICAL DETAILS SECTION (#practico)
+   ========================================================================== */
+.mda-practical-wrap {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  background-color: #F4E9D8 !important;
+  padding: clamp(5.5rem, 8.5vw, 8rem) 1.5rem !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+.mda-practical-inner {
+  max-width: 1160px !important;
+  margin: 0 auto !important;
+}
+
+.practical__header {
+  max-width: 640px !important;
+  margin-bottom: clamp(2rem, 4.5vw, 3.5rem) !important;
+}
+
+.practical__header .eyebrow {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: #8B4513 !important;
+  margin-bottom: 0.8rem !important;
+  display: inline-block !important;
+}
+
+.practical__header .section__title {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-size: clamp(2.2rem, 1.3rem + 2.4vw, 3.4rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.02em !important;
+  color: #1B1108 !important;
+  margin: 0 !important;
+}
+
+.practical__header .section__title em {
+  color: #8B4513 !important;
+  font-style: italic !important;
+}
+
+.info {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important;
+  gap: 20px !important;
+}
+
+.info > .wp-block-group__inner-container,
+.practical__header > .wp-block-group__inner-container,
+.info__card > .wp-block-group__inner-container {
+  display: contents !important;
+}
+
+.info__card {
+  background-color: #FAF4EA !important;
+  border: 1px solid rgba(217, 184, 136, 0.55) !important;
+  border-radius: 20px !important;
+  padding: 2.2rem !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s ease,
+              border-color 0.35s ease !important;
+  position: relative !important;
+  box-sizing: border-box !important;
+  height: 100% !important;
+  margin: 0 !important;
+}
+
+.info__card:hover {
+  transform: translateY(-4px) !important;
+  border-color: rgba(212, 168, 95, 0.9) !important;
+  box-shadow: 0 12px 30px rgba(74, 53, 40, 0.08) !important;
+}
+
+.info__card::before {
+  content: "" !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  width: 50px !important;
+  height: 50px !important;
+  border: 1px solid rgba(212, 168, 95, 0.6) !important;
+  border-radius: 50% !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  background-size: 24px 24px !important;
+  margin-bottom: 1.4rem !important;
+  transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease !important;
+  flex-shrink: 0 !important;
+}
+
+.info__card:hover::before {
+  border-color: #D4A85F !important;
+  background-color: rgba(212, 168, 95, 0.12) !important;
+  transform: scale(1.05) !important;
+}
+
+.info__card--luggage::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4A85F' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='7.5' width='16' height='12.5' rx='2.4'/%3E%3Cpath d='M9 7.5V5.8A1.8 1.8 0 0 1 10.8 4h2.4A1.8 1.8 0 0 1 15 5.8v1.7'/%3E%3Cpath d='M9 11v5M15 11v5'/%3E%3C/svg%3E") !important;
+}
+
+.info__card--currency::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4A85F' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cellipse cx='12' cy='7' rx='8' ry='3.2'/%3E%3Cpath d='M4 7v10c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2V7'/%3E%3Cpath d='M4 12c0 1.8 3.6 3.2 8 3.2s8-1.4 8-3.2'/%3E%3C/svg%3E") !important;
+}
+
+.info__card--internet::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4A85F' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2.5 9.5a14 14 0 0 1 19 0'/%3E%3Cpath d='M5.8 13a9.2 9.2 0 0 1 12.4 0'/%3E%3Cpath d='M9.2 16.4a4.4 4.4 0 0 1 5.6 0'/%3E%3Ccircle cx='12' cy='19.4' r='1.1'/%3E%3C/svg%3E") !important;
+}
+
+.info__card--flights::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4A85F' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3.5 13.5 17-6.8-2.2 4.6-6.2 1.9-2.6 4.4-1.8-.6 1.4-3.9-4.2-1.2-1.4 1.6Z'/%3E%3C/svg%3E") !important;
+}
+
+.info__card--passport::before,
+.info__card--visas::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4A85F' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='4' y='3' width='16' height='18' rx='2.4'/%3E%3Ccircle cx='12' cy='9.5' r='2.8'/%3E%3Cpath d='M8 17h8'/%3E%3C/svg%3E") !important;
+}
+
+.info__card--dates::before {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23D4A85F' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3.8' y='5.2' width='16.4' height='15' rx='2.4'/%3E%3Cpath d='M8 3.2v4M16 3.2v4M3.8 10h16.4'/%3E%3C/svg%3E") !important;
+}
+
+.info__title {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-size: 1.35rem !important;
+  font-weight: 600 !important;
+  color: #1B1108 !important;
+  margin: 0 0 0.5rem 0 !important;
+}
+
+.info__text {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 0.95rem !important;
+  line-height: 1.7 !important;
+  color: #4A3528 !important;
+  margin: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .info {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+
 
 
