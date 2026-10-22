@@ -6,7 +6,7 @@ import Hero from "@/components/Hero";
 import Manifesto from "@/components/Manifesto";
 import StagesSection from "@/components/StagesSection";
 import SaharaSection from "@/components/SaharaSection";
-import MagicSection from "@/components/MagicSection";
+import NightSection from "@/components/NightSection";
 import StaysSection from "@/components/StaysSection";
 import HostsSection from "@/components/HostsSection";
 import ReserveSection from "@/components/ReserveSection";
@@ -31,7 +31,7 @@ export default function Home() {
         <Manifesto currentLocale={currentLocale} />
         <StagesSection currentLocale={currentLocale} />
         <SaharaSection currentLocale={currentLocale} />
-        <MagicSection currentLocale={currentLocale} />
+        <NightSection currentLocale={currentLocale} />
         <StaysSection currentLocale={currentLocale} />
         <HostsSection currentLocale={currentLocale} />
         <ReserveSection currentLocale={currentLocale} />
