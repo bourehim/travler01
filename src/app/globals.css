@@ -1470,3 +1470,402 @@ body {
   z-index: 4;
 }
 
+/* ==========================================================================
+   SECTION 7: OUR TOP DESERT & SAHARA ADVENTURES (3D COVERFLOW SLIDER)
+   ========================================================================== */
+.aqua-adventures-section {
+  --aqua-card-width: 320px;
+  --aqua-card-height: 450px;
+  --aqua-card-radius: 28px;
+  --aqua-zoom-scale: 1.08;
+  --aqua-zoom-speed: 0.65s;
+  --aqua-transition-speed: 1s;
+  --aqua-perspective: 1200px;
+  --aqua-btn-bg: #1A161F;
+  --aqua-btn-hover: #E67D3C;
+  --aqua-dot-active: #1A161F;
+  --aqua-dot-inactive: #CBD5E1;
+
+  position: relative !important;
+  background-color: #FAF4EA !important;
+  width: 100% !important;
+  padding: 80px 20px 80px 20px !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.aqua-adventures-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.aqua-header-area {
+  position: relative;
+  max-width: 780px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+}
+
+.aqua-section-title {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 38px !important;
+  font-weight: 800 !important;
+  color: #1A161F !important;
+  margin: 0 0 10px 0 !important;
+  line-height: 1.25 !important;
+  letter-spacing: normal !important;
+}
+
+.aqua-section-subtitle {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 16px !important;
+  color: #64748B !important;
+  margin: 0 !important;
+  line-height: 1.6 !important;
+}
+
+.aqua-floating-fish {
+  position: absolute;
+  top: -10px;
+  right: -42px;
+  pointer-events: none;
+  animation: aquaFishFloat 4s ease-in-out infinite;
+  z-index: 3;
+}
+@keyframes aquaFishFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(-3deg); }
+}
+
+@media (max-width: 768px) {
+  .aqua-floating-fish {
+    display: none !important;
+  }
+  .aqua-section-title {
+    font-size: 28px !important;
+  }
+}
+
+.aqua-coverflow-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aqua-cards-stage {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  perspective: var(--aqua-perspective, 1200px);
+  transform-style: preserve-3d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none !important;
+}
+
+/* Individual Slide Cards: Slower, Silkier Easing Curve & Immediate Click Hit-Testing */
+.aqua-slide-card {
+  position: absolute;
+  width: var(--aqua-card-width, 320px);
+  height: var(--aqua-card-height, 450px);
+  border-radius: var(--aqua-card-radius, 28px);
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  background-color: #0F172A;
+  cursor: pointer;
+  pointer-events: auto !important;
+  transition: transform var(--aqua-transition-speed, 1s) cubic-bezier(0.16, 1, 0.3, 1),
+              opacity var(--aqua-transition-speed, 1s) cubic-bezier(0.16, 1, 0.3, 1),
+              filter var(--aqua-transition-speed, 1s) cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow var(--aqua-transition-speed, 1s) cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Card Image with Gentle, Gradual Zoom Transition */
+.aqua-slide-card .aqua-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  pointer-events: none;
+  transition: transform var(--aqua-zoom-speed, 0.65s) cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1);
+  will-change: transform;
+}
+
+/* Zoom in gracefully on hover */
+.aqua-slide-card:hover .aqua-card-img,
+.aqua-slide-card.slide-hovered .aqua-card-img {
+  transform: scale(var(--aqua-zoom-scale, 1.08));
+}
+
+.aqua-slide-card .aqua-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 24px 24px 24px;
+  background: linear-gradient(360deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.aqua-card-title {
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  color: #FFFFFF !important;
+  margin: 0 !important;
+  line-height: 1.5 !important;
+  letter-spacing: normal !important;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+}
+
+.aqua-card-count {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 4px;
+}
+
+/* 3D Transform Positions */
+.aqua-slide-card.slide-active {
+  transform: translate3d(0, 0, 100px) scale(1) rotateY(0deg);
+  z-index: 10;
+  opacity: 1;
+  filter: brightness(1);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+}
+.aqua-slide-card.slide-active .aqua-card-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.aqua-slide-card.slide-prev-1 {
+  transform: translate3d(-240px, 0, 20px) scale(0.92) rotateY(22deg);
+  z-index: 8;
+  opacity: 0.95;
+  filter: brightness(0.95);
+}
+.aqua-slide-card.slide-prev-1 .aqua-card-overlay {
+  opacity: 0;
+}
+
+.aqua-slide-card.slide-prev-2 {
+  transform: translate3d(-460px, 0, -80px) scale(0.82) rotateY(38deg);
+  z-index: 6;
+  opacity: 0.85;
+  filter: brightness(0.85);
+}
+.aqua-slide-card.slide-prev-2 .aqua-card-overlay {
+  opacity: 0;
+}
+
+.aqua-slide-card.slide-next-1 {
+  transform: translate3d(240px, 0, 20px) scale(0.92) rotateY(-22deg);
+  z-index: 8;
+  opacity: 0.95;
+  filter: brightness(0.95);
+}
+.aqua-slide-card.slide-next-1 .aqua-card-overlay {
+  opacity: 0;
+}
+
+.aqua-slide-card.slide-next-2 {
+  transform: translate3d(460px, 0, -80px) scale(0.82) rotateY(-38deg);
+  z-index: 6;
+  opacity: 0.85;
+  filter: brightness(0.85);
+}
+.aqua-slide-card.slide-next-2 .aqua-card-overlay {
+  opacity: 0;
+}
+
+.aqua-slide-card.slide-hidden {
+  transform: translate3d(0, 0, -250px) scale(0.7);
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 992px) {
+  .aqua-cards-stage {
+    height: 400px;
+  }
+  .aqua-slide-card {
+    width: 270px;
+    height: 380px;
+  }
+  .aqua-slide-card.slide-prev-1 {
+    transform: translate3d(-180px, 0, 10px) scale(0.9) rotateY(20deg);
+  }
+  .aqua-slide-card.slide-prev-2 {
+    transform: translate3d(-340px, 0, -70px) scale(0.8) rotateY(35deg);
+  }
+  .aqua-slide-card.slide-next-1 {
+    transform: translate3d(180px, 0, 10px) scale(0.9) rotateY(-20deg);
+  }
+  .aqua-slide-card.slide-next-2 {
+    transform: translate3d(340px, 0, -70px) scale(0.8) rotateY(-35deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .aqua-cards-stage {
+    height: 340px;
+  }
+  .aqua-slide-card {
+    width: 230px;
+    height: 320px;
+    border-radius: 20px;
+  }
+  .aqua-slide-card.slide-prev-1 {
+    transform: translate3d(-120px, 0, 0) scale(0.88) rotateY(18deg);
+  }
+  .aqua-slide-card.slide-prev-2 {
+    opacity: 0;
+    pointer-events: none;
+  }
+  .aqua-slide-card.slide-next-1 {
+    transform: translate3d(120px, 0, 0) scale(0.88) rotateY(-18deg);
+  }
+  .aqua-slide-card.slide-next-2 {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* Navigation Buttons: Force Perfect Circle & No Oval Overrides */
+.aqua-nav-btn,
+button.aqua-nav-btn {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  min-height: 48px !important;
+  max-width: 48px !important;
+  max-height: 48px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  -webkit-border-radius: 50% !important;
+  border: none !important;
+  background-color: var(--aqua-btn-bg, #1A161F) !important;
+  color: #FFFFFF !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 30 !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+  box-sizing: border-box !important;
+  line-height: 1 !important;
+  outline: none !important;
+  transition: background-color 0.25s ease, transform 0.25s ease !important;
+}
+
+.aqua-nav-btn:hover,
+button.aqua-nav-btn:hover {
+  background-color: var(--aqua-btn-hover, #E67D3C) !important;
+  color: #FFFFFF !important;
+  transform: translateY(-50%) scale(1.1) !important;
+}
+
+.aqua-btn-prev {
+  left: 10px !important;
+  right: auto !important;
+}
+
+.aqua-btn-next {
+  right: 10px !important;
+  left: auto !important;
+}
+
+/* Force Arrow SVGs to Render Visibly in Solid White */
+.aqua-nav-btn svg,
+button.aqua-nav-btn svg {
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  max-width: 18px !important;
+  max-height: 18px !important;
+  display: block !important;
+  fill: #FFFFFF !important;
+  color: #FFFFFF !important;
+  stroke: none !important;
+  pointer-events: none !important;
+  margin: 0 auto !important;
+}
+
+/* Pagination Dots */
+.aqua-pagination-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 32px;
+}
+.aqua-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--aqua-dot-inactive, #CBD5E1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.aqua-dot.aqua-dot-active {
+  background: var(--aqua-dot-active, #1A161F);
+  outline: 2px solid var(--aqua-dot-inactive, #CBD5E1);
+  outline-offset: 3px;
+  transform: scale(1.15);
+}
+
+/* CTA Pill Button */
+.aqua-cta-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1.5px solid #E67D3C;
+  border-radius: 50px;
+  padding: 12px 34px;
+  color: #1A161F !important;
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none !important;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+.aqua-cta-pill:hover {
+  background: #E67D3C !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 8px 24px rgba(230, 125, 60, 0.3);
+}
+.aqua-cta-pill svg {
+  transition: transform 0.25s ease;
+}
+.aqua-cta-pill:hover svg {
+  transform: translateX(4px);
+}
+
+
