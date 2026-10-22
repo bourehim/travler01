@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import ItineraryHero from "@/components/itinerary/ItineraryHero";
 import ItineraryStages from "@/components/itinerary/ItineraryStages";
+import ItineraryStays from "@/components/itinerary/ItineraryStays";
 import Footer from "@/components/Footer";
 import { Locale } from "@/data/translations";
 
@@ -22,6 +23,7 @@ export default function ItineraryPage() {
       <main className="flex-1">
         <ItineraryHero currentLocale={currentLocale} />
         <ItineraryStages currentLocale={currentLocale} />
+        <ItineraryStays currentLocale={currentLocale} />
       </main>
 
       {/* Editorial Footer */}
