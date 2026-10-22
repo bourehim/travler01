@@ -1,0 +1,135 @@
+/* ============================================================
+   MUJERES DE ARENA — THEME TOKENS  ·  v2
+   ============================================================
+   The SINGLE source of truth for the visual identity.
+   Nothing in styles.css invents a color, font, radius or
+   duration — everything references a token declared here.
+
+   PALETTE RULE (limited on purpose):
+     8 swatches total — 3 sand, 2 terracotta, 2 gold, 1 ink.
+     No other hex value may appear anywhere in the site.
+   FONTS RULE (limited on purpose):
+     2 families — Playfair Display (display) + Inter (body).
+   ============================================================ */
+
+:root {
+  /* ----------------------------------------------------------
+     1 · COLOR — 8 swatches, Sahara sand / terracotta / starlight
+     ---------------------------------------------------------- */
+  --sand-50:  #FAF4EA;  /* lightest cream   · page background        */
+  --sand-100: #F2E4CC;  /* warm cream       · alt sections, chips    */
+  --sand-300: #D9B888;  /* dune beige       · borders, hairlines     */
+  --terra-500:#8B4513;  /* terracotta       · brand primary          */
+  --terra-800:#3A1F12;  /* dark cocoa       · body text              */
+  --terra-900:#1B1108;  /* near-black brown · night sections, footer */
+  --gold-400: #D4A85F;  /* gold             · accent, links, icons   */
+  --gold-300: #E5C485;  /* soft gold        · hover, glints          */
+
+  /* Semantic aliases — components use these, never the raw swatches */
+  --color-bg:            var(--sand-50);
+  --color-bg-alt:        var(--sand-100);
+  --color-bg-dark:       var(--terra-900);
+  --color-bg-terra:      var(--terra-500);
+  --color-surface:       var(--sand-50);   /* cards on dark bg        */
+  --color-text:          var(--terra-800);
+  --color-text-soft:     color-mix(in srgb, var(--terra-800) 68%, var(--color-bg));
+  --color-text-muted:    var(--terra-500);
+  --color-text-on-dark:  var(--sand-50);
+  --color-text-on-dark-soft: color-mix(in srgb, var(--sand-50) 72%, transparent);
+  --color-accent:        var(--gold-400);
+  --color-accent-hover:  var(--gold-300);
+  --color-border:        color-mix(in srgb, var(--sand-300) 65%, transparent);
+  --color-border-dark:   color-mix(in srgb, var(--gold-400) 22%, transparent);
+  --color-overlay:       color-mix(in srgb, var(--terra-900) 62%, transparent);
+
+  /* ----------------------------------------------------------
+     2 · TYPOGRAPHY — exactly 2 families
+        Display · Playfair Display (editorial serif, emotion)
+        Body    · Inter            (quiet, legible, modern)
+     ---------------------------------------------------------- */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body:    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Fluid type scale — clamp(min, vw-slope + rem, max) */
+  --fs-xs:   0.8125rem;   /* 13px · captions, labels              */
+  --fs-sm:   0.9375rem;   /* 15px · small body                    */
+  --fs-base: 1rem;        /* 16px · body                          */
+  --fs-md:   1.25rem;     /* 20px · lead paragraphs               */
+  --fs-lg:   clamp(1.4rem, 1.1rem + 1vw, 1.75rem);      /* cards   */
+  --fs-xl:   clamp(1.75rem, 1.3rem + 1.8vw, 2.5rem);    /* h3      */
+  --fs-2xl:  clamp(2.1rem, 1.5rem + 2.6vw, 3.5rem);     /* h2      */
+  --fs-3xl:  clamp(2.6rem, 1.7rem + 3.8vw, 4.75rem);    /* quotes  */
+  --fs-hero: clamp(3.4rem, 1rem + 10vw, 8.5rem);        /* h1 only */
+
+  /* Weights — only what the two families carry well */
+  --fw-light:    300;
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-bold:     700;
+
+  /* Tracking */
+  --ls-wide:   0.18em;   /* eyebrows, labels                        */
+  --ls-xwide:  0.3em;    /* micro labels                            */
+  --ls-tight:  -0.02em;  /* large display headlines                 */
+
+  /* Leading */
+  --lh-tight: 1.05;
+  --lh-snug:  1.3;
+  --lh-body:  1.75;
+
+  /* ----------------------------------------------------------
+     3 · SPACE — 8px rhythm
+     ---------------------------------------------------------- */
+  --space-2xs: 0.25rem;  /* 4px   */
+  --space-xs:  0.5rem;   /* 8px   */
+  --space-sm:  1rem;     /* 16px  */
+  --space-md:  2rem;     /* 32px  */
+  --space-lg:  4rem;     /* 64px  */
+  --space-xl:  6rem;     /* 96px  */
+  --space-2xl: clamp(5rem, 10vw, 9rem);  /* section rhythm */
+
+  /* ----------------------------------------------------------
+     4 · LAYOUT
+     ---------------------------------------------------------- */
+  --container-max:    1280px;
+  --container-narrow: 820px;
+  --container-pad:    clamp(1.25rem, 5vw, 3rem);
+  --section-y:        var(--space-2xl);
+  --radius-xs:  6px;
+  --radius-sm:  12px;
+  --radius-md:  20px;
+  --radius-lg:  32px;
+  --radius-pill: 100vmax;
+  --radius-arch: 50% 50% var(--radius-sm) var(--radius-sm) / 38% 38% var(--radius-sm) var(--radius-sm);
+
+  /* ----------------------------------------------------------
+     5 · MOTION — one easing family, three speeds
+     ---------------------------------------------------------- */
+  --ease-out:    cubic-bezier(0.22, 1, 0.36, 1);   /* reveals, exits */
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);   /* morphs, fades  */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);/* playful pops   */
+  --dur-fast:   0.2s;
+  --dur-base:   0.5s;
+  --dur-slow:   0.9s;
+  --dur-reveal: 1.1s;
+  --stagger:    90ms;    /* delay added per cascaded child         */
+
+  /* ----------------------------------------------------------
+     6 · ELEVATION & LAYERS
+     ---------------------------------------------------------- */
+  --shadow-sm:  0 2px 10px color-mix(in srgb, var(--terra-900) 8%, transparent);
+  --shadow-md:  0 14px 40px color-mix(in srgb, var(--terra-900) 14%, transparent);
+  --shadow-lg:  0 32px 80px color-mix(in srgb, var(--terra-900) 22%, transparent);
+  --shadow-glow: 0 0 46px color-mix(in srgb, var(--gold-400) 30%, transparent);
+
+  --z-base:    1;
+  --z-raised:  10;
+  --z-sticky:  100;
+  --z-overlay: 1000;
+  --z-skip:    2000;
+
+  /* ----------------------------------------------------------
+     7 · FOCUS / SELECTION — gold on cocoa, always visible
+     ---------------------------------------------------------- */
+  --focus-ring: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-accent);
+}

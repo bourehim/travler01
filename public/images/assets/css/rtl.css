@@ -1,0 +1,92 @@
+/* ============================================================
+   MUJERES DE ARENA — RTL LAYOUT + ARABIC TYPOGRAPHY
+   Loaded ONLY on the Arabic page, after theme.css / styles.css /
+   lang.css. Two jobs:
+
+     1 · swap the two Arabic-capable families in for the Latin pair
+         (Playfair Display and Inter carry no Arabic glyphs)
+     2 · mirror every physical direction left in the layout
+
+   Still token-driven: no new colour, radius or duration is invented.
+   ============================================================ */
+
+/* ------------------------------------------------------------
+   1 · ARABIC TYPOGRAPHY
+   Amiri        — classical Arabic serif, pairs with Playfair
+   Noto Sans Arabic — quiet, legible, pairs with Inter
+   ------------------------------------------------------------ */
+:root {
+  --font-display: 'Amiri', 'Playfair Display', Georgia, 'Noto Naskh Arabic', serif;
+  --font-body: 'Noto Sans Arabic', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Arabic script is joined: never track it, never case-fold it,
+     and give it more leading than Latin text needs. */
+  --ls-wide:  0;
+  --ls-xwide: 0;
+  --ls-tight: 0;
+  --lh-tight: 1.3;
+  --lh-snug:  1.55;
+  --lh-body:  2;
+}
+
+/* keep the letterforms from being squashed by the tight display sizes */
+html[dir="rtl"] .hero__title { line-height: 1.25; }
+html[dir="rtl"] .stage__num { letter-spacing: 0; }
+
+/* ------------------------------------------------------------
+   2 · LAYOUT MIRRORING
+   ------------------------------------------------------------ */
+html[dir="rtl"] .progress__bar { transform-origin: 100% 50%; }
+
+html[dir="rtl"] .skip-link { left: auto; right: var(--space-xs); }
+
+/* brand sits at the start (right) and pushes the rest away */
+html[dir="rtl"] .nav__brand { margin-right: 0; margin-left: auto; }
+
+/* underline grows from the start edge */
+html[dir="rtl"] .nav__link::after { transform-origin: 0 50%; }
+html[dir="rtl"] .nav__link:hover::after,
+html[dir="rtl"] .nav__link.is-active::after { transform-origin: 100% 50%; }
+
+html[dir="rtl"] .hero__scrollcue { right: auto; left: clamp(1.25rem, 4vw, 3rem); }
+html[dir="rtl"] .hero__scrollcue-label { writing-mode: vertical-lr; }
+
+/* the ticker should travel the other way */
+html[dir="rtl"] .marquee__track { animation-direction: reverse; }
+
+html[dir="rtl"] .essential + .essential::before { left: auto; right: 0; }
+
+html[dir="rtl"] .about__quote {
+  padding-left: 0;
+  padding-right: var(--space-md);
+  border-left: 0;
+  border-right: 2px solid var(--color-accent);
+}
+
+html[dir="rtl"] .journey__rail { right: auto; left: -1.6rem; }
+html[dir="rtl"] .journey__rail-fill { left: auto; right: 0; }
+html[dir="rtl"] .journey__rail::before { left: auto; right: 0; }
+
+html[dir="rtl"] .stage { padding-left: 0; padding-right: clamp(0rem, 2vw, 1rem); }
+html[dir="rtl"] .stage__num { right: auto; left: 0; }
+
+html[dir="rtl"] .stage__list li { padding-left: 0; padding-right: 1.6em; }
+html[dir="rtl"] .stage__list li::before { left: auto; right: 0; }
+
+html[dir="rtl"] .terms__list li { padding-left: 0; padding-right: 1.5em; }
+html[dir="rtl"] .terms__list li::before { left: auto; right: 0; }
+
+html[dir="rtl"] .btn__arrow { transform: scaleX(-1); }
+html[dir="rtl"] .btn:hover .btn__arrow { transform: scaleX(-1) translateX(-5px); }
+
+html[dir="rtl"] .footer__col a:hover { padding-left: 0; padding-right: 4px; }
+
+/* horizontal reveals come in from the mirrored side */
+html[dir="rtl"] [data-reveal="left"]  { transform: translateX(44px); }
+html[dir="rtl"] [data-reveal="right"] { transform: translateX(-44px); }
+
+/* the FAQ answer is indented away from the open/close control */
+html[dir="rtl"] .qa__a p { padding: 0 0 1.5rem 3.5rem; }
+
+/* the ticket perforation and bento captions are symmetric and
+   need no mirroring; the arch, chips and grids flip on their own. */

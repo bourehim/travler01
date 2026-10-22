@@ -488,3 +488,365 @@ body {
   font-size: 12px;
   filter: drop-shadow(0 0 6px rgba(229, 168, 82, 0.6));
 }
+
+/* ==========================================================================
+   SECTION 5: JOURNEY SCROLLYTELLING (7 STAGES)
+   ========================================================================== */
+.mda-journey-wrap {
+  background-color: #FAF4EA !important;
+  padding: clamp(5.5rem, 8.5vw, 8rem) 1.5rem !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+.mda-journey-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.journey__header {
+  max-width: 720px;
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.journey__header .eyebrow {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 0.82rem !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: #8B4513 !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.8rem !important;
+}
+
+.journey__header .section__title {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-size: clamp(2.2rem, 1.3rem + 2.6vw, 3.6rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.02em !important;
+  color: #1B1108 !important;
+  margin: 0 0 1rem 0 !important;
+}
+
+@media (min-width: 1100px) {
+  .journey__header .section__title {
+    white-space: nowrap !important;
+  }
+}
+
+.journey__header .section__title em {
+  color: #8B4513 !important;
+  font-style: italic !important;
+}
+
+.journey__header .section__lede {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 1.1rem !important;
+  line-height: 1.7 !important;
+  color: #3A1F12 !important;
+  margin: 0 !important;
+}
+
+/* 2-column layout */
+.journey__layout {
+  display: grid !important;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr) !important;
+  gap: clamp(2.5rem, 5vw, 5rem) !important;
+  align-items: start !important;
+  position: relative !important;
+}
+
+/* Sticky visual panel */
+.journey__panel {
+  position: sticky !important;
+  top: clamp(5.5rem, 10vh, 7rem) !important;
+  height: min(76svh, 640px) !important;
+  position: -webkit-sticky !important;
+}
+
+.journey__panel, .journey__panel-frame {
+  height: min(76svh, 640px) !important;
+}
+
+.journey__panel-frame {
+  position: relative !important;
+  height: 100% !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+  box-shadow: 0 20px 45px -10px rgba(27, 17, 8, 0.16) !important;
+  background-color: #1B1108 !important;
+}
+
+.journey__panel-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(212, 168, 95, 0.4);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.journey__panel-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+.journey__panel-img {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  opacity: 0 !important;
+  transform: scale(1.08) !important;
+  transition: opacity 0.85s cubic-bezier(0.4, 0, 0.2, 1), transform 1.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  will-change: opacity, transform !important;
+}
+
+.journey__panel-img.is-active {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  z-index: 3 !important;
+}
+
+/* Vertical indicator rail */
+.journey__rail {
+  position: absolute !important;
+  right: -1.75rem !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  height: 60% !important;
+  justify-content: space-between !important;
+  z-index: 10 !important;
+}
+
+.journey__rail::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: rgba(217, 184, 136, 0.4);
+  z-index: -1;
+}
+
+.journey__rail-fill {
+  position: absolute;
+  top: 0;
+  width: 1.5px;
+  height: 0%;
+  background: #8B4513;
+  transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journey__rail-dot {
+  width: 9px !important;
+  height: 9px !important;
+  border-radius: 50% !important;
+  background: #FAF4EA !important;
+  border: 1px solid #D9B888 !important;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: inline-block !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  appearance: none !important;
+  outline: none !important;
+}
+
+.journey__rail-dot.is-active {
+  background: #8B4513 !important;
+  border-color: #8B4513 !important;
+  transform: scale(1.4) !important;
+  box-shadow: 0 0 0 4px rgba(139, 69, 19, 0.22) !important;
+}
+
+/* Scrolling stages list */
+.journey__stages {
+  display: grid !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.stage {
+  position: relative !important;
+  min-height: min(72svh, 540px) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  padding-block: 2.5rem !important;
+  padding-left: clamp(0.5rem, 2vw, 1.5rem) !important;
+  opacity: 0.36 !important;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.stage.is-active {
+  opacity: 1 !important;
+}
+
+.stage__num {
+  position: absolute !important;
+  top: 1.5rem !important;
+  right: 0 !important;
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-size: clamp(4.5rem, 8vw, 7rem) !important;
+  line-height: 1 !important;
+  color: transparent !important;
+  -webkit-text-stroke: 1px rgba(139, 69, 19, 0.35) !important;
+  user-select: none !important;
+  pointer-events: none !important;
+}
+
+.stage__kicker {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  color: #8B4513 !important;
+  margin: 0 0 0.5rem 0 !important;
+}
+
+.stage__title {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-size: clamp(1.8rem, 1.2rem + 1.6vw, 2.6rem) !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.02em !important;
+  line-height: 1.2 !important;
+  color: #1B1108 !important;
+  margin: 0 0 0.4rem 0 !important;
+}
+
+.stage__sub {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-style: italic !important;
+  font-size: 1.15rem !important;
+  color: #8B4513 !important;
+  margin: 0 0 1rem 0 !important;
+}
+
+.stage__text {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 1.02rem !important;
+  line-height: 1.75 !important;
+  color: #3A1F12 !important;
+  max-width: 54ch !important;
+  margin: 0 0 1.25rem 0 !important;
+}
+
+.stage__list {
+  display: grid !important;
+  gap: 0.6rem !important;
+  max-width: 54ch !important;
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.stage__list li {
+  position: relative !important;
+  padding-left: 1.6em !important;
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+  color: #1B1108 !important;
+}
+
+.stage__list li::before {
+  content: "✦" !important;
+  position: absolute !important;
+  left: 0 !important;
+  top: 0 !important;
+  color: #D4A85F !important;
+  font-size: 0.85em !important;
+  transform: translateY(0.12em) !important;
+}
+
+/* CTA Wrap & Button */
+.journey__cta-wrap {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  margin-top: clamp(2.5rem, 5vw, 4rem) !important;
+}
+
+.journey__cta-btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 0.6em !important;
+  padding: 0.95em 2.2em !important;
+  border-radius: 50px !important;
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 13.5px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  text-decoration: none !important;
+  line-height: 1.25 !important;
+  cursor: pointer !important;
+  box-sizing: border-box !important;
+  white-space: nowrap !important;
+  background: #8B4513 !important;
+  background-color: #8B4513 !important;
+  color: #FAF4EA !important;
+  border: 1px solid rgba(212, 168, 95, 0.35) !important;
+  box-shadow: 0 8px 24px rgba(139, 69, 19, 0.4) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.journey__cta-btn:hover {
+  background: #3A1F12 !important;
+  background-color: #3A1F12 !important;
+  color: #D4A85F !important;
+  border-color: rgba(212, 168, 95, 0.6) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 12px 30px rgba(139, 69, 19, 0.5), 0 4px 12px rgba(0, 0, 0, 0.2) !important;
+}
+
+.journey__cta-btn:hover .btn__arrow {
+  transform: translateX(5px) !important;
+}
+
+.journey__cta-btn .btn__arrow {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+/* Mobile responsive */
+@media (max-width: 900px) {
+  .journey__layout {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  .journey__panel {
+    position: sticky !important;
+    top: 4.4rem !important;
+    height: 36svh !important;
+    z-index: 20 !important;
+    margin-bottom: 1.5rem !important;
+  }
+  .journey__panel, .journey__panel-frame {
+    height: 36svh !important;
+  }
+  .journey__rail {
+    display: none !important;
+  }
+  .stage {
+    min-height: auto !important;
+    padding-block: 2.2rem !important;
+    opacity: 1 !important;
+    border-bottom: 1px solid rgba(217, 184, 136, 0.3) !important;
+  }
+  .stage__num {
+    font-size: 3.5rem !important;
+    top: 1rem !important;
+  }
+}

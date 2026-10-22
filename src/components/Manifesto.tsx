@@ -96,8 +96,8 @@ export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
           <div className="lg:col-span-5 flex flex-col items-center">
             <div className="relative w-full max-w-sm aspect-[4/5] rounded-t-[220px] rounded-b-2xl overflow-hidden border border-[#D4A85F]/40 shadow-2xl bg-[#FAF4EA]">
               <Image
-                src="/images/marrakech-riad-peace.jpg"
-                alt="Woman contemplating valley"
+                src="/images/marrakech-woman.jpg"
+                alt="Woman in flowing dress contemplating a valley from a mountain"
                 fill
                 className="object-cover"
               />
