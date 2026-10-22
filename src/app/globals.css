@@ -2177,4 +2177,132 @@ button.aqua-nav-btn svg {
   }
 }
 
+/* ==========================================================================
+   MUJERES DE ARENA — FAQ SECTION (#faq)
+   ========================================================================== */
+.mda-faq-wrap {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  background-color: #FAF4EA !important;
+  padding: clamp(5.5rem, 8.5vw, 8rem) 1.5rem !important;
+  box-sizing: border-box !important;
+  position: relative !important;
+}
+
+.mda-faq-inner {
+  max-width: 820px !important;
+  margin: 0 auto !important;
+}
+
+.faq__header {
+  text-align: center !important;
+  margin-bottom: clamp(2rem, 4.5vw, 3.5rem) !important;
+}
+
+.faq__header .eyebrow {
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  color: #8B4513 !important;
+  margin-bottom: 0.8rem !important;
+  display: inline-block !important;
+}
+
+.faq__header .section__title {
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-size: clamp(2.2rem, 1.3rem + 2.4vw, 3.4rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.22 !important;
+  letter-spacing: -0.02em !important;
+  color: #1B1108 !important;
+  margin: 0 !important;
+}
+
+.faq__header .section__title em {
+  color: #8B4513 !important;
+  font-style: italic !important;
+}
+
+.faq__list {
+  border-top: 1px solid rgba(217, 184, 136, 0.5) !important;
+}
+
+.faq__list > .wp-block-group__inner-container,
+.faq__header > .wp-block-group__inner-container {
+  display: contents !important;
+}
+
+.qa {
+  border-bottom: 1px solid rgba(217, 184, 136, 0.5) !important;
+  transition: background-color 0.3s ease-out;
+}
+
+.qa summary {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 1rem !important;
+  padding: 1.4rem 0 !important;
+  font-family: var(--font-playfair), Georgia, serif !important;
+  font-size: clamp(1.15rem, 1rem + 0.5vw, 1.35rem) !important;
+  font-weight: 400 !important;
+  line-height: 1.35 !important;
+  color: #1B1108 !important;
+  cursor: pointer !important;
+  list-style: none !important;
+  position: relative !important;
+  transition: color 0.25s ease-out !important;
+}
+
+.qa summary::-webkit-details-marker,
+.qa summary::marker {
+  display: none !important;
+}
+
+.qa summary::after {
+  content: "+" !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 50% !important;
+  border: 1px solid rgba(217, 184, 136, 0.6) !important;
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 1.4rem !important;
+  color: #8B4513 !important;
+  font-weight: 300 !important;
+  line-height: 1 !important;
+  flex-shrink: 0 !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s ease,
+              background-color 0.4s ease !important;
+}
+
+.qa[open] summary::after {
+  transform: rotate(45deg) !important;
+  border-color: #D4A85F !important;
+  background-color: rgba(212, 168, 95, 0.15) !important;
+  color: #D4A85F !important;
+}
+
+.qa summary:hover {
+  color: #8B4513 !important;
+}
+
+.qa .wp-block-details__content,
+.qa > p,
+.qa__a p {
+  padding-bottom: 1.6rem !important;
+  color: #735E51 !important;
+  font-family: var(--font-inter), sans-serif !important;
+  font-size: 1rem !important;
+  line-height: 1.8 !important;
+  max-width: 68ch !important;
+  margin: 0 !important;
+}
+
+
 
