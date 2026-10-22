@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { Locale } from "@/data/translations";
 
 interface FooterProps {
@@ -30,9 +31,9 @@ export default function Footer({ currentLocale = "en" }: FooterProps) {
                     <div className="footer-widget-area-inner site-info-inner">
                       <section id="block-8" className="widget widget_block widget_custom_html">
                         <div className="footer__brand-col">
-                          <a href="/" className="footer__brand">
+                          <Link href="/" className="footer__brand">
                             MUJERES <em>de arena</em>
-                          </a>
+                          </Link>
                         </div>
                       </section>
                       <section id="block-9" className="widget widget_block widget_text">
@@ -55,16 +56,16 @@ export default function Footer({ currentLocale = "en" }: FooterProps) {
                         <div className="menu-resources-container">
                           <ul id="menu-resources" className="menu">
                             <li className="menu-item">
-                              <a href="#journey">The 7 Stages</a>
+                              <Link href="/itinerary">The 7 Stages</Link>
                             </li>
                             <li className="menu-item">
-                              <a href="#sahara">The Sahara</a>
+                              <Link href="/#sahara">The Sahara</Link>
                             </li>
                             <li className="menu-item">
-                              <a href="#alojamientos">Where we stay</a>
+                              <Link href="/itinerary#stays">Where we stay</Link>
                             </li>
                             <li className="menu-item">
-                              <a href="#pricing">Inclusions &amp; Exclusions</a>
+                              <Link href="/itinerary#pricing">Inclusions &amp; Exclusions</Link>
                             </li>
                           </ul>
                         </div>
@@ -82,19 +83,13 @@ export default function Footer({ currentLocale = "en" }: FooterProps) {
                         <div className="menu-trip-types-container">
                           <ul id="menu-trip-types" className="menu">
                             <li className="menu-item">
-                              <a href="#hosts">About Vanessa &amp; Ana</a>
+                              <Link href="/about">About Vanessa &amp; Ana</Link>
                             </li>
                             <li className="menu-item">
-                              <a href="#pricing">Book my spot</a>
+                              <Link href="/reserve-spot">Book my spot</Link>
                             </li>
                             <li className="menu-item">
-                              <a
-                                href="https://wa.me/34600000000"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                              >
-                                Contact us
-                              </a>
+                              <Link href="/contact">Contact us</Link>
                             </li>
                             <li className="menu-item">
                               <a
@@ -121,16 +116,16 @@ export default function Footer({ currentLocale = "en" }: FooterProps) {
                         <div className="menu-support-container">
                           <ul id="menu-support" className="menu">
                             <li className="menu-item">
-                              <a href="#faq">Frequently Asked Questions (FAQ)</a>
+                              <Link href="/#faq">Frequently Asked Questions (FAQ)</Link>
                             </li>
                             <li className="menu-item">
-                              <a href="#practico">Before you go</a>
+                              <Link href="/#practico">Before you go</Link>
                             </li>
                             <li className="menu-item">
-                              <a href="/terms/">Terms of Service</a>
+                              <Link href="/terms">Terms of Service</Link>
                             </li>
                             <li className="menu-item">
-                              <a href="/privacy/">Privacy Policy</a>
+                              <Link href="/privacy">Privacy Policy</Link>
                             </li>
                           </ul>
                         </div>

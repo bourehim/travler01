@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Locale } from "@/data/translations";
 
 interface NavbarProps {
@@ -21,10 +23,10 @@ const languages: { code: Locale; name: string }[] = [
 ];
 
 export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarProps) {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
   const [mobileDrawerOpen, setMobileDrawerOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState("#hero");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,12 +39,41 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
   const currentLangObj = languages.find((l) => l.code === currentLocale) || languages[1];
 
   const navLinks = [
-    { label: "THE JOURNEY", href: "#about" },
-    { label: "ITINERARY", href: "#stages" },
-    { label: "RESERVE YOUR SPOT", href: "#reserve" },
-    { label: "ABOUT US", href: "#hosts" },
-    { label: "CONTACT US", href: "#practical" },
+    { label: "THE JOURNEY", href: "/#about" },
+    { label: "ITINERARY", href: "/itinerary" },
+    { label: "RESERVE YOUR SPOT", href: "/reserve-spot" },
+    { label: "ABOUT US", href: "/about" },
+    { label: "CONTACT US", href: "/contact" },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("/#") && pathname === "/") {
+      e.preventDefault();
+      const targetId = href.replace("/#", "");
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", `#${targetId}`);
+      }
+    }
+    setMobileDrawerOpen(false);
+  };
+
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
+
+  const isLinkActive = (href: string) => {
+    if (href === "/itinerary" && pathname?.startsWith("/itinerary")) return true;
+    if (href === "/reserve-spot" && pathname?.startsWith("/reserve")) return true;
+    if (href === "/about" && pathname?.startsWith("/about")) return true;
+    if (href === "/contact" && pathname?.startsWith("/contact")) return true;
+    if (href === "/#about" && pathname === "/") return true;
+    return false;
+  };
 
   return (
     <>
@@ -50,7 +81,12 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
         <div className="site-main-header-inner-wrap max-w-[1290px] mx-auto px-6 sm:px-8 flex items-center justify-between">
           {/* Brand Logo (exact logo_3.png) */}
           <div className="site-branding">
-            <a href="#hero" className="brand inline-flex items-center" rel="home">
+            <Link
+              href="/"
+              onClick={handleLogoClick}
+              className="brand inline-flex items-center"
+              rel="home"
+            >
               <Image
                 src="/logos/logo_3.png"
                 alt="mujeresdearena"
@@ -59,7 +95,7 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
                 className="custom-logo"
                 priority
               />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation & Actions */}
@@ -67,23 +103,23 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
             {/* Primary Navigation Menu */}
             <nav className="hidden lg:flex items-center gap-1" role="navigation" aria-label="Primary">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.label}
                   href={link.href}
-                  onClick={() => setActiveLink(link.href)}
-                  className={`main-nav-link ${activeLink === link.href ? "is-active" : ""}`}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className={`main-nav-link ${isLinkActive(link.href) ? "is-active" : ""}`}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
 
             {/* Desktop Right Actions: BOOK Button + Language Switcher */}
             <div className="hidden sm:flex items-center gap-4">
               {/* Exact BOOK CTA Button */}
-              <a href="#reserve" className="header-btn-book">
+              <Link href="/reserve-spot" className="header-btn-book">
                 BOOK
-              </a>
+              </Link>
 
               {/* Exact MDA Language Switcher Dropdown */}
               <div
@@ -140,9 +176,9 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
 
             {/* Mobile Header Right Items */}
             <div className="flex lg:hidden items-center gap-3">
-              <a href="#reserve" className="header-btn-book !px-4 !py-1.5 !text-[11px] sm:hidden">
+              <Link href="/reserve-spot" className="header-btn-book !px-4 !py-1.5 !text-[11px] sm:hidden">
                 BOOK
-              </a>
+              </Link>
               <button
                 type="button"
                 onClick={() => setMobileDrawerOpen(true)}
@@ -172,13 +208,21 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
             <div>
               {/* Drawer Header with Close Button */}
               <div className="flex items-center justify-between pb-6 border-b border-white/10">
-                <Image
-                  src="/logos/logo_3.png"
-                  alt="mujeresdearena"
-                  width={120}
-                  height={38}
-                  className="max-h-[38px] w-auto object-contain"
-                />
+                <Link
+                  href="/"
+                  onClick={(e) => {
+                    handleLogoClick(e);
+                    setMobileDrawerOpen(false);
+                  }}
+                >
+                  <Image
+                    src="/logos/logo_3.png"
+                    alt="mujeresdearena"
+                    width={120}
+                    height={38}
+                    className="max-h-[38px] w-auto object-contain"
+                  />
+                </Link>
                 <button
                   type="button"
                   onClick={() => setMobileDrawerOpen(false)}
@@ -192,30 +236,31 @@ export default function Navbar({ currentLocale = "en", onLocaleChange }: NavbarP
               {/* Drawer Links */}
               <nav className="flex flex-col gap-4 py-8">
                 {navLinks.map((link) => (
-                  <a
+                  <Link
                     key={link.label}
                     href={link.href}
-                    onClick={() => {
-                      setActiveLink(link.href);
-                      setMobileDrawerOpen(false);
-                    }}
-                    className="font-inter text-sm font-medium tracking-[0.18em] uppercase text-[#FAF4EA] hover:text-[#D4A85F] transition-colors py-1.5"
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className={`font-inter text-sm font-medium tracking-[0.18em] uppercase transition-colors py-1.5 ${
+                      isLinkActive(link.href)
+                        ? "text-[#D4A85F] font-semibold"
+                        : "text-[#FAF4EA] hover:text-[#D4A85F]"
+                    }`}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 ))}
               </nav>
             </div>
 
             {/* Drawer Bottom Actions */}
             <div className="pt-6 border-t border-white/10 flex flex-col gap-4">
-              <a
-                href="#reserve"
+              <Link
+                href="/reserve-spot"
                 onClick={() => setMobileDrawerOpen(false)}
                 className="header-btn-book w-full text-center"
               >
                 BOOK
-              </a>
+              </Link>
 
               {/* Mobile Language Selector Grid */}
               <div className="grid grid-cols-2 gap-2 pt-2">
