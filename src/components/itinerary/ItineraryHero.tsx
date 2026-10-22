@@ -7,7 +7,86 @@ interface ItineraryHeroProps {
   currentLocale?: Locale;
 }
 
+const MARQUEE_ITEMS: Record<
+  Locale,
+  {
+    date: string;
+    spots: string;
+    days: string;
+    route: string;
+    edition: string;
+    guide: string;
+  }
+> = {
+  en: {
+    date: "23 — 29 Sep 2026",
+    spots: "12 spots",
+    days: "7 days of travel",
+    route: "Marrakech → Sahara",
+    edition: "First edition",
+    guide: "Spanish-speaking guide",
+  },
+  es: {
+    date: "23 — 29 Sep 2026",
+    spots: "12 plazas",
+    days: "7 días de viaje",
+    route: "Marrakech → Sahara",
+    edition: "Primera edición",
+    guide: "Guía en español",
+  },
+  fr: {
+    date: "23 — 29 Sep 2026",
+    spots: "12 places",
+    days: "7 jours de voyage",
+    route: "Marrakech → Sahara",
+    edition: "Première édition",
+    guide: "Guide francophone",
+  },
+  de: {
+    date: "23 — 29 Sep 2026",
+    spots: "12 Plätze",
+    days: "7 Tage Reise",
+    route: "Marrakesch → Sahara",
+    edition: "Erste Edition",
+    guide: "Spanisch-sprachige Reiseleitung",
+  },
+  it: {
+    date: "23 — 29 Sep 2026",
+    spots: "12 posti",
+    days: "7 giorni di viaggio",
+    route: "Marrakech → Sahara",
+    edition: "Prima edizione",
+    guide: "Guida parlante spagnolo",
+  },
+  pt: {
+    date: "23 — 29 Set 2026",
+    spots: "12 vagas",
+    days: "7 dias de viagem",
+    route: "Marrakech → Sahara",
+    edition: "Primeira edição",
+    guide: "Guia em espanhol",
+  },
+  ar: {
+    date: "23 — 29 سبتمبر 2026",
+    spots: "12 مقعداً فقط",
+    days: "7 أيام من السفر الساحر",
+    route: "مراكش ← الصحراء",
+    edition: "النسخة الأولى",
+    guide: "مرشدة ناطقة بالإسبانية",
+  },
+  ru: {
+    date: "23 — 29 Сен 2026",
+    spots: "12 мест",
+    days: "7 дней путешествия",
+    route: "Марракеш → Сахара",
+    edition: "Первый выпуск",
+    guide: "Испаноязычный гид",
+  },
+};
+
 export default function ItineraryHero({ currentLocale = "en" }: ItineraryHeroProps) {
+  const m = MARQUEE_ITEMS[currentLocale] || MARQUEE_ITEMS.en;
+
   return (
     <>
       <div className="wp-block-cover alignfull mda-subpage-hero mda-page-itinerary-stays has-parallax">
@@ -47,34 +126,21 @@ export default function ItineraryHero({ currentLocale = "en" }: ItineraryHeroPro
         </div>
       </div>
 
-      {/* Marquee Ticker */}
-      <div className="wp-block-group alignfull mda-marquee-section">
-        <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
-          <p className="mda-marquee-text wp-block-paragraph" style={{ display: "none" }}>
-            MARRAKECH ✦ HIGH ATLAS &amp; TIZI N’TICHKA ✦ AÏT BEN HADDOU ✦ DADES
-            VALLEY ✦ TODRA GORGE ✦ MERZOUGA &amp; ERG CHEBBI ✦ VALLEY OF ROSES
-          </p>
-        </div>
-        <div className="mda-marquee-track">
-          {[...Array(4)].map((_, i) => (
-            <div key={i} className="mda-marquee-group">
-              <span>MARRAKECH</span>
-              <i>✦</i>
-              <span>HIGH ATLAS &amp; TIZI N’TICHKA</span>
-              <i>✦</i>
-              <span>AÏT BEN HADDOU</span>
-              <i>✦</i>
-              <span>DADES VALLEY</span>
-              <i>✦</i>
-              <span>TODRA GORGE</span>
-              <i>✦</i>
-              <span>MERZOUGA &amp; ERG CHEBBI</span>
-              <i>✦</i>
-              <span>VALLEY OF ROSES</span>
-              <i>✦</i>
-            </div>
-          ))}
-        </div>
+      {/* Exact Marquee Section from Home Page */}
+      <div className="mda-marquee-section" dir={currentLocale === "ar" ? "rtl" : "ltr"}>
+        <p className="mda-marquee-text">
+          <span>{m.date}</span>
+          <span className="star">✦</span>
+          <span>{m.spots}</span>
+          <span className="star">✦</span>
+          <span>{m.days}</span>
+          <span className="star">✦</span>
+          <span>{m.route}</span>
+          <span className="star">✦</span>
+          <span>{m.edition}</span>
+          <span className="star">✦</span>
+          <span>{m.guide}</span>
+        </p>
       </div>
     </>
   );
