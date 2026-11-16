@@ -4,6 +4,8 @@ import React from "react";
 import Image from "next/image";
 import { MessageCircle, Heart, Sparkles } from "lucide-react";
 import { Locale, translations } from "@/data/translations";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface HostsSectionProps {
   currentLocale: Locale;
@@ -11,6 +13,8 @@ interface HostsSectionProps {
 
 export default function HostsSection({ currentLocale }: HostsSectionProps) {
   const t = translations[currentLocale];
+  const siteContent = getSiteContent(currentLocale);
+  const hc = siteContent.home.hosts || t.hosts;
   const isRTL = t.dir === "rtl";
 
   return (
@@ -33,7 +37,7 @@ export default function HostsSection({ currentLocale }: HostsSectionProps) {
                   Vanessa & Ana
                 </span>
                 <span className="text-xs text-[#C46849] font-medium tracking-wider uppercase">
-                  {t.hosts.role}
+                  <EditableText path="home.hosts.role" defaultText={hc.role} />
                 </span>
               </div>
             </div>
@@ -49,24 +53,24 @@ export default function HostsSection({ currentLocale }: HostsSectionProps) {
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#C5A059]/40 bg-[#C5A059]/10 mb-6">
               <Sparkles className="w-3.5 h-3.5 text-[#C46849]" />
               <span className="text-xs tracking-[0.2em] uppercase text-[#A85033] font-semibold">
-                {t.hosts.tag}
+                <EditableText path="home.hosts.tag" defaultText={hc.tag} />
               </span>
             </div>
 
             <h2 className="font-cinzel text-3xl sm:text-5xl text-[#1D252C] font-bold mb-4">
-              {t.hosts.heading}
+              <EditableText path="home.hosts.heading" defaultText={hc.heading} />
             </h2>
             <div className="w-16 h-[2px] bg-[#C5A059] mb-8" />
 
-            <p className="font-marcellus text-lg sm:text-xl text-[#1D252C]/85 leading-relaxed font-light mb-8">
-              {t.hosts.bio}
-            </p>
+            <div className="font-marcellus text-lg sm:text-xl text-[#1D252C]/85 leading-relaxed font-light mb-8">
+              <EditableText path="home.hosts.bio" defaultText={hc.bio} multiline as="p" />
+            </div>
 
             {/* Quote Block */}
             <blockquote className="border-l-2 border-[#C46849] pl-6 py-2 mb-10 bg-white/60 rounded-r-xl">
-              <p className="font-cinzel text-base sm:text-lg text-[#1D252C] italic">
-                {t.hosts.quote}
-              </p>
+              <div className="font-cinzel text-base sm:text-lg text-[#1D252C] italic">
+                <EditableText path="home.hosts.quote" defaultText={hc.quote} multiline as="p" />
+              </div>
             </blockquote>
 
             {/* Direct Contact Button */}
@@ -77,7 +81,9 @@ export default function HostsSection({ currentLocale }: HostsSectionProps) {
               className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-[#1D252C] hover:bg-[#13140E] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <MessageCircle className="w-5 h-5 text-[#25D366]" />
-              <span>{t.hosts.cta}</span>
+              <span>
+                <EditableText path="home.hosts.cta" defaultText={hc.cta} />
+              </span>
             </a>
           </div>
         </div>

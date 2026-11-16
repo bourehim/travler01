@@ -2,6 +2,8 @@
 
 import React, { useEffect, useRef } from "react";
 import { Locale } from "@/data/translations";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface PracticalSectionProps {
   currentLocale?: Locale;
@@ -323,7 +325,8 @@ const PRACTICAL_DATA: Record<Locale, {
 export default function PracticalSection({ currentLocale = "en" }: PracticalSectionProps) {
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
-  const t = PRACTICAL_DATA[currentLocale] || PRACTICAL_DATA.en;
+  const siteContent = getSiteContent(currentLocale);
+  const t = siteContent.home.practical || PRACTICAL_DATA[currentLocale] || PRACTICAL_DATA.en;
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -360,12 +363,18 @@ export default function PracticalSection({ currentLocale = "en" }: PracticalSect
             <div className="wp-block-group practical__header">
               <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
                 <p className="eyebrow reveal wp-block-paragraph">
-                  {t.eyebrow}
+                  <EditableText path="home.practical.eyebrow" defaultText={t.eyebrow} />
                 </p>
                 <h2 className="wp-block-heading section__title reveal">
-                  {t.titlePrefix}
-                  {t.titleEm && <em>{t.titleEm}</em>}
-                  {t.titleSuffix}
+                  <EditableText path="home.practical.titlePrefix" defaultText={t.titlePrefix} />
+                  {t.titleEm && (
+                    <em>
+                      <EditableText path="home.practical.titleEm" defaultText={t.titleEm} />
+                    </em>
+                  )}
+                  {t.titleSuffix && (
+                    <EditableText path="home.practical.titleSuffix" defaultText={t.titleSuffix} />
+                  )}
                 </h2>
               </div>
             </div>
@@ -381,11 +390,11 @@ export default function PracticalSection({ currentLocale = "en" }: PracticalSect
                   >
                     <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
                       <h3 className="wp-block-heading info__title">
-                        {card.title}
+                        <EditableText path={`home.practical.cards.${index}.title`} defaultText={card.title} />
                       </h3>
-                      <p className="info__text wp-block-paragraph">
-                        {card.text}
-                      </p>
+                      <div className="info__text wp-block-paragraph">
+                        <EditableText path={`home.practical.cards.${index}.text`} defaultText={card.text} multiline as="p" />
+                      </div>
                     </div>
                   </div>
                 ))}

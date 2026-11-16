@@ -2,6 +2,8 @@
 
 import React, { useEffect, useRef } from "react";
 import { Locale } from "@/data/translations";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface FAQSectionProps {
   currentLocale?: Locale;
@@ -340,7 +342,8 @@ const FAQ_DATA: Record<Locale, {
 export default function FAQSection({ currentLocale = "en" }: FAQSectionProps) {
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
-  const t = FAQ_DATA[currentLocale] || FAQ_DATA.en;
+  const siteContent = getSiteContent(currentLocale);
+  const t = siteContent.home.faq || FAQ_DATA[currentLocale] || FAQ_DATA.en;
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -377,12 +380,18 @@ export default function FAQSection({ currentLocale = "en" }: FAQSectionProps) {
             <div className="wp-block-group faq__header">
               <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
                 <p className="eyebrow reveal wp-block-paragraph">
-                  {t.eyebrow}
+                  <EditableText path="home.faq.eyebrow" defaultText={t.eyebrow} />
                 </p>
                 <h2 className="wp-block-heading section__title reveal">
-                  {t.titlePrefix}
-                  {t.titleEm && <em>{t.titleEm}</em>}
-                  {t.titleSuffix}
+                  <EditableText path="home.faq.titlePrefix" defaultText={t.titlePrefix} />
+                  {t.titleEm && (
+                    <em>
+                      <EditableText path="home.faq.titleEm" defaultText={t.titleEm} />
+                    </em>
+                  )}
+                  {t.titleSuffix && (
+                    <EditableText path="home.faq.titleSuffix" defaultText={t.titleSuffix} />
+                  )}
                 </h2>
               </div>
             </div>
@@ -396,8 +405,12 @@ export default function FAQSection({ currentLocale = "en" }: FAQSectionProps) {
                     className="wp-block-details qa reveal is-layout-flow wp-block-details-is-layout-flow"
                     style={{ "--i": index } as React.CSSProperties}
                   >
-                    <summary>{item.q}</summary>
-                    <p className="wp-block-paragraph">{item.a}</p>
+                    <summary>
+                      <EditableText path={`home.faq.items.${index}.q`} defaultText={item.q} />
+                    </summary>
+                    <div className="wp-block-paragraph">
+                      <EditableText path={`home.faq.items.${index}.a`} defaultText={item.a} multiline as="p" />
+                    </div>
                   </details>
                 ))}
               </div>

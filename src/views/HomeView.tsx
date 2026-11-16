@@ -16,37 +16,42 @@ import PracticalSection from "@/components/PracticalSection";
 import CampfireCTA from "@/components/CampfireCTA";
 import Footer from "@/components/Footer";
 import { Locale } from "@/data/translations";
+import { EditorProvider } from "@/context/EditorContext";
+import AdminToolbar from "@/components/editor/AdminToolbar";
 
 export default function HomeView({ locale = "en" }: { locale?: Locale }) {
   const [currentLocale, setCurrentLocale] = useState<Locale>(locale);
   const isRtl = currentLocale === "ar";
 
   return (
-    <div
-      className="min-h-screen flex flex-col bg-[#FAF7F2] text-[#1B1108] selection:bg-[#8B4513] selection:text-white"
-      dir={isRtl ? "rtl" : "ltr"}
-    >
-      <Navbar
-        currentLocale={currentLocale}
-        onLocaleChange={(loc) => setCurrentLocale(loc)}
-      />
+    <EditorProvider initialLocale={currentLocale}>
+      <div
+        className="min-h-screen flex flex-col bg-[#FAF7F2] text-[#1B1108] selection:bg-[#8B4513] selection:text-white"
+        dir={isRtl ? "rtl" : "ltr"}
+      >
+        <Navbar
+          currentLocale={currentLocale}
+          onLocaleChange={(loc) => setCurrentLocale(loc)}
+        />
 
-      <main className="flex-1">
-        <Hero currentLocale={currentLocale} />
-        <Manifesto currentLocale={currentLocale} />
-        <StagesSection currentLocale={currentLocale} />
-        <SaharaSection currentLocale={currentLocale} />
-        <AdventuresSliderSection currentLocale={currentLocale} />
-        <NightSection currentLocale={currentLocale} />
-        <StaysSection currentLocale={currentLocale} />
-        <HostsSection currentLocale={currentLocale} />
-        <ReserveSection currentLocale={currentLocale} />
-        <FAQSection currentLocale={currentLocale} />
-        <PracticalSection currentLocale={currentLocale} />
-        <CampfireCTA currentLocale={currentLocale} />
-      </main>
+        <main className="flex-1">
+          <Hero currentLocale={currentLocale} />
+          <Manifesto currentLocale={currentLocale} />
+          <StagesSection currentLocale={currentLocale} />
+          <SaharaSection currentLocale={currentLocale} />
+          <AdventuresSliderSection currentLocale={currentLocale} />
+          <NightSection currentLocale={currentLocale} />
+          <StaysSection currentLocale={currentLocale} />
+          <HostsSection currentLocale={currentLocale} />
+          <ReserveSection currentLocale={currentLocale} />
+          <FAQSection currentLocale={currentLocale} />
+          <PracticalSection currentLocale={currentLocale} />
+          <CampfireCTA currentLocale={currentLocale} />
+        </main>
 
-      <Footer currentLocale={currentLocale} />
-    </div>
+        <Footer currentLocale={currentLocale} />
+        <AdminToolbar />
+      </div>
+    </EditorProvider>
   );
 }

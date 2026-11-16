@@ -3,6 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import { Locale } from "@/data/translations";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 const INCLUSIONS_HEADER: {
   eyebrow: Partial<Record<Locale, string>>;
@@ -226,15 +228,18 @@ export default function ItineraryInclusions({
 }: {
   currentLocale?: Locale;
 }) {
-  const eyebrow = INCLUSIONS_HEADER.eyebrow[currentLocale] || INCLUSIONS_HEADER.eyebrow.en || "";
-  const titlePrefix = INCLUSIONS_HEADER.titlePrefix[currentLocale] || INCLUSIONS_HEADER.titlePrefix.en || "";
-  const titleEm = INCLUSIONS_HEADER.titleEm[currentLocale] || INCLUSIONS_HEADER.titleEm.en || "";
+  const siteContent = getSiteContent(currentLocale);
+  const inc = siteContent.itinerary?.inclusions;
 
-  const incTitle = INCLUDED_CARD.title[currentLocale] || INCLUDED_CARD.title.en || "";
-  const incItems: string[] = INCLUDED_CARD.items[currentLocale] || INCLUDED_CARD.items.en || [];
+  const eyebrow = inc?.eyebrow || INCLUSIONS_HEADER.eyebrow[currentLocale] || INCLUSIONS_HEADER.eyebrow.en || "";
+  const titlePrefix = inc?.titlePrefix || INCLUSIONS_HEADER.titlePrefix[currentLocale] || INCLUSIONS_HEADER.titlePrefix.en || "";
+  const titleEm = inc?.titleEm || INCLUSIONS_HEADER.titleEm[currentLocale] || INCLUSIONS_HEADER.titleEm.en || "";
 
-  const notIncTitle = NOT_INCLUDED_CARD.title[currentLocale] || NOT_INCLUDED_CARD.title.en || "";
-  const notIncItems: string[] = NOT_INCLUDED_CARD.items[currentLocale] || NOT_INCLUDED_CARD.items.en || [];
+  const incTitle = (inc as any)?.includedTitle || (inc as any)?.incTitle || INCLUDED_CARD.title[currentLocale] || INCLUDED_CARD.title.en || "";
+  const incItems: string[] = (inc as any)?.includedItems || (inc as any)?.incItems || INCLUDED_CARD.items[currentLocale] || INCLUDED_CARD.items.en || [];
+
+  const notIncTitle = (inc as any)?.excludedTitle || (inc as any)?.notIncTitle || NOT_INCLUDED_CARD.title[currentLocale] || NOT_INCLUDED_CARD.title.en || "";
+  const notIncItems: string[] = (inc as any)?.excludedItems || (inc as any)?.notIncItems || NOT_INCLUDED_CARD.items[currentLocale] || NOT_INCLUDED_CARD.items.en || [];
 
   return (
     <div className="wp-block-group alignwide mda-inclusions-wrap">
@@ -243,11 +248,13 @@ export default function ItineraryInclusions({
         <div className="wp-block-group mda-inclusions-header">
           <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
             <p className="eyebrow eyebrow--terra wp-block-paragraph">
-              {eyebrow}
+              <EditableText path="itinerary.inclusions.eyebrow" defaultText={eyebrow} />
             </p>
             <h2 className="wp-block-heading mda-inclusions-title">
-              {titlePrefix}
-              <em>{titleEm}</em>
+              <EditableText path="itinerary.inclusions.titlePrefix" defaultText={titlePrefix} />
+              <em>
+                <EditableText path="itinerary.inclusions.titleEm" defaultText={titleEm} />
+              </em>
             </h2>
           </div>
         </div>
@@ -268,7 +275,7 @@ export default function ItineraryInclusions({
                   />
                 </figure>
                 <h3 className="wp-block-heading mda-inclusion-title">
-                  {incTitle}
+                  <EditableText path="itinerary.inclusions.includedTitle" defaultText={incTitle} />
                 </h3>
                 <ul className="wp-block-list mda-inclusion-list mda-inclusion-list--yes">
                   {incItems.map((item: string, idx: number) => (
@@ -291,7 +298,7 @@ export default function ItineraryInclusions({
                   />
                 </figure>
                 <h3 className="wp-block-heading mda-inclusion-title">
-                  {notIncTitle}
+                  <EditableText path="itinerary.inclusions.excludedTitle" defaultText={notIncTitle} />
                 </h3>
                 <ul className="wp-block-list mda-inclusion-list mda-inclusion-list--no">
                   {notIncItems.map((item: string, idx: number) => (

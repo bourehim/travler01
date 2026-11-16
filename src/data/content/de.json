@@ -1,0 +1,382 @@
+{
+  "locale": "de",
+  "nav": {
+    "home": "Startseite",
+    "about": "Über Uns",
+    "itinerary": "Reiseplan & Unterkünfte",
+    "reserve": "Platz reservieren",
+    "contact": "Kontakt"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Erste Ausgabe · 12 Plätze",
+      "taglineLine1": "Eine transformative Reise durch Marokko — sieben Tage zwischen lebendigen Städten, Bergen und alten Kasbahs",
+      "taglineLine2": "und der Weite der Sahara.",
+      "btnReserve": "Meinen Platz reservieren",
+      "btnDiscover": "Die Reise entdecken",
+      "marquee": [
+        "23. — 29. Sept. 2026",
+        "12 Plätze",
+        "7 Tage unterwegs",
+        "Marrakesch → Sahara",
+        "Erste Ausgabe",
+        "Spanischsprachige Reiseleitung"
+      ]
+    },
+    "manifesto": {
+      "manifestoEyebrow": "Kein Kurzurlaub, sondern eine Reise",
+      "quotePrefix": "Manche Reisen bringen dich an einen Ort. Und andere bringen dich ",
+      "quoteEm": "zurück zu dir selbst.",
+      "aboutEyebrow": "Was ist Mujeres de Arena?",
+      "aboutTitleLine1": "Das ist keine organisierte Reise.",
+      "aboutTitleEm": "Reise",
+      "aboutTitleLine2": " aus dem Herzen heraus.",
+      "aboutP1": "Mujeres de Arena entstand für Frauen, die den Ruf spüren, aus dem Vertrauten herauszutreten, der Abenteuerlust Raum zu geben und sich eine echte Erfahrung zu erlauben. Ohne unmögliche Zeitpläne, ohne durchgetaktete Minuten.",
+      "aboutP2": "Sieben Tage durch Marokko — durch lebendige Städte, Berge, alte Kasbahs, geschichtsträchtige Täler und die Weite der Sahara. Ein Raum, um neue Landschaften zu entdecken, den Weg mit anderen Frauen zu teilen und wieder die Aufregung zu spüren, etwas zum ersten Mal zu erleben.",
+      "aboutQuoteLine1": "Denn manchmal geschieht Veränderung nicht in einem Raum.",
+      "aboutQuoteLine2": "Sie geschieht unterwegs. In einem unerwarteten Gespräch.",
+      "aboutQuoteLine3": "In einem anderen Sonnenaufgang.",
+      "aboutClosing": "Und auch in dir.",
+      "aboutCaption": "Die Reise beginnt, wenn du Ja sagst"
+    },
+    "stages": {
+      "kicker": "Die Reiseroute · 23. — 29. Sept. 2026",
+      "title": "Sieben Etappen, eine einzige Geschichte",
+      "desc": "Vom Trubel Marrakeschs bis zur Weite der Sahara — und zurück. Jede Etappe öffnet eine neue Art zu sehen.",
+      "btn": "Detaillierten Reiseplan ansehen"
+    },
+    "sahara": {
+      "eyebrow": "Die Sahara",
+      "titlePrefix": "Dort, wo etwas ",
+      "titleEm": "erwacht",
+      "text": "Hier scheint die Zeit stehen zu bleiben. Die Entfernungen verändern sich. Und etwas in uns verändert sich auch. Keine Eile. Keine Zeitpläne. Keine Erwartungen. Nur das Abenteuer und das Privileg, dort zu sein.",
+      "chips": [
+        "✦ Die Dünen von Erg Chebbi",
+        "✦ 4×4 durch die Wüste",
+        "✦ Sandboarding",
+        "✦ Goldener Sonnenuntergang"
+      ]
+    },
+    "night": {
+      "eyebrow": "Unter den Sternen · Erg Chebbi",
+      "titlePrefix": "Die Magie, die nicht erscheint auf den ",
+      "titleEm": "Fotos",
+      "p1": "Die Weite des Tages weicht einer Ruhe, die schwer zu beschreiben ist. Keine Aktivitäten. Keine Pflichten. Nichts zu beweisen. Nur das Privileg, dort zu sein, den Weg mit anderen Frauen zu teilen und der Erfahrung ihren Raum zu geben.",
+      "p2": "Denn manche der wichtigsten Gespräche unseres Lebens entstehen genau dann, wenn wir aufhören, sie erzwingen zu wollen."
+    },
+    "stays": {
+      "tag": "Refugios de Paz",
+      "heading": "Lugares elegidos para acompañar la experiencia",
+      "subtitle": "Espacios auténticos donde el descanso y la belleza conviven en perfecta armonía.",
+      "riadTitle": "Riad de Paz en Marrakech",
+      "riadDesc": "Un remanso de calma con patio andalusí, alberca fresca y habitaciones impregnadas de artesanía local y calma.",
+      "campTitle": "Campamento de Lujo en Erg Chebbi",
+      "campDesc": "Jaimas privadas con comodidades exclusivas, alfombras bereberes y el manto de la Vía Láctea sobre tu cama.",
+      "kasbahTitle": "Kasbah Tradicional en el Atlas",
+      "kasbahDesc": "Arquitectura de tierra cocida con vistas panorámicas a los valles y terrazas donde contemplar la caída del sol."
+    },
+    "hosts": {
+      "tag": "Tus Anfitrionas",
+      "heading": "Vanessa & Ana",
+      "role": "Guías, creadoras y compañeras de camino",
+      "bio": "Hemos recorrido y sentido el desierto durante años. Creamos 'Mujeres de Arena' no para mostrarte Marruecos desde la ventanilla de un autobús, sino para abrirte la puerta a una experiencia íntima, segura, humana y transformadora.",
+      "quote": "El desierto no te pide que hagas nada; solo te invita a ser quien eres.",
+      "cta": "Contactar con Vanessa y Ana"
+    },
+    "reserve": {
+      "eyebrow": "Dein Platz",
+      "titlePrefix": "Eine Erfahrung reserviert ",
+      "titleEm": "für 12 Frauen",
+      "titleSuffix": "",
+      "ticketLabel": "Gesamtinvestition",
+      "ticketNote": "12 Frauen. Eine gemeinsame Reise.Sieben Tage von Marrakesch bis zur Sahara.",
+      "depositLabel": "Platzreservierung",
+      "depositNote": "Bestätigt deine Teilnahme. Nicht erstattungsfähig.",
+      "remainingLabel": "Restzahlung",
+      "remainingNote": "Zahlbar bei der Ankunft in Marokko.",
+      "bookBtn": "Meinen Platz buchen →",
+      "includedTitle": "Inklusive",
+      "includedItems": [
+        "Hin- und Rücktransfers vom Flughafen Marrakesch",
+        "Privater klimatisierter Transport während der gesamten Reise",
+        "Einheimischer Fahrer und spanischsprachige Reiseleitung",
+        "6 Nächte: 5 in charmanten Riads + 1 Deluxe-Camp in der Sahara",
+        "Alle Frühstücke und vier Abendessen entlang der Route",
+        "Kamelritt, 4×4 und Sandboarding in den Dünen",
+        "Essen mit Nomaden oder Picknick in einer Oase",
+        "Besichtigungen und Erlebnisse während der gesamten Reise",
+        "Persönliche Begleitung durch deine Gastgeberinnen"
+      ],
+      "excludedTitle": "Nicht inklusive",
+      "excludedItems": [
+        "Internationale Flüge nach Marrakesch",
+        "Mittagessen und nicht genannte Mahlzeiten",
+        "Getränke und persönliche Ausgaben",
+        "Trinkgelder"
+      ]
+    },
+    "faq": {
+      "eyebrow": "Häufige Fragen",
+      "titlePrefix": "Bevor du ",
+      "titleEm": "aufbrichst",
+      "titleSuffix": "",
+      "items": [
+        {
+          "q": "Ist es sicher, nach Marokko zu reisen?",
+          "a": "Ja. Marokko ist ein etabliertes Reiseland, und wir durchqueren das Land jederzeit begleitet von unserem lokalen Team und von uns. Die große Mehrheit der Ängste verschwindet, sobald die Erfahrung beginnt."
+        },
+        {
+          "q": "Kann ich allein kommen?",
+          "a": "Natürlich. Tatsächlich reisen viele Teilnehmerinnen allein. Vom ersten Tag an bist du Teil einer kleinen Gruppe von Frauen, die das Abenteuer mit dir teilen."
+        },
+        {
+          "q": "Wie sind die Zimmer?",
+          "a": "Sie werden geteilt, als Doppel- oder Dreibettzimmer, je nach Unterkunft. Wenn du allein reist, übernehmen wir die Aufteilung, damit alles bequem und unkompliziert ist."
+        },
+        {
+          "q": "Wie alt sind die Teilnehmerinnen?",
+          "a": "Frauen unterschiedlichen Alters und in unterschiedlichen Lebensphasen. Was uns verbindet, ist nicht das Alter, sondern die Lust auf eine authentische Erfahrung und ein unvergessliches Abenteuer."
+        },
+        {
+          "q": "Ist die Reise körperlich anstrengend?",
+          "a": "Nein. Sie eignet sich für jede Frau mit normaler körperlicher Verfassung. Es wird Momente mit Fußwegen und Aktivität geben, aber es sind weder Vorerfahrung noch spezielles Training nötig."
+        },
+        {
+          "q": "Muss ich Englisch oder Französisch sprechen?",
+          "a": "Nein. Während der gesamten Reise werden wir von einer spanischsprachigen lokalen Reiseleitung begleitet. Außerdem sprechen viele Menschen im Tourismus Spanisch, Französisch oder Englisch."
+        },
+        {
+          "q": "Welche Dokumente brauche ich?",
+          "a": "Einen gültigen Reisepass. Wir empfehlen, das Ablaufdatum rechtzeitig zu prüfen."
+        },
+        {
+          "q": "Und wenn ich Allergien oder Ernährungsbedürfnisse habe?",
+          "a": "Sag es uns einfach rechtzeitig. Wir werden alles tun, um deine Bedürfnisse an die Unterkünfte und Restaurants der Reise weiterzugeben."
+        }
+      ]
+    },
+    "practical": {
+      "eyebrow": "Bevor du losfliegst",
+      "titlePrefix": "Praktische Details, damit du ",
+      "titleEm": "gelassen ankommst",
+      "titleSuffix": "",
+      "cards": [
+        {
+          "type": "luggage",
+          "title": "Gepäck",
+          "text": "Im September wird es tagsüber heiß und nachts kühl, besonders in der Wüste. Vor der Reise erhältst du einen praktischen Leitfaden mit einer Orientierungsliste für deinen Koffer."
+        },
+        {
+          "type": "currency",
+          "title": "Währung",
+          "text": "Die offizielle Währung ist der marokkanische Dirham. Vor Ort helfen wir dir, Geld zu wechseln oder alles Nötige zu erledigen."
+        },
+        {
+          "type": "internet",
+          "title": "Internet und Netz",
+          "text": "Bei der Ankunft machen wir Halt, um eine lokale SIM-Karte zu kaufen. In einigen Wüstengebieten kann das Netz eingeschränkt sein."
+        },
+        {
+          "type": "flights",
+          "title": "Flüge",
+          "text": "Jede Teilnehmerin organisiert ihr eigenes Ticket nach Marrakesch. Sobald dein Platz bestätigt ist, stimmen wir Zeiten und Ankünfte mit der Gruppe ab."
+        },
+        {
+          "type": "passport",
+          "title": "Reisepass & Visa",
+          "text": "Ein Reisepass, der ab dem Reisedatum noch mindestens 6 Monate gültig ist, ist erforderlich. EU-Bürgerinnen und viele weitere Nationalitäten benötigen kein Touristenvisum für Aufenthalte bis zu 90 Tagen."
+        },
+        {
+          "type": "dates",
+          "title": "Termine",
+          "text": "23. — 29. Sept. 2026. Erste Ausgabe Mujeres de Arena — Start — Eine Erfahrung reserviert für 12 Frauen."
+        }
+      ]
+    },
+    "campfire": {
+      "eyebrow": "12 Frauen · eine gemeinsame Reise",
+      "titlePrefix": "Wir sehen uns in ",
+      "titleEm": "Marokko",
+      "text": "Komm mit gepacktem Koffer, offenem Geist und viel Lust auf eine unvergessliche Reise nach Marrakesch. Um den Rest kümmern wir uns.",
+      "bookBtn": "Meinen Platz buchen →",
+      "contactBtn": "Kontakt Vanessa & Ana"
+    },
+    "footer": {
+      "tagline": "Expedición íntima al desierto de Marruecos reservada exclusivamente para mujeres conscientes.",
+      "quickLinks": "Explora",
+      "contactTitle": "Contacto y Concierge",
+      "whatsapp": "Habla con nosotras por WhatsApp",
+      "email": "contacto@mujeresdearena.com",
+      "copyright": "© 2026 Mujeres de Arena. Todos los derechos reservados."
+    }
+  },
+  "itinerary": {
+    "hero": {
+      "eyebrow": "✦ Die Reiseroute · 23. — 29. Sept. 2026 ✦",
+      "titlePrefix": "Sieben Etappen, ",
+      "titleEm": "Eine Einzige Geschichte",
+      "subtitle": "Vom Pulsieren Marrakeschs bis zur Weite der Sahara – und zurück. Jede Etappe eröffnet einen neuen Blick. 7 Tage geteiltes Staunen, reserviert für 12 Frauen."
+    },
+    "stages": [
+      {
+        "badge": "✦ ETAPPE EINS · TAG 1 ✦",
+        "title": "Marrakesch · Wo die Reise Beginnt",
+        "text": "Marrakesch besichtigt man nicht. Man fühlt es. Die Stadt empfängt uns mit dem Duft von Orangenblüten, der Terrakotta-Wärme ihrer Gassen und dem Summen von Jemaa el-Fnaa in der Dämmerung.",
+        "listItems": [
+          "Privater Flughafen-Transfer in Marrakesch Menara (RAK) und Empfang im Boutique-Riad",
+          "Erster Minztee und herzlicher Willkommenskreis der Schwesternschaft",
+          "Spaziergang bei Sonnenuntergang durch die gewürzduftenden Gassen und Souks",
+          "Traditionelles marokkanisches Abendessen im Innenhof des Riads"
+        ],
+        "image": "/images/marrakech-city.jpg"
+      },
+      {
+        "badge": "✦ ETAPPE ZWEI · TAG 2 ✦",
+        "title": "Über den Hohen Atlas nach Aït Ben Haddou",
+        "text": "Wir steigen über den Tizi n’Tichka-Pass auf 2.260 Metern in die Wolken. Die Landschaft wechselt eindrucksvoll von grünen Bergterrassen zu alten Lehm-Kasbahs.",
+        "listItems": [
+          "Panoramafahrt über den spektakulären Tizi n’Tichka Gebirgspass",
+          "Geführte Erkundung des UNESCO-Weltkulturerbes Ksar Aït Ben Haddou",
+          "Mittagessen mit Ausblick auf das malerische Ounila-Flusstal",
+          "Malerische Weiterfahrt in die ruhigen Täler der Rosen und Mandeln im Dades"
+        ],
+        "image": "/images/atlas-mountains.jpg"
+      },
+      {
+        "badge": "✦ ETAPPE DREI · TAG 3 ✦",
+        "title": "Dadestal & Die Straße der Kasbahs",
+        "text": "Mächtige rote Schluchten, in den Fels gemeißelte Serpentinen und grüne Oasenbänder inmitten der Felsen. Ein Fest der Sinne vor der tiefen Wüste.",
+        "listItems": [
+          "Morgendlicher Spaziergang durch die legendären Serpentinen der Dades-Schlucht",
+          "Ruhige Fotomomente an den bizarren Felsformationen",
+          "Minztee bei einer lokalen Frauen-Webereikooperative der Amazigh",
+          "Erholungsabend unter klarem Gebirgshimmel in einer traditionellen Kasbah"
+        ],
+        "image": "/images/draa-valley.jpg"
+      },
+      {
+        "badge": "✦ ETAPPE VIER · TAG 4 ✦",
+        "title": "Todra-Schlucht & Das Tor zu den Dünen",
+        "text": "Zwischen 300 Meter hohen Steilwänden öffnet sich die weite Wüstensteppe. In der Ferne erhebt sich am Nachmittag die goldene Silhouette des Erg Chebbi.",
+        "listItems": [
+          "Spaziergang durch den engen Felskorridor der Todra-Schlucht",
+          "Besuch einer traditionellen Dattelpalmen-Oase",
+          "Ankunft im Wüstendorf Merzouga",
+          "Erster Blick auf die majestätischen goldenen Sanddünen der Sahara"
+        ],
+        "image": "/images/desert-mountains.jpg"
+      },
+      {
+        "badge": "✦ ETAPPE FÜNF · TAG 5 ✦",
+        "title": "Erg Chebbi · Dünensonnenuntergang & Sternencamp",
+        "text": "Das emotionale Herzstück der Reise. Wir lassen die Hektik hinter uns und reiten auf Kamelen dem Sonnenuntergang im Sandmeer entgegen. Trommelklänge unterm Himmelszelt.",
+        "listItems": [
+          "Kamelritt bei Sonnenuntergang über die Kämme der Bernsteindünen",
+          "Sandboarding und meditative Stille auf 150 Meter hohen Dünenkuppen",
+          "Übernachtung im luxuriösen Wüstencamp mit echten Betten und privatem Bad",
+          "Hypnotische Gnawa-Trommelmusik am knisternden Lagerfeuer unter der Milchstraße"
+        ],
+        "image": "/images/sahara-dunes.jpg"
+      },
+      {
+        "badge": "✦ ETAPPE SECHS · TAG 6 ✦",
+        "title": "Sonnenaufgang & Lebendige Nomadenkultur",
+        "text": "Erleben, wie die Morgendämmerung den Sand in zarte Rosé-, Aprikosen- und Goldtöne taucht. Begegnung mit Nomadenfamilien und ihrer Naturverbundenheit.",
+        "listItems": [
+          "Morgenmeditation und Stille auf dem Kamm der höchsten Düne",
+          "Traditionelles Berberfrühstück mit warmem Brot, Olivenöl und Dattelhonig",
+          "4×4-Wüstenausflug zu Nomadenfamilien und uralten Fossilienbetten",
+          "Malerische Fahrt in Richtung des duftenden Tals der Rosen"
+        ],
+        "image": "/images/side-mirror-sunset.jpg"
+      },
+      {
+        "badge": "✦ ETAPPE SIEBEN · TAG 7 ✦",
+        "title": "Tal der Rosen & Der Weg nach Hause",
+        "text": "Wir sind nicht mehr dieselben Frauen, die vor sieben Tagen in Marrakesch landeten. Wir überqueren den Bergkamm mit neuen Perspektiven und tiefen Freundschaften.",
+        "listItems": [
+          "Besuch einer von Frauen geführten Rosenwasser-Kooperative",
+          "Malerische Abfahrt durch die Ausläufer des Hohen Atlas",
+          "Festliches Abschiedsessen und Abschlusskreis der Schwesternschaft in Marrakesch",
+          "Koordinierter Flughafentransfer für Ihren Rückflug"
+        ],
+        "image": "/images/rose-valley-kasbah.jpg"
+      }
+    ],
+    "stays": {
+      "tag": "Refugios de Paz",
+      "heading": "Lugares elegidos para acompañar la experiencia",
+      "subtitle": "Espacios auténticos donde el descanso y la belleza conviven en perfecta armonía.",
+      "riadTitle": "Riad de Paz en Marrakech",
+      "riadDesc": "Un remanso de calma con patio andalusí, alberca fresca y habitaciones impregnadas de artesanía local y calma.",
+      "campTitle": "Campamento de Lujo en Erg Chebbi",
+      "campDesc": "Jaimas privadas con comodidades exclusivas, alfombras bereberes y el manto de la Vía Láctea sobre tu cama.",
+      "kasbahTitle": "Kasbah Tradicional en el Atlas",
+      "kasbahDesc": "Arquitectura de tierra cocida con vistas panorámicas a los valles y terrazas donde contemplar la caída del sol."
+    },
+    "inclusions": {
+      "eyebrow": "Faire Transparenz",
+      "titlePrefix": "Was Enthalten ist & ",
+      "titleEm": "Was Nicht",
+      "includedTitle": "Im Preis von 800 € Enthalten",
+      "includedItems": [
+        "Privater Flughafentransfer hin und zurück ab Marrakesch Menara (RAK)",
+        "Komfortabler Privattransport im klimatisierten Minibus an allen 7 Tagen",
+        "Erfahrener lokaler Fahrer und spanisch-/englischsprachige Reisebegleitung",
+        "6 Übernachtungen in stilvollen Unterkünften (5 Nächte Riads/Kasbahs + 1 Nacht Deluxe-Camp)",
+        "Alle Frühstücke + 4 traditionelle Abendessen unterwegs",
+        "Kamelritt zum Sonnenuntergang über die Dünen von Erg Chebbi",
+        "4×4 Wüstenausflug zu Nomadenfamilien und Oasenbrunnen",
+        "Sandboarding und Musik am Lagerfeuer unter dem Wüstenhimmel",
+        "Persönliche und durchgehende Begleitung durch Vanessa & Ana"
+      ],
+      "excludedTitle": "Nicht Enthalten",
+      "excludedItems": [
+        "Internationale Flüge nach und von Marrakesch",
+        "Mittagessen und nicht aufgeführte Abendessen (gemeinsam ausgesuchte lokale Lokale)",
+        "Eigene Getränke, Snacks und persönliche Einkäufe in den Souks",
+        "Persönliche Reisekranken- und Reiserücktrittsversicherung (dringend empfohlen)",
+        "Trinkgelder für Fahrer, Guides und Hotelteams"
+      ]
+    },
+    "campfire": {
+      "eyebrow": "12 Frauen · eine gemeinsame Reise",
+      "titlePrefix": "Wir sehen uns in ",
+      "titleEm": "Marokko",
+      "text": "Komm mit gepacktem Koffer, offenem Geist und viel Lust auf eine unvergessliche Reise nach Marrakesch. Um den Rest kümmern wir uns.",
+      "bookBtn": "Meinen Platz buchen →",
+      "contactBtn": "Kontakt Vanessa & Ana"
+    }
+  },
+  "about": {
+    "eyebrow": "✦ EURE GASTGEBERINNEN · VANESSA & ANA ✦",
+    "titlePrefix": "Wir Sagen ",
+    "titleEm": "Ja zum Leben",
+    "subtitle": "Getrieben von Neugier, Verbundenheit und der Magie, gewohnte Routinen hinter sich zu lassen.",
+    "storyEyebrow": "Wie Alles Begann",
+    "storyTitle": "Von Einer Reise zur Berufung",
+    "p1": "Neugier und Abenteuerlust treiben uns an. So begann unsere Liebe zu Marokko: Ein Traum wurde zur Leidenschaft, zu der wir immer wieder zurückkehren.",
+    "p2": "Diese Erfahrung wollten wir teilen. So entstand Mujeres de Arena — eine Reise von Herzen, nur für Frauen.",
+    "quote": "„Das Leben gewinnt an Weite, wenn wir den Mut haben, in die Stille der Wüste einzutauchen.“",
+    "joinBtn": "Reise Beitreten →",
+    "contactBtn": "Kontakt"
+  },
+  "contact": {
+    "eyebrow": "✦ DIREKTER KONTAKT ✦",
+    "titlePrefix": "Wir Sind Hier ",
+    "titleEm": "Für Dich",
+    "subtitle": "Hast du Fragen vor der Buchung zu Ablauf, Zimmern oder Flügen? Schreib uns jederzeit gerne.",
+    "emailTitle": "Per E-Mail",
+    "emailDesc": "Wir antworten persönlich innerhalb von 24 Stunden.",
+    "whatsappTitle": "WhatsApp Chat",
+    "whatsappDesc": "Direkte Antworten zu Verfügbarkeit, Terminen und Zahlungen.",
+    "formTitle": "Schreib uns eine Nachricht",
+    "formSubtitle": "Hinterlasse deine Kontaktdaten und Vanessa oder Ana melden sich persönlich bei dir.",
+    "nameLabel": "Dein Name",
+    "emailLabel": "Deine E-Mail",
+    "messageLabel": "Deine Nachricht / Frage",
+    "submitBtn": "Nachricht senden →",
+    "thankYouTitle": "Vielen Dank!",
+    "thankYouText": "Deine Nachricht ist angekommen. Wir melden uns in Kürze bei dir."
+  }
+}

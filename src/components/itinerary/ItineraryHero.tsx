@@ -2,6 +2,8 @@
 
 import React from "react";
 import { Locale } from "@/data/translations";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface ItineraryHeroProps {
   currentLocale?: Locale;
@@ -75,7 +77,8 @@ const HERO_TEXT: Record<
 };
 
 export default function ItineraryHero({ currentLocale = "en" }: ItineraryHeroProps) {
-  const h = HERO_TEXT[currentLocale] || HERO_TEXT.en;
+  const siteContent = getSiteContent(currentLocale);
+  const h = siteContent.itinerary?.hero || HERO_TEXT[currentLocale] || HERO_TEXT.en;
 
   return (
     <div className="wp-block-cover alignfull mda-subpage-hero mda-page-itinerary-stays has-parallax">
@@ -98,16 +101,19 @@ export default function ItineraryHero({ currentLocale = "en" }: ItineraryHeroPro
         <div className="wp-block-group hero__inner">
           <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
             <p className="eyebrow eyebrow--gold wp-block-paragraph">
-              {h.eyebrow}
+              <EditableText path="itinerary.hero.eyebrow" defaultText={h.eyebrow} />
             </p>
 
             <h1 className="hero__title wp-block-heading">
-              {h.titlePrefix}<em>{h.titleEm}</em>
+              <EditableText path="itinerary.hero.titlePrefix" defaultText={h.titlePrefix} />
+              <em>
+                <EditableText path="itinerary.hero.titleEm" defaultText={h.titleEm} />
+              </em>
             </h1>
 
-            <p className="hero__subtitle wp-block-paragraph">
-              {h.subtitle}
-            </p>
+            <div className="hero__subtitle wp-block-paragraph">
+              <EditableText path="itinerary.hero.subtitle" defaultText={h.subtitle} multiline as="p" />
+            </div>
           </div>
         </div>
       </div>

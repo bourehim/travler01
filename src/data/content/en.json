@@ -1,0 +1,382 @@
+{
+  "locale": "en",
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "itinerary": "Itinerary & Stays",
+    "reserve": "Reserve Spot",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "First edition · 12 spots",
+      "taglineLine1": "A transformative journey through Morocco — seven days among vibrant cities, mountains and ancestral kasbahs",
+      "taglineLine2": "and the immensity of the Sahara.",
+      "btnReserve": "Reserve My Spot",
+      "btnDiscover": "Discover the Journey",
+      "marquee": [
+        "23 — 29 Sep 2026",
+        "12 spots",
+        "7 days of travel",
+        "Marrakech → Sahara",
+        "First edition",
+        "Spanish-speaking guide"
+      ]
+    },
+    "manifesto": {
+      "manifestoEyebrow": "It isn’t a getaway, it’s a journey",
+      "quotePrefix": "Some journeys take you to a place. And others take you ",
+      "quoteEm": "back to yourself.",
+      "aboutEyebrow": "What is Mujeres de Arena?",
+      "aboutTitleLine1": "It isn't an organised trip.",
+      "aboutTitleEm": "journey",
+      "aboutTitleLine2": " created from the heart.",
+      "aboutP1": "Mujeres de Arena was born for women who feel the call to step outside the familiar, to make room for adventure and to allow themselves to live a real experience. No impossible schedules, no scripted minutes.",
+      "aboutP2": "Seven days travelling through Morocco across vibrant cities, mountains, ancestral kasbahs, valleys full of history and the immensity of the Sahara. A space to discover new landscapes, to share the road with other women and to feel again the thrill of experiencing something for the first time.",
+      "aboutQuoteLine1": "Because sometimes transformation doesn't happen in a room.",
+      "aboutQuoteLine2": "It happens on the road. In an unexpected conversation.",
+      "aboutQuoteLine3": "In a different sunrise.",
+      "aboutClosing": "And also inside you.",
+      "aboutCaption": "The journey begins when you say yes"
+    },
+    "stages": {
+      "kicker": "The itinerary · 23 — 29 Sep 2026",
+      "title": "Seven stages, one single story",
+      "desc": "From the bustle of Marrakech to the immensity of the Sahara — and back. Every stage opens a new way of seeing.",
+      "btn": "View Complete Itinerary & Stays Guide"
+    },
+    "sahara": {
+      "eyebrow": "The Sahara",
+      "titlePrefix": "There, where something ",
+      "titleEm": "awakens",
+      "text": "Here time seems to stop. Distances change. And something inside us changes too. No rush. No schedules. No expectations. Only the adventure, and the privilege of being there.",
+      "chips": [
+        "✦ The dunes of Erg Chebbi",
+        "✦ 4×4 across the desert",
+        "✦ Sandboarding",
+        "✦ Golden sunset"
+      ]
+    },
+    "night": {
+      "eyebrow": "Under the stars · Erg Chebbi",
+      "titlePrefix": "The magic that never appears in ",
+      "titleEm": "photographs",
+      "p1": "The immensity of the day gives way to a calm that is hard to describe. No activities. No obligations. Nothing to prove. Only the privilege of being there, of sharing the road with other women and of letting the experience do its work.",
+      "p2": "Because some of the most important conversations of our lives happen precisely when we stop trying to force them."
+    },
+    "stays": {
+      "tag": "Sanctuaries of Calm",
+      "heading": "Handpicked stays chosen to accompany your experience",
+      "subtitle": "Authentic boutique spaces where comfort and heritage live in balance.",
+      "riadTitle": "Peaceful Boutique Riad in Marrakech",
+      "riadDesc": "A serene sanctuary with a traditional garden courtyard, dipping pool, and calm rooms.",
+      "campTitle": "Exclusive Luxury Camp in Erg Chebbi",
+      "campDesc": "Private luxury tents with plush bedding, en-suite bathrooms, and the Milky Way as your ceiling.",
+      "kasbahTitle": "Traditional Atlas Kasbah",
+      "kasbahDesc": "Earthen architecture with sweeping mountain views and sun-drenched terrace decks."
+    },
+    "hosts": {
+      "tag": "Your Hosts",
+      "heading": "Vanessa & Ana",
+      "role": "Guides, creators, and fellow travelers",
+      "bio": "We have explored and cherished the desert for years. We created 'Mujeres de Arena' not to show you Morocco through a tour bus window, but to open the door to an intimate, safe, human, and transformative voyage.",
+      "quote": "The desert asks nothing of you; it simply gives you permission to be yourself.",
+      "cta": "Connect with Vanessa & Ana"
+    },
+    "reserve": {
+      "eyebrow": "Your spot",
+      "titlePrefix": "An experience reserved ",
+      "titleEm": "for 12 women",
+      "titleSuffix": "",
+      "ticketLabel": "Total investment",
+      "ticketNote": "12 women. One shared journey.Seven days from Marrakech to the Sahara.",
+      "depositLabel": "Booking deposit",
+      "depositNote": "Confirms your place. Non-refundable.",
+      "remainingLabel": "Remaining payment",
+      "remainingNote": "Payable on arrival in Morocco.",
+      "bookBtn": "Book my spot →",
+      "includedTitle": "Included",
+      "includedItems": [
+        "Return transfers from Marrakech airport",
+        "Private air-conditioned transport throughout the journey",
+        "Local driver and Spanish-speaking guide",
+        "6 nights: 5 in charming riads + 1 deluxe camp in the Sahara",
+        "All breakfasts and four dinners along the route",
+        "Camel ride, 4×4 and sandboarding in the dunes",
+        "A meal with nomads or a picnic in an oasis",
+        "Visits and experiences throughout the journey",
+        "Close accompaniment from your hosts"
+      ],
+      "excludedTitle": "Not included",
+      "excludedItems": [
+        "International flights to Marrakech",
+        "Lunches and meals not specified",
+        "Drinks and personal expenses",
+        "Tips"
+      ]
+    },
+    "faq": {
+      "eyebrow": "Frequently asked questions",
+      "titlePrefix": "Before ",
+      "titleEm": "setting off",
+      "titleSuffix": "",
+      "items": [
+        {
+          "q": "Is it safe to travel to Morocco?",
+          "a": "Yes. Morocco is an established tourist destination and we will travel through the country accompanied at all times by our local team and by us. The vast majority of fears disappear as soon as the experience begins."
+        },
+        {
+          "q": "Can I come on my own?",
+          "a": "Absolutely. In fact, many participants travel alone. From the very first day you will be part of a small group of women who will share the adventure with you."
+        },
+        {
+          "q": "What are the rooms like?",
+          "a": "They will be shared, double or triple, depending on the accommodation. If you travel alone, we will take care of the room allocation so that everything is comfortable and easy."
+        },
+        {
+          "q": "How old are the participants?",
+          "a": "Women of different ages and life stages. What unites us is not age, but the desire to live an authentic experience and share an unforgettable adventure."
+        },
+        {
+          "q": "Is it physically demanding?",
+          "a": "No. It is suitable for any woman with a normal level of fitness. There will be moments of walking and activity, but no previous experience or specific training is required."
+        },
+        {
+          "q": "Do I need to speak English or French?",
+          "a": "No. Throughout the journey we will be accompanied by a Spanish-speaking local guide. Many people working in tourism also speak Spanish, French or English."
+        },
+        {
+          "q": "What documents do I need?",
+          "a": "A valid passport. We recommend checking its expiry date well in advance."
+        },
+        {
+          "q": "What if I have allergies or dietary needs?",
+          "a": "Just let us know in advance. We will do everything we can to pass your needs on to the accommodation and restaurants included in the journey."
+        }
+      ]
+    },
+    "practical": {
+      "eyebrow": "Before you go",
+      "titlePrefix": "Practical details so that you ",
+      "titleEm": "arrive with peace of mind",
+      "titleSuffix": "",
+      "cards": [
+        {
+          "type": "luggage",
+          "title": "Luggage",
+          "text": "In September it will be hot during the day and cool at night, especially in the desert. Before the trip you will receive a practical guide with a suggested packing list."
+        },
+        {
+          "type": "currency",
+          "title": "Currency",
+          "text": "The official currency is the Moroccan dirham. Once there we will help you exchange money or handle anything you need."
+        },
+        {
+          "type": "internet",
+          "title": "Internet and coverage",
+          "text": "On arrival we will stop to buy a local SIM card. In some desert areas the signal can be limited."
+        },
+        {
+          "type": "flights",
+          "title": "Flights",
+          "text": "Each participant arranges their own ticket to Marrakech. Once your place is confirmed we will coordinate schedules and arrivals with the group."
+        },
+        {
+          "type": "passport",
+          "title": "Passport & Visas",
+          "text": "A passport valid for at least 6 months beyond travel dates is required. Citizens of the EU, UK, USA, Canada, and many other nations do not require a tourist visa for stays up to 90 days."
+        },
+        {
+          "type": "dates",
+          "title": "Dates",
+          "text": "23 — 29 Sep 2026. First edition Mujeres de Arena — home — An experience reserved for 12 women."
+        }
+      ]
+    },
+    "campfire": {
+      "eyebrow": "12 women · one shared journey",
+      "titlePrefix": "See you in ",
+      "titleEm": "Morocco",
+      "text": "Arrive in Marrakech with your bag packed, your mind open and a real appetite for an adventure you will remember for a long time. We will take care of the rest.",
+      "bookBtn": "Book my spot →",
+      "contactBtn": "Contact Vanessa & Ana"
+    },
+    "footer": {
+      "tagline": "An intimate desert retreat in Morocco reserved exclusively for conscious women.",
+      "quickLinks": "Explore",
+      "contactTitle": "Contact & Concierge",
+      "whatsapp": "Message us on WhatsApp",
+      "email": "contacto@mujeresdearena.com",
+      "copyright": "© 2026 Mujeres de Arena. All rights reserved."
+    }
+  },
+  "itinerary": {
+    "hero": {
+      "eyebrow": "✦ The Itinerary · 23 — 29 Sep 2026 ✦",
+      "titlePrefix": "Seven Stages, ",
+      "titleEm": "One Single Story",
+      "subtitle": "From the bustle of Marrakech to the immensity of the Sahara — and back. Every stage opens a new way of seeing. 7 days of shared wonder reserved for 12 women."
+    },
+    "stages": [
+      {
+        "badge": "✦ STAGE ONE · DAY 1 ✦",
+        "title": "Marrakech · Where the Journey Begins",
+        "text": "Marrakech isn’t visited. It’s felt. The city welcomes us with the scent of orange blossom, the terracotta warmth of its alleyways, and the electric buzz of Jemaa el-Fnaa at dusk.",
+        "listItems": [
+          "Private airport pickup at Marrakech Menara (RAK) and welcome in our boutique riad",
+          "First mint tea and welcome sisterhood introduction circle",
+          "Sunset walk through the spice-scented alleyways and souks",
+          "Traditional family dinner in an authentic patio courtyard"
+        ],
+        "image": "/images/marrakech-city.jpg"
+      },
+      {
+        "badge": "✦ STAGE TWO · DAY 2 ✦",
+        "title": "Crossing the High Atlas to Aït Ben Haddou",
+        "text": "We climb into the clouds over the Tizi n’Tichka pass at 2,260 meters. The scenery shifts dramatically from green mountain terraces into ancient earthen kasbahs.",
+        "listItems": [
+          "Scenic traverse of the dramatic Tizi n’Tichka mountain pass",
+          "Guided walking exploration of the ancient UNESCO citadel of Aït Ben Haddou",
+          "Panoramic lunch overlooking the Ounila river valley",
+          "Scenic drive toward the tranquil rose and almond valleys of Dades"
+        ],
+        "image": "/images/atlas-mountains.jpg"
+      },
+      {
+        "badge": "✦ STAGE THREE · DAY 3 ✦",
+        "title": "Dades Valley & The Road of Kasbahs",
+        "text": "Towering crimson cliffs, switchback roads carved into stone, and green ribbon oases flourishing against the arid rock. A sensory prelude before the deep desert.",
+        "listItems": [
+          "Morning walk through the legendary winding Dades canyon switchbacks",
+          "Quiet photography moments at the natural geological formations",
+          "Mint tea with a local Amazigh weaving collective",
+          "Restorative evening under mountain skies at an ancestral kasbah"
+        ],
+        "image": "/images/draa-valley.jpg"
+      },
+      {
+        "badge": "✦ STAGE FOUR · DAY 4 ✦",
+        "title": "Todra Cliffs & Gateway to the Dunes",
+        "text": "Standing between 300-meter sheer limestone cliffs before the earth flattens into vast desert plains. In the afternoon distance, the golden silhouette of Erg Chebbi rises.",
+        "listItems": [
+          "Walk through the narrow canyon corridor of Todra Gorge",
+          "Traditional stroll through a historic date palm oasis",
+          "Arrival at the desert boundary town of Merzouga",
+          "First view of the towering golden dunes of the Sahara"
+        ],
+        "image": "/images/desert-mountains.jpg"
+      },
+      {
+        "badge": "✦ STAGE FIVE · DAY 5 ✦",
+        "title": "Erg Chebbi · Sunset Dunes & Starlit Camp",
+        "text": "The emotional heart of the journey. We leave modern noise behind and ride gentle camels into the sea of golden sand at sunset. At night, traditional drums under stars.",
+        "listItems": [
+          "Sunset camel trek across the crests of amber dunes",
+          "Sandboarding and meditative silence on 150-meter dune peaks",
+          "Night in a luxury desert glamping camp with real beds & private bathrooms",
+          "Hypnotic Gnawa drum music around the crackling campfire under the Milky Way"
+        ],
+        "image": "/images/sahara-dunes.jpg"
+      },
+      {
+        "badge": "✦ STAGE SIX · DAY 6 ✦",
+        "title": "Sunrise Whispers & Living Nomad Culture",
+        "text": "Watching the dawn paint the dunes in soft rose, apricot, and gold. Meeting local nomadic families who share their ancestral relationship with the desert.",
+        "listItems": [
+          "Dawn meditation and contemplation from the highest dune",
+          "Traditional Berber breakfast with warm bread, olive oil, and fresh date honey",
+          "4×4 desert excursion visiting nomad encampments and fossil beds",
+          "Scenic journey toward the fragrant Valley of Roses"
+        ],
+        "image": "/images/side-mirror-sunset.jpg"
+      },
+      {
+        "badge": "✦ STAGE SEVEN · DAY 7 ✦",
+        "title": "Valley of Roses & The Road Home",
+        "text": "We are no longer the same women who landed in Marrakech seven days ago. We cross the final mountain ridge carrying new perspectives, unbreakable bonds of sisterhood.",
+        "listItems": [
+          "Visit to local women’s artisan rose water cooperatives",
+          "Scenic descent through the High Atlas foothills",
+          "Farewell celebration dinner & sisterhood closing circle in Marrakech",
+          "Coordinated airport transfers for your return flights"
+        ],
+        "image": "/images/rose-valley-kasbah.jpg"
+      }
+    ],
+    "stays": {
+      "tag": "Sanctuaries of Calm",
+      "heading": "Handpicked stays chosen to accompany your experience",
+      "subtitle": "Authentic boutique spaces where comfort and heritage live in balance.",
+      "riadTitle": "Peaceful Boutique Riad in Marrakech",
+      "riadDesc": "A serene sanctuary with a traditional garden courtyard, dipping pool, and calm rooms.",
+      "campTitle": "Exclusive Luxury Camp in Erg Chebbi",
+      "campDesc": "Private luxury tents with plush bedding, en-suite bathrooms, and the Milky Way as your ceiling.",
+      "kasbahTitle": "Traditional Atlas Kasbah",
+      "kasbahDesc": "Earthen architecture with sweeping mountain views and sun-drenched terrace decks."
+    },
+    "inclusions": {
+      "eyebrow": "Transparent Pricing",
+      "titlePrefix": "What is Included & ",
+      "titleEm": "What is Not",
+      "includedTitle": "Included in the 800 €",
+      "includedItems": [
+        "Round-trip airport transfers from/to Marrakech Menara (RAK)",
+        "Private comfortable air-conditioned transport throughout all 7 days",
+        "Professional local driver & Spanish/English-speaking guide",
+        "6 nights boutique accommodation (5 nights riads/kasbahs + 1 night luxury Sahara camp)",
+        "All breakfasts + 4 dinners included along the route",
+        "Camel trek at golden hour across the Erg Chebbi dunes",
+        "4×4 desert excursion visiting nomadic families & oasis wells",
+        "Sandboarding and campfire stargazing celebration",
+        "Close personal accompaniment from hosts Vanessa & Ana throughout"
+      ],
+      "excludedTitle": "Not Included",
+      "excludedItems": [
+        "International flights to/from Marrakech",
+        "Lunches and unspecified dinners (affordable local spots curated together)",
+        "Personal drinks, snacks, and personal souk purchases",
+        "Personal travel and medical insurance (strongly recommended)",
+        "Tips for driver, guide, and hotel hospitality teams"
+      ]
+    },
+    "campfire": {
+      "eyebrow": "12 women · one shared journey",
+      "titlePrefix": "See you in ",
+      "titleEm": "Morocco",
+      "text": "Arrive in Marrakech with your bag packed, your mind open and a real appetite for an adventure you will remember for a long time. We will take care of the rest.",
+      "bookBtn": "Book my spot →",
+      "contactBtn": "Contact Vanessa & Ana"
+    }
+  },
+  "about": {
+    "eyebrow": "✦ YOUR HOSTS · VANESSA & ANA ✦",
+    "titlePrefix": "We Say ",
+    "titleEm": "Yes to Life",
+    "subtitle": "Driven by curiosity, sisterhood, and the transformative magic of stepping outside the predictable patterns of daily routine.",
+    "storyEyebrow": "How It All Began",
+    "storyTitle": "From a Shared Journey to a Calling",
+    "p1": "We are driven by curiosity, adventure, and those experiences that take us outside the predictable patterns of daily routine. That is how our story with Morocco began: what started as an exploratory personal journey became a landscape and culture we felt an undeniable pull to return to again and again.",
+    "p2": "In time, we realized that this experience was too powerful to keep to ourselves. And so Mujeres de Arena was born — not as a conventional, commercial tourist package, but as an intimate, soul-stirring journey created from the heart for women who feel the call of adventure.",
+    "quote": "“Life expands in direct proportion to one’s courage to step into the open desert.”",
+    "joinBtn": "Join Our Journey →",
+    "contactBtn": "Contact Us"
+  },
+  "contact": {
+    "eyebrow": "✦ DIRECT CONNECTION ✦",
+    "titlePrefix": "We Are Here ",
+    "titleEm": "For You",
+    "subtitle": "Have questions before booking? Want to know more about the itinerary, rooming, or flight arrivals? Reach out to us directly.",
+    "emailTitle": "Email Us",
+    "emailDesc": "We answer every inquiry personally within 24 hours.",
+    "whatsappTitle": "WhatsApp Chat",
+    "whatsappDesc": "Instant answers regarding spot availability, dates, and payments.",
+    "formTitle": "Send Us a Message",
+    "formSubtitle": "Leave your details below and Vanessa or Ana will reach out to you personally.",
+    "nameLabel": "Your Name",
+    "emailLabel": "Your Email",
+    "messageLabel": "Your Message / Question",
+    "submitBtn": "Send Message →",
+    "thankYouTitle": "Thank You!",
+    "thankYouText": "Your message has been received. We look forward to connecting with you."
+  }
+}

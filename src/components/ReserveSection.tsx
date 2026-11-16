@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Locale } from "@/data/translations";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface ReserveSectionProps {
   currentLocale?: Locale;
@@ -287,7 +289,8 @@ export default function ReserveSection({ currentLocale = "en" }: ReserveSectionP
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
-  const t = RESERVE_DATA[currentLocale] || RESERVE_DATA.en;
+  const siteContent = getSiteContent(currentLocale);
+  const t = siteContent.home.reserve || RESERVE_DATA[currentLocale] || RESERVE_DATA.en;
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -362,11 +365,19 @@ export default function ReserveSection({ currentLocale = "en" }: ReserveSectionP
             {/* Header Area */}
             <div className="wp-block-group pricing__header">
               <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
-                <p className="eyebrow reveal wp-block-paragraph">{t.eyebrow}</p>
+                <p className="eyebrow reveal wp-block-paragraph">
+                  <EditableText path="home.reserve.eyebrow" defaultText={t.eyebrow} />
+                </p>
                 <h2 className="wp-block-heading section__title reveal">
-                  {t.titlePrefix}
-                  {t.titleEm && <em>{t.titleEm}</em>}
-                  {t.titleSuffix}
+                  <EditableText path="home.reserve.titlePrefix" defaultText={t.titlePrefix} />
+                  {t.titleEm && (
+                    <em>
+                      <EditableText path="home.reserve.titleEm" defaultText={t.titleEm} />
+                    </em>
+                  )}
+                  {t.titleSuffix && (
+                    <EditableText path="home.reserve.titleSuffix" defaultText={t.titleSuffix} />
+                  )}
                 </h2>
               </div>
             </div>
@@ -377,13 +388,15 @@ export default function ReserveSection({ currentLocale = "en" }: ReserveSectionP
                 {/* Floating Ticket Card */}
                 <div className="wp-block-group ticket reveal-scale">
                   <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
-                    <p className="ticket__label wp-block-paragraph">{t.ticketLabel}</p>
+                    <p className="ticket__label wp-block-paragraph">
+                      <EditableText path="home.reserve.ticketLabel" defaultText={t.ticketLabel} />
+                    </p>
                     <p className="ticket__price wp-block-paragraph">
                       {displayPrice}
                       <sup>€</sup>
                     </p>
                     <p className="ticket__note wp-block-paragraph">
-                      {t.ticketNote}
+                      <EditableText path="home.reserve.ticketNote" defaultText={t.ticketNote} multiline />
                     </p>
 
                     <hr className="wp-block-separator has-alpha-channel-opacity ticket__split" />
@@ -392,24 +405,28 @@ export default function ReserveSection({ currentLocale = "en" }: ReserveSectionP
                       <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
                         <div className="wp-block-group ticket__row">
                           <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
-                            <p className="ticket__dt wp-block-paragraph">{t.depositLabel}</p>
+                            <p className="ticket__dt wp-block-paragraph">
+                              <EditableText path="home.reserve.depositLabel" defaultText={t.depositLabel} />
+                            </p>
                             <p className="ticket__dd wp-block-paragraph">150 €</p>
                           </div>
                         </div>
 
                         <p className="ticket__small wp-block-paragraph">
-                          {t.depositNote}
+                          <EditableText path="home.reserve.depositNote" defaultText={t.depositNote} />
                         </p>
 
                         <div className="wp-block-group ticket__row">
                           <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
-                            <p className="ticket__dt wp-block-paragraph">{t.remainingLabel}</p>
+                            <p className="ticket__dt wp-block-paragraph">
+                              <EditableText path="home.reserve.remainingLabel" defaultText={t.remainingLabel} />
+                            </p>
                             <p className="ticket__dd wp-block-paragraph">650 €</p>
                           </div>
                         </div>
 
                         <p className="ticket__small wp-block-paragraph">
-                          {t.remainingNote}
+                          <EditableText path="home.reserve.remainingNote" defaultText={t.remainingNote} />
                         </p>
                       </div>
                     </div>
@@ -420,7 +437,7 @@ export default function ReserveSection({ currentLocale = "en" }: ReserveSectionP
                           className="wp-block-button__link wp-element-button"
                           href="/reserve-spot"
                         >
-                          {t.bookBtn}
+                          <EditableText path="home.reserve.bookBtn" defaultText={t.bookBtn} />
                         </a>
                       </div>
                     </div>
@@ -433,7 +450,9 @@ export default function ReserveSection({ currentLocale = "en" }: ReserveSectionP
                     {/* Included Block */}
                     <div className="wp-block-group terms__block reveal">
                       <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
-                        <h3 className="wp-block-heading terms__title">{t.includedTitle}</h3>
+                        <h3 className="wp-block-heading terms__title">
+                          <EditableText path="home.reserve.includedTitle" defaultText={t.includedTitle} />
+                        </h3>
                         <ul className="wp-block-list terms__list">
                           {t.includedItems.map((item, idx) => (
                             <li key={idx}>{item}</li>
@@ -445,7 +464,9 @@ export default function ReserveSection({ currentLocale = "en" }: ReserveSectionP
                     {/* Not Included Block */}
                     <div className="wp-block-group terms__block terms__block--soft reveal">
                       <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
-                        <h3 className="wp-block-heading terms__title">{t.excludedTitle}</h3>
+                        <h3 className="wp-block-heading terms__title">
+                          <EditableText path="home.reserve.excludedTitle" defaultText={t.excludedTitle} />
+                        </h3>
                         <ul className="wp-block-list terms__list">
                           {t.excludedItems.map((item, idx) => (
                             <li key={idx}>{item}</li>

@@ -4,6 +4,8 @@ import React, { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Locale } from "@/data/translations";
+import { EditorProvider } from "@/context/EditorContext";
+import AdminToolbar from "@/components/editor/AdminToolbar";
 
 export default function ReserveView({ locale = "en" }: { locale?: Locale }) {
   const [currentLocale, setCurrentLocale] = useState<Locale>(locale);
@@ -167,11 +169,12 @@ export default function ReserveView({ locale = "en" }: { locale?: Locale }) {
   const t = (key: string) => content[key]?.[currentLocale] || content[key]?.en || "";
 
   return (
-    <div
-      className="min-h-screen flex flex-col bg-[#FAF4EA] text-[#1B1108] selection:bg-[#8B4513] selection:text-white"
-      dir={isRtl ? "rtl" : "ltr"}
-    >
-      <Navbar currentLocale={currentLocale} onLocaleChange={setCurrentLocale} />
+    <EditorProvider initialLocale={currentLocale}>
+      <div
+        className="min-h-screen flex flex-col bg-[#FAF4EA] text-[#1B1108] selection:bg-[#8B4513] selection:text-white"
+        dir={isRtl ? "rtl" : "ltr"}
+      >
+        <Navbar currentLocale={currentLocale} onLocaleChange={setCurrentLocale} />
 
       <main className="flex-1">
         {/* Subpage Hero */}
@@ -374,6 +377,8 @@ export default function ReserveView({ locale = "en" }: { locale?: Locale }) {
       </main>
 
       <Footer currentLocale={currentLocale} />
+      <AdminToolbar />
     </div>
-  );
+  </EditorProvider>
+);
 }

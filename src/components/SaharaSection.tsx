@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Locale } from "@/data/translations";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface SaharaSectionProps {
   currentLocale?: Locale;
@@ -116,7 +118,8 @@ export default function SaharaSection({ currentLocale = "en" }: SaharaSectionPro
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
-  const t = SAHARA_CONTENT[currentLocale] || SAHARA_CONTENT.en;
+  const siteContent = getSiteContent(currentLocale);
+  const t = siteContent.home.sahara || SAHARA_CONTENT[currentLocale] || SAHARA_CONTENT.en;
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -167,15 +170,20 @@ export default function SaharaSection({ currentLocale = "en" }: SaharaSectionPro
           }`}
         >
           <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
-            <p className="eyebrow eyebrow--gold wp-block-paragraph">{t.eyebrow}</p>
+            <p className="eyebrow eyebrow--gold wp-block-paragraph">
+              <EditableText path="home.sahara.eyebrow" defaultText={t.eyebrow} />
+            </p>
 
             <h2 className="wp-block-heading bleed__title">
-              {t.titlePrefix}<em>{t.titleEm}</em>
+              <EditableText path="home.sahara.titlePrefix" defaultText={t.titlePrefix} />
+              <em>
+                <EditableText path="home.sahara.titleEm" defaultText={t.titleEm} />
+              </em>
             </h2>
 
-            <p className="bleed__text wp-block-paragraph">
-              {t.text}
-            </p>
+            <div className="bleed__text wp-block-paragraph">
+              <EditableText path="home.sahara.text" defaultText={t.text} multiline as="p" />
+            </div>
 
             <ul className="wp-block-list chips">
               {t.chips.map((chip, idx) => (

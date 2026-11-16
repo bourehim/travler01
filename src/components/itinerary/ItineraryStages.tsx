@@ -3,6 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import { Locale } from "@/data/translations";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface StageItem {
   stageIndex: number;
@@ -617,13 +619,18 @@ export default function ItineraryStages({
 }: {
   currentLocale?: Locale;
 }) {
+  const siteContent = getSiteContent(currentLocale);
+  const jsonStages = siteContent.itinerary?.stages || [];
+
   return (
     <div className="wp-block-group alignwide mda-stages-container">
       <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
         {STAGES_DATA.map((stage) => {
-          const badge = stage.badge[currentLocale] || stage.badge.en || "";
-          const title = stage.title[currentLocale] || stage.title.en || "";
-          const text = stage.text[currentLocale] || stage.text.en || "";
+          const sIdx = stage.stageIndex - 1;
+          const jsonStage = jsonStages[sIdx];
+          const badge = jsonStage?.badge || stage.badge[currentLocale] || stage.badge.en || "";
+          const title = jsonStage?.title || stage.title[currentLocale] || stage.title.en || "";
+          const text = jsonStage?.text || stage.text[currentLocale] || stage.text.en || "";
           const list = stage.listItems[currentLocale] || stage.listItems.en || [];
 
           return (
@@ -653,9 +660,15 @@ export default function ItineraryStages({
                 {/* Content Column */}
                 <div className="wp-block-group mda-stage-content">
                   <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
-                    <p className="mda-stage-badge">{badge}</p>
-                    <h2 className="mda-stage-title">{title}</h2>
-                    <p className="mda-stage-text">{text}</p>
+                    <p className="mda-stage-badge">
+                      <EditableText path={`itinerary.stages.${sIdx}.badge`} defaultText={badge} />
+                    </p>
+                    <h2 className="mda-stage-title">
+                      <EditableText path={`itinerary.stages.${sIdx}.title`} defaultText={title} />
+                    </h2>
+                    <div className="mda-stage-text">
+                      <EditableText path={`itinerary.stages.${sIdx}.text`} defaultText={text} multiline as="p" />
+                    </div>
                     <ul className="mda-stage-list">
                       {list.map((item, idx) => (
                         <li key={idx}>{item}</li>

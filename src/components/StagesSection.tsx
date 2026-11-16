@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Locale } from "@/data/translations";
 import { STAGES_HEADER, STAGES_BY_LOCALE } from "@/data/homeStagesData";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface StagesSectionProps {
   currentLocale?: Locale;
@@ -14,7 +16,8 @@ export default function StagesSection({ currentLocale = "en" }: StagesSectionPro
   const [activeStage, setActiveStage] = useState(0);
   const stageRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const header = STAGES_HEADER[currentLocale] || STAGES_HEADER.en;
+  const siteContent = getSiteContent(currentLocale);
+  const header = (siteContent.home.stages as any) || STAGES_HEADER[currentLocale] || STAGES_HEADER.en;
   const stagesData = STAGES_BY_LOCALE[currentLocale] || STAGES_BY_LOCALE.en;
   const isRtl = currentLocale === "ar";
 
@@ -64,12 +67,14 @@ export default function StagesSection({ currentLocale = "en" }: StagesSectionPro
       <div className="mda-journey-inner">
         {/* Journey Header */}
         <div className="journey__header">
-          <p className="eyebrow">{header.kicker}</p>
+          <p className="eyebrow">
+            <EditableText path="home.stages.kicker" defaultText={header.kicker} />
+          </p>
           <h2 className="section__title">
-            {header.title}
+            <EditableText path="home.stages.title" defaultText={header.title} />
           </h2>
           <p className="section__lede">
-            {header.desc}
+            <EditableText path="home.stages.desc" defaultText={header.desc} />
           </p>
         </div>
 
@@ -143,7 +148,8 @@ export default function StagesSection({ currentLocale = "en" }: StagesSectionPro
         {/* Bottom CTA Button */}
         <div className="journey__cta-wrap">
           <Link href={getLocalizedHref("/itinerary")} className="journey__cta-btn">
-            {header.btn} <span className="btn__arrow" aria-hidden="true">{isRtl ? "←" : "→"}</span>
+            <EditableText path="home.stages.btn" defaultText={header.btn} />{" "}
+            <span className="btn__arrow" aria-hidden="true">{isRtl ? "←" : "→"}</span>
           </Link>
         </div>
       </div>

@@ -3,6 +3,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Locale } from "@/data/translations";
+import { useEditor } from "@/context/EditorContext";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface ManifestoProps {
   currentLocale?: Locale;
@@ -223,6 +226,7 @@ const MANIFESTO_CONTENT: Record<
 };
 
 export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
+  const { isEditing } = useEditor();
   const [isManifestoVisible, setIsManifestoVisible] = useState(false);
   const [isEssentialsVisible, setIsEssentialsVisible] = useState(false);
   const [isAboutVisible, setIsAboutVisible] = useState(false);
@@ -233,7 +237,12 @@ export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
   const [counts, setCounts] = useState<number[]>([0, 0, 0, 0]);
   const hasAnimatedRef = useRef(false);
 
-  const c = MANIFESTO_CONTENT[currentLocale] || MANIFESTO_CONTENT.en;
+  const siteContent = getSiteContent(currentLocale);
+  const baseManifesto = MANIFESTO_CONTENT[currentLocale] || MANIFESTO_CONTENT.en;
+  const c = {
+    ...baseManifesto,
+    ...(siteContent.home?.manifesto || {}),
+  };
   const isRtl = currentLocale === "ar";
 
   useEffect(() => {
@@ -316,43 +325,54 @@ export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
                 }`}
                 style={{ "--i": 0 } as React.CSSProperties}
               >
-                {c.manifestoEyebrow}
+                <EditableText path="home.manifesto.manifestoEyebrow" defaultText={c.manifestoEyebrow} />
               </p>
 
-              <p
+              <div
                 className={`manifesto__quote split-words reveal wp-block-paragraph ${
                   isManifestoVisible ? "is-visible" : ""
                 }`}
                 style={{ "--i": 1 } as React.CSSProperties}
               >
-                {prefixWords.map((word, i) => (
-                  <React.Fragment key={i}>
-                    <span
-                      className="word"
-                      style={{ "--w": i } as React.CSSProperties}
-                    >
-                      {word}
-                    </span>{" "}
-                  </React.Fragment>
-                ))}
-                <em>
-                  {emWords.map((word, j) => (
-                    <React.Fragment key={`em-${j}`}>
-                      <span
-                        className="word"
-                        style={
-                          {
-                            "--w": prefixWords.length + j,
-                          } as React.CSSProperties
-                        }
-                      >
-                        {word}
-                      </span>
-                      {j < emWords.length - 1 ? " " : ""}
-                    </React.Fragment>
-                  ))}
-                </em>
-              </p>
+                {isEditing ? (
+                  <>
+                    <EditableText path="home.manifesto.quotePrefix" defaultText={c.quotePrefix} />{" "}
+                    <em>
+                      <EditableText path="home.manifesto.quoteEm" defaultText={c.quoteEm} />
+                    </em>
+                  </>
+                ) : (
+                  <>
+                    {prefixWords.map((word, i) => (
+                      <React.Fragment key={i}>
+                        <span
+                          className="word"
+                          style={{ "--w": i } as React.CSSProperties}
+                        >
+                          {word}
+                        </span>{" "}
+                      </React.Fragment>
+                    ))}
+                    <em>
+                      {emWords.map((word, j) => (
+                        <React.Fragment key={`em-${j}`}>
+                          <span
+                            className="word"
+                            style={
+                              {
+                                "--w": prefixWords.length + j,
+                              } as React.CSSProperties
+                            }
+                          >
+                            {word}
+                          </span>
+                          {j < emWords.length - 1 ? " " : ""}
+                        </React.Fragment>
+                      ))}
+                    </em>
+                  </>
+                )}
+              </div>
 
               <p
                 className={`manifesto__mark reveal wp-block-paragraph ${
@@ -426,7 +446,7 @@ export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
                       }`}
                       style={{ "--i": 0 } as React.CSSProperties}
                     >
-                      {c.aboutEyebrow}
+                      <EditableText path="home.manifesto.aboutEyebrow" defaultText={c.aboutEyebrow} />
                     </p>
 
                     <h2
@@ -435,29 +455,31 @@ export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
                       }`}
                       style={{ "--i": 1 } as React.CSSProperties}
                     >
-                      {c.aboutTitleLine1}
+                      <EditableText path="home.manifesto.aboutTitleLine1" defaultText={c.aboutTitleLine1} />
                       <br />
-                      <em>{c.aboutTitleEm}</em>
-                      {c.aboutTitleLine2}
+                      <em>
+                        <EditableText path="home.manifesto.aboutTitleEm" defaultText={c.aboutTitleEm} />
+                      </em>
+                      <EditableText path="home.manifesto.aboutTitleLine2" defaultText={c.aboutTitleLine2} />
                     </h2>
 
-                    <p
+                    <div
                       className={`reveal wp-block-paragraph ${
                         isAboutVisible ? "is-visible" : ""
                       }`}
                       style={{ "--i": 2 } as React.CSSProperties}
                     >
-                      {c.aboutP1}
-                    </p>
+                      <EditableText path="home.manifesto.aboutP1" defaultText={c.aboutP1} multiline as="p" />
+                    </div>
 
-                    <p
+                    <div
                       className={`reveal wp-block-paragraph ${
                         isAboutVisible ? "is-visible" : ""
                       }`}
                       style={{ "--i": 3 } as React.CSSProperties}
                     >
-                      {c.aboutP2}
-                    </p>
+                      <EditableText path="home.manifesto.aboutP2" defaultText={c.aboutP2} multiline as="p" />
+                    </div>
 
                     <blockquote
                       className={`wp-block-quote about__quote reveal is-layout-flow wp-block-quote-is-layout-flow ${
@@ -466,11 +488,11 @@ export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
                       style={{ "--i": 4 } as React.CSSProperties}
                     >
                       <p>
-                        {c.aboutQuoteLine1}
+                        <EditableText path="home.manifesto.aboutQuoteLine1" defaultText={c.aboutQuoteLine1} />
                         <br />
-                        {c.aboutQuoteLine2}
+                        <EditableText path="home.manifesto.aboutQuoteLine2" defaultText={c.aboutQuoteLine2} />
                         <br />
-                        {c.aboutQuoteLine3}
+                        <EditableText path="home.manifesto.aboutQuoteLine3" defaultText={c.aboutQuoteLine3} />
                       </p>
                     </blockquote>
 
@@ -480,7 +502,7 @@ export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
                       }`}
                       style={{ "--i": 5 } as React.CSSProperties}
                     >
-                      {c.aboutClosing}
+                      <EditableText path="home.manifesto.aboutClosing" defaultText={c.aboutClosing} />
                     </p>
                   </div>
                 </div>
@@ -509,7 +531,7 @@ export default function Manifesto({ currentLocale = "en" }: ManifestoProps) {
 
                     <p className="about__caption wp-block-paragraph">
                       <span className="about__caption-dot" aria-hidden="true" />
-                      {c.aboutCaption}
+                      <EditableText path="home.manifesto.aboutCaption" defaultText={c.aboutCaption} />
                     </p>
                   </div>
                 </div>

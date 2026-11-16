@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { Locale } from "@/data/translations";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface CampfireProps {
   currentLocale?: Locale;
@@ -80,12 +82,15 @@ const CTA_DATA: {
 export default function ItineraryCampfireCTA({
   currentLocale = "en"
 }: CampfireProps) {
-  const eyebrow = CTA_DATA.eyebrow[currentLocale] || CTA_DATA.eyebrow.en || "";
-  const titlePrefix = CTA_DATA.titlePrefix[currentLocale] || CTA_DATA.titlePrefix.en || "";
-  const titleEm = CTA_DATA.titleEm[currentLocale] || CTA_DATA.titleEm.en || "";
-  const text = CTA_DATA.text[currentLocale] || CTA_DATA.text.en || "";
-  const btn1 = CTA_DATA.btn1[currentLocale] || CTA_DATA.btn1.en || "";
-  const btn2 = CTA_DATA.btn2[currentLocale] || CTA_DATA.btn2.en || "";
+  const siteContent = getSiteContent(currentLocale);
+  const c = siteContent.itinerary?.campfire;
+
+  const eyebrow = c?.eyebrow || CTA_DATA.eyebrow[currentLocale] || CTA_DATA.eyebrow.en || "";
+  const titlePrefix = c?.titlePrefix || CTA_DATA.titlePrefix[currentLocale] || CTA_DATA.titlePrefix.en || "";
+  const titleEm = c?.titleEm || CTA_DATA.titleEm[currentLocale] || CTA_DATA.titleEm.en || "";
+  const text = c?.text || CTA_DATA.text[currentLocale] || CTA_DATA.text.en || "";
+  const btn1 = (c as any)?.bookBtn || (c as any)?.btn1 || CTA_DATA.btn1[currentLocale] || CTA_DATA.btn1.en || "";
+  const btn2 = (c as any)?.contactBtn || (c as any)?.btn2 || CTA_DATA.btn2[currentLocale] || CTA_DATA.btn2.en || "";
 
   const isRtl = currentLocale === "ar";
 
@@ -112,17 +117,19 @@ export default function ItineraryCampfireCTA({
         <div className="wp-block-group mda-campfire-inner cta__inner">
           <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
             <p className="eyebrow eyebrow--gold wp-block-paragraph">
-              {eyebrow}
+              <EditableText path="itinerary.campfire.eyebrow" defaultText={eyebrow} />
             </p>
 
             <h2 className="wp-block-heading cta__title">
-              {titlePrefix}
-              <em>{titleEm}</em>
+              <EditableText path="itinerary.campfire.titlePrefix" defaultText={titlePrefix} />
+              <em>
+                <EditableText path="itinerary.campfire.titleEm" defaultText={titleEm} />
+              </em>
             </h2>
 
-            <p className="cta__text wp-block-paragraph">
-              {text}
-            </p>
+            <div className="cta__text wp-block-paragraph">
+              <EditableText path="itinerary.campfire.text" defaultText={text} multiline as="p" />
+            </div>
 
             <div className="wp-block-buttons cta__actions is-layout-flex wp-block-buttons-is-layout-flex">
               <div className="wp-block-button mda-btn mda-btn--primary">
@@ -130,7 +137,7 @@ export default function ItineraryCampfireCTA({
                   className="wp-block-button__link wp-element-button"
                   href="/#pricing"
                 >
-                  {btn1}{" "}
+                  <EditableText path="itinerary.campfire.bookBtn" defaultText={btn1} />{" "}
                   <span className="btn__arrow" aria-hidden="true">
                     {isRtl ? "←" : "→"}
                   </span>
@@ -144,7 +151,7 @@ export default function ItineraryCampfireCTA({
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  {btn2}
+                  <EditableText path="itinerary.campfire.contactBtn" defaultText={btn2} />
                 </a>
               </div>
             </div>

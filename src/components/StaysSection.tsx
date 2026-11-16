@@ -4,6 +4,8 @@ import React from "react";
 import Image from "next/image";
 import { Bed, Sparkles, MapPin } from "lucide-react";
 import { Locale, translations } from "@/data/translations";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface StaysSectionProps {
   currentLocale: Locale;
@@ -11,26 +13,34 @@ interface StaysSectionProps {
 
 export default function StaysSection({ currentLocale }: StaysSectionProps) {
   const t = translations[currentLocale];
+  const siteContent = getSiteContent(currentLocale);
+  const sc = siteContent.home.stays || t.stays;
   const isRTL = t.dir === "rtl";
 
   const accommodations = [
     {
-      title: t.stays.riadTitle,
-      desc: t.stays.riadDesc,
+      title: sc.riadTitle,
+      titlePath: "home.stays.riadTitle",
+      desc: sc.riadDesc,
+      descPath: "home.stays.riadDesc",
       location: currentLocale === "ar" ? "مراكش" : "Marrakech",
       image: "/images/marrakech-riad-peace.jpg",
       tag: currentLocale === "ar" ? "رياض بوتيك" : "Riad Boutique",
     },
     {
-      title: t.stays.campTitle,
-      desc: t.stays.campDesc,
+      title: sc.campTitle,
+      titlePath: "home.stays.campTitle",
+      desc: sc.campDesc,
+      descPath: "home.stays.campDesc",
       location: currentLocale === "ar" ? "عرق الشبي · مرزوقة" : "Erg Chebbi · Merzouga",
       image: "/images/Erg Chebbi/pexels-liuguangxi-16908861.jpg",
       tag: currentLocale === "ar" ? "مخيم فاخر خاص" : "Luxury Desert Camp",
     },
     {
-      title: t.stays.kasbahTitle,
-      desc: t.stays.kasbahDesc,
+      title: sc.kasbahTitle,
+      titlePath: "home.stays.kasbahTitle",
+      desc: sc.kasbahDesc,
+      descPath: "home.stays.kasbahDesc",
       location: currentLocale === "ar" ? "جبال الأطلس" : "Alto Atlas",
       image: "/images/Kasbahs/karim-manjra-SUo9HNE48Kg-unsplash.jpg",
       tag: currentLocale === "ar" ? "قصبة تاريخية" : "Kasbah Bereber",
@@ -43,14 +53,14 @@ export default function StaysSection({ currentLocale }: StaysSectionProps) {
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-xs font-semibold tracking-[0.25em] text-[#C46849] uppercase">
-            {t.stays.tag}
+            <EditableText path="home.stays.tag" defaultText={sc.tag} />
           </span>
           <h2 className="font-cinzel text-3xl sm:text-5xl text-[#1D252C] font-bold mt-3 mb-4">
-            {t.stays.heading}
+            <EditableText path="home.stays.heading" defaultText={sc.heading} />
           </h2>
           <div className="w-16 h-[2px] bg-[#C5A059] mx-auto mb-5" />
           <p className="font-marcellus text-lg text-[#1D252C]/70">
-            {t.stays.subtitle}
+            <EditableText path="home.stays.subtitle" defaultText={sc.subtitle} />
           </p>
         </div>
 
@@ -85,11 +95,11 @@ export default function StaysSection({ currentLocale }: StaysSectionProps) {
               <div className="p-7 flex-1 flex flex-col justify-between">
                 <div>
                   <h3 className="font-cinzel text-xl font-bold text-[#1D252C] mb-3">
-                    {stay.title}
+                    <EditableText path={stay.titlePath} defaultText={stay.title} />
                   </h3>
-                  <p className="text-sm text-[#1D252C]/75 leading-relaxed font-light">
-                    {stay.desc}
-                  </p>
+                  <div className="text-sm text-[#1D252C]/75 leading-relaxed font-light">
+                    <EditableText path={stay.descPath} defaultText={stay.desc} multiline as="p" />
+                  </div>
                 </div>
 
                 <div className="mt-6 pt-5 border-t border-[#FAF7F2] flex items-center justify-between text-xs text-[#C46849] font-medium tracking-wider">

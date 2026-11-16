@@ -2,6 +2,8 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Locale } from "@/data/translations";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface NightSectionProps {
   currentLocale?: Locale;
@@ -76,7 +78,8 @@ export default function NightSection({ currentLocale = "en" }: NightSectionProps
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
-  const t = NIGHT_CONTENT[currentLocale] || NIGHT_CONTENT.en;
+  const siteContent = getSiteContent(currentLocale);
+  const t = siteContent.home.night || NIGHT_CONTENT[currentLocale] || NIGHT_CONTENT.en;
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -128,20 +131,23 @@ export default function NightSection({ currentLocale = "en" }: NightSectionProps
         >
           <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
             <p className="eyebrow eyebrow--gold wp-block-paragraph">
-              {t.eyebrow}
+              <EditableText path="home.night.eyebrow" defaultText={t.eyebrow} />
             </p>
 
             <h2 className="wp-block-heading night__title">
-              {t.titlePrefix}<em>{t.titleEm}</em>
+              <EditableText path="home.night.titlePrefix" defaultText={t.titlePrefix} />
+              <em>
+                <EditableText path="home.night.titleEm" defaultText={t.titleEm} />
+              </em>
             </h2>
 
-            <p className="night__text wp-block-paragraph">
-              {t.p1}
-            </p>
+            <div className="night__text wp-block-paragraph">
+              <EditableText path="home.night.p1" defaultText={t.p1} multiline as="p" />
+            </div>
 
-            <p className="night__text night__text--soft wp-block-paragraph">
-              {t.p2}
-            </p>
+            <div className="night__text night__text--soft wp-block-paragraph">
+              <EditableText path="home.night.p2" defaultText={t.p2} multiline as="p" />
+            </div>
           </div>
         </div>
       </div>

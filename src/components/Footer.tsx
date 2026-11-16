@@ -3,6 +3,8 @@
 import React from "react";
 import Link from "next/link";
 import { Locale } from "@/data/translations";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface FooterProps {
   currentLocale?: Locale;
@@ -196,7 +198,13 @@ export default function Footer({ currentLocale = "en" }: FooterProps) {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const t = FOOTER_CONTENT[currentLocale] || FOOTER_CONTENT.en;
+  const siteContent = getSiteContent(currentLocale);
+  const fc = siteContent.home?.footer;
+  const baseFooter = FOOTER_CONTENT[currentLocale] || FOOTER_CONTENT.en;
+  const t = {
+    ...baseFooter,
+    ...(fc || {}),
+  };
 
   const getLocalizedHref = (path: string) => {
     if (currentLocale === "en") {
@@ -231,9 +239,9 @@ export default function Footer({ currentLocale = "en" }: FooterProps) {
                         </div>
                       </section>
                       <section id="block-9" className="widget widget_block widget_text">
-                        <p className="wp-block-paragraph">
-                          {t.tagline}
-                        </p>
+                        <div className="wp-block-paragraph">
+                          <EditableText path="home.footer.tagline" defaultText={t.tagline} multiline as="p" />
+                        </div>
                       </section>
                     </div>
                   </div>
@@ -348,7 +356,7 @@ export default function Footer({ currentLocale = "en" }: FooterProps) {
                         <div className="footer-html-inner">
                           <div className="footer__bottom">
                             <span>
-                              {t.copyright}
+                              <EditableText path="home.footer.copyright" defaultText={t.copyright} />
                             </span>
                             <a
                               href="#masthead"

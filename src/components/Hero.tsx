@@ -3,6 +3,8 @@
 import React from "react";
 import Image from "next/image";
 import { Locale } from "@/data/translations";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface HeroProps {
   currentLocale?: Locale;
@@ -150,7 +152,8 @@ const HERO_CONTENT: Record<
 };
 
 export default function Hero({ currentLocale = "en" }: HeroProps) {
-  const c = HERO_CONTENT[currentLocale] || HERO_CONTENT.en;
+  const content = getSiteContent(currentLocale).home.hero || HERO_CONTENT[currentLocale] || HERO_CONTENT.en;
+  const c = content;
   const isRtl = currentLocale === "ar";
 
   return (
@@ -184,7 +187,7 @@ export default function Hero({ currentLocale = "en" }: HeroProps) {
           {/* Eyebrow */}
           <div className="hero__eyebrow">
             <span className="hero__eyebrow-rule" />
-            {c.eyebrow}
+            <EditableText path="home.hero.eyebrow" defaultText={c.eyebrow} />
           </div>
 
           {/* Exact Title */}
@@ -199,20 +202,20 @@ export default function Hero({ currentLocale = "en" }: HeroProps) {
 
           {/* Exact Tagline */}
           <p className="hero__tagline">
-            {c.taglineLine1}
+            <EditableText path="home.hero.taglineLine1" defaultText={c.taglineLine1} />
             <br className="hidden sm:inline" />{" "}
-            {c.taglineLine2}
+            <EditableText path="home.hero.taglineLine2" defaultText={c.taglineLine2} />
           </p>
 
           {/* Exact Buttons */}
           <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto">
             <a href="#reserve" className="mda-btn-primary w-full sm:w-auto">
-              <span>{c.btnReserve}</span>
+              <EditableText path="home.hero.btnReserve" defaultText={c.btnReserve} />
               <span className="btn__arrow">{isRtl ? "←" : "→"}</span>
             </a>
 
             <a href="#about" className="mda-btn-ghost w-full sm:w-auto">
-              {c.btnDiscover}
+              <EditableText path="home.hero.btnDiscover" defaultText={c.btnDiscover} />
             </a>
           </div>
         </div>

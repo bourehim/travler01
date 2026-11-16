@@ -2,6 +2,8 @@
 
 import React, { useEffect, useRef } from "react";
 import { Locale } from "@/data/translations";
+import EditableText from "@/components/editor/EditableText";
+import { getSiteContent } from "@/data/getContent";
 
 interface CampfireCTAProps {
   currentLocale?: Locale;
@@ -84,7 +86,8 @@ const CAMPFIRE_CONTENT: Record<Locale, {
 export default function CampfireCTA({ currentLocale = "en" }: CampfireCTAProps) {
   const sectionRef = useRef<HTMLDivElement | null>(null);
 
-  const t = CAMPFIRE_CONTENT[currentLocale] || CAMPFIRE_CONTENT.en;
+  const siteContent = getSiteContent(currentLocale);
+  const t = siteContent.home.campfire || CAMPFIRE_CONTENT[currentLocale] || CAMPFIRE_CONTENT.en;
 
   useEffect(() => {
     const el = sectionRef.current;
@@ -132,16 +135,19 @@ export default function CampfireCTA({ currentLocale = "en" }: CampfireCTAProps) 
         <div className="wp-block-group mda-campfire-inner cta__inner">
           <div className="wp-block-group__inner-container is-layout-flow wp-block-group-is-layout-flow">
             <p className="eyebrow eyebrow--gold reveal wp-block-paragraph">
-              {t.eyebrow}
+              <EditableText path="home.campfire.eyebrow" defaultText={t.eyebrow} />
             </p>
 
             <h2 className="wp-block-heading cta__title reveal">
-              {t.titlePrefix}<em>{t.titleEm}</em>
+              <EditableText path="home.campfire.titlePrefix" defaultText={t.titlePrefix} />
+              <em>
+                <EditableText path="home.campfire.titleEm" defaultText={t.titleEm} />
+              </em>
             </h2>
 
-            <p className="cta__text reveal wp-block-paragraph">
-              {t.text}
-            </p>
+            <div className="cta__text reveal wp-block-paragraph">
+              <EditableText path="home.campfire.text" defaultText={t.text} multiline as="p" />
+            </div>
 
             <div className="wp-block-buttons cta__actions is-layout-flex wp-block-buttons-is-layout-flex">
               <div className="wp-block-button mda-btn mda-btn--primary">
@@ -149,7 +155,7 @@ export default function CampfireCTA({ currentLocale = "en" }: CampfireCTAProps) 
                   className="wp-block-button__link wp-element-button"
                   href="/reserve-spot"
                 >
-                  {t.bookBtn}
+                  <EditableText path="home.campfire.bookBtn" defaultText={t.bookBtn} />
                 </a>
               </div>
 
@@ -158,7 +164,7 @@ export default function CampfireCTA({ currentLocale = "en" }: CampfireCTAProps) 
                   className="wp-block-button__link wp-element-button"
                   href="/contact"
                 >
-                  {t.contactBtn}
+                  <EditableText path="home.campfire.contactBtn" defaultText={t.contactBtn} />
                 </a>
               </div>
             </div>
